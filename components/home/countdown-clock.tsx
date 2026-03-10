@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { useLocale } from "@/lib/locale-context";
 import { getCountdownState } from "@/lib/countdown";
 import { cn } from "@/lib/utils";
 
@@ -10,10 +11,21 @@ type CountdownClockProps = {
   eventEnd: string;
 };
 
+const labels = {
+  zh: { upcoming: "距离大会开幕", live: "大会进行中", ended: "大会已圆满收官" },
+  en: { upcoming: "Countdown to Summit", live: "Summit In Progress", ended: "Summit Concluded" },
+};
+
+const unitLabels = {
+  zh: ["天", "时", "分", "秒"],
+  en: ["Days", "Hrs", "Min", "Sec"],
+};
+
 export function CountdownClock({
   eventStart,
   eventEnd,
 }: CountdownClockProps) {
+  const { locale } = useLocale();
   const [state, setState] = useState(() =>
     getCountdownState(eventStart, eventEnd),
   );
@@ -25,6 +37,9 @@ export function CountdownClock({
 
     return () => window.clearInterval(timer);
   }, [eventStart, eventEnd]);
+
+  const statusLabel = labels[locale][state.status];
+  const units = unitLabels[locale];
 
   return (
     <div className="panel accent-ring relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
@@ -39,17 +54,17 @@ export function CountdownClock({
           )}
           data-testid="countdown-status"
         >
-          {state.label}
+          {statusLabel}
         </div>
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {[
-            ["天", state.parts.days],
-            ["时", state.parts.hours],
-            ["分", state.parts.minutes],
-            ["秒", state.parts.seconds],
+            [units[0], state.parts.days],
+            [units[1], state.parts.hours],
+            [units[2], state.parts.minutes],
+            [units[3], state.parts.seconds],
           ].map(([label, value]) => (
             <div
-              key={label}
+              key={String(label)}
               className="rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-center"
             >
               <div className="font-serif text-4xl text-white sm:text-5xl">

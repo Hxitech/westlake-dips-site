@@ -1,8 +1,8 @@
 type PageHeroProps = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  meta?: string[];
+  eyebrow: React.ReactNode;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  meta?: React.ReactNode[];
 };
 
 export function PageHero({
@@ -26,9 +26,9 @@ export function PageHero({
         </p>
         {meta.length > 0 ? (
           <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-300/80">
-            {meta.map((item) => (
+            {meta.map((item, index) => (
               <span
-                key={item}
+                key={index}
                 className="rounded-full border border-white/10 bg-white/5 px-4 py-2"
               >
                 {item}

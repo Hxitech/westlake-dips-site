@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHero } from "@/components/ui/page-hero";
+import { T } from "@/components/ui/t";
 import { createPageMetadata } from "@/lib/metadata";
 import { getArchiveSummaries } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
   title: "往届会议",
-  description: "浏览历届全国数智病理西湖峰会的主题、成果、影像与视频回顾。",
+  description: "浏览历届全国数智病理西湖峰会的主题、成果与回顾。",
   path: "/archives",
 });
 
@@ -17,10 +18,18 @@ export default async function ArchivesPage() {
   return (
     <>
       <PageHero
-        description="往届内容不仅保留图片和视频入口，也沉淀每一届的主题、成果与视觉资产。"
-        eyebrow="Past Summits"
-        meta={["年度回顾", "图像档案", "视频占位"]}
-        title="往届会议"
+        description={
+          <T
+            zh="回顾历届峰会的精彩内容，了解峰会的发展历程与学术积累。"
+            en="Explore highlights from past summits and trace the evolution of DIPS."
+          />
+        }
+        eyebrow={<T zh="往届会议" en="Past Summits" />}
+        meta={[
+          <T key="r" zh="年度回顾" en="Annual Review" />,
+          <T key="g" zh="图文档案" en="Photo Archive" />,
+        ]}
+        title={<T zh="往届会议" en="Summit Archives" />}
       />
       <section className="container-shell pb-24 pt-18 sm:pb-28 sm:pt-20">
         <div className="space-y-5">

@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { T } from "@/components/ui/t";
 
 export default function NotFound() {
   return (
@@ -8,15 +9,20 @@ export default function NotFound() {
           404
         </div>
         <h1 className="mt-4 font-serif text-4xl text-white sm:text-5xl">
-          页面不存在
+          <T zh="页面不存在" en="Page Not Found" />
         </h1>
         <p className="mt-5 text-base leading-8 text-slate-300/82 sm:text-lg">
-          该内容可能尚未发布，或链接已经变更。你可以返回首页，或者直接进入通知与报名说明页面。
+          <T
+            zh="该内容可能尚未发布，或链接已经变更。您可以返回首页或查看最新通知。"
+            en="This page may not have been published yet or the link has changed. Return to the homepage or check the latest announcements."
+          />
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <ButtonLink href="/">返回首页</ButtonLink>
+          <ButtonLink href="/">
+            <T zh="返回首页" en="Back to Home" />
+          </ButtonLink>
           <ButtonLink href="/announcements" variant="secondary">
-            查看通知
+            <T zh="查看通知" en="View News" />
           </ButtonLink>
         </div>
       </div>

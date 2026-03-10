@@ -5,9 +5,12 @@ import { usePathname } from "next/navigation";
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 
+import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { SearchDialog } from "@/components/search/search-dialog";
 import { ButtonLink } from "@/components/ui/button-link";
+import { T } from "@/components/ui/t";
 import type { NavItem, SearchItem } from "@/content/types";
+import { useLocale } from "@/lib/locale-context";
 import { cn } from "@/lib/utils";
 
 type SiteHeaderProps = {
@@ -20,6 +23,7 @@ export function SiteHeader({
   searchItems,
 }: SiteHeaderProps) {
   const pathname = usePathname();
+  const { locale } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -34,10 +38,10 @@ export function SiteHeader({
               </span>
               <div>
                 <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
-                  National Summit
+                  DIPS · 2026
                 </div>
                 <div className="mt-1 text-sm font-medium text-white">
-                  全国数智病理西湖峰会
+                  <T zh="数智病理西湖峰会" en="DIPS Summit" />
                 </div>
               </div>
             </Link>
@@ -56,14 +60,15 @@ export function SiteHeader({
                     href={item.href}
                     key={item.href}
                   >
-                    {item.label}
+                    {locale === "zh" ? item.label : item.labelEn}
                   </Link>
                 );
               })}
             </nav>
             <div className="hidden items-center gap-3 lg:flex">
+              <LocaleSwitcher />
               <button
-                aria-label="打开搜索"
+                aria-label={locale === "zh" ? "打开搜索" : "Open search"}
                 className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:bg-white/10 hover:text-white"
                 onClick={() => setSearchOpen(true)}
                 type="button"
@@ -71,19 +76,22 @@ export function SiteHeader({
                 <Search className="size-4" />
               </button>
               <ButtonLink href="/register" variant="primary">
-                立即注册
+                <T zh="立即注册" en="Register" />
               </ButtonLink>
             </div>
-            <button
-              aria-expanded={mobileOpen}
-              aria-label="展开导航"
-              className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:bg-white/10 hover:text-white lg:hidden"
-              data-testid="mobile-nav-toggle"
-              onClick={() => setMobileOpen((current) => !current)}
-              type="button"
-            >
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
+            <div className="flex items-center gap-2 lg:hidden">
+              <LocaleSwitcher />
+              <button
+                aria-expanded={mobileOpen}
+                aria-label="Toggle navigation"
+                className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:bg-white/10 hover:text-white"
+                data-testid="mobile-nav-toggle"
+                onClick={() => setMobileOpen((current) => !current)}
+                type="button"
+              >
+                {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              </button>
+            </div>
           </div>
           {mobileOpen ? (
             <div className="panel mt-3 rounded-[2rem] px-4 py-5 lg:hidden">
@@ -108,9 +116,9 @@ export function SiteHeader({
                       key={item.href}
                       onClick={() => setMobileOpen(false)}
                     >
-                      <div>{item.label}</div>
+                      <div>{locale === "zh" ? item.label : item.labelEn}</div>
                       <div className="mt-1 text-xs text-slate-500">
-                        {item.description}
+                        {locale === "zh" ? item.description : item.descriptionEn}
                       </div>
                     </Link>
                   );
@@ -126,10 +134,10 @@ export function SiteHeader({
                   type="button"
                 >
                   <Search className="size-4" />
-                  搜索内容
+                  <T zh="搜索" en="Search" />
                 </button>
                 <ButtonLink className="flex-1 justify-center" href="/register">
-                  立即注册
+                  <T zh="立即注册" en="Register" />
                 </ButtonLink>
               </div>
             </div>

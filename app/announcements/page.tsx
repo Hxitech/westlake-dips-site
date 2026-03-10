@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHero } from "@/components/ui/page-hero";
+import { T } from "@/components/ui/t";
 import { createPageMetadata } from "@/lib/metadata";
 import { formatDisplayDate, getAnnouncementSummaries } from "@/lib/content";
 
@@ -17,10 +18,19 @@ export default async function AnnouncementsPage() {
   return (
     <>
       <PageHero
-        description="所有峰会动态都集中沉淀在这一页。首页只展示三条重点内容，完整通知以列表形式保留。"
-        eyebrow="Announcements"
-        meta={["大会通知", "会务动态", "日程更新"]}
-        title="会议通知"
+        description={
+          <T
+            zh="获取峰会最新日程、嘉宾确认、报名信息及会务公告。"
+            en="Stay updated with the latest agenda, speaker confirmations, registration details, and event notices."
+          />
+        }
+        eyebrow={<T zh="会议通知" en="Announcements" />}
+        meta={[
+          <T key="n" zh="大会通知" en="Notices" />,
+          <T key="d" zh="会务动态" en="Updates" />,
+          <T key="s" zh="日程更新" en="Schedule" />,
+        ]}
+        title={<T zh="会议通知" en="Summit Announcements" />}
       />
       <section className="container-shell pb-24 pt-18 sm:pb-28 sm:pt-20">
         <div className="space-y-5">
@@ -36,7 +46,7 @@ export default async function AnnouncementsPage() {
                 <span>{formatDisplayDate(item.date)}</span>
                 {item.pinned ? (
                   <span className="rounded-full border border-cyan-300/30 px-3 py-1 text-cyan-200">
-                    推荐
+                    <T zh="置顶" en="Pinned" />
                   </span>
                 ) : null}
               </div>

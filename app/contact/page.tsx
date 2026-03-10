@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mail, MapPinned, Phone, QrCode } from "lucide-react";
 
 import { PageHero } from "@/components/ui/page-hero";
+import { T } from "@/components/ui/t";
 import { siteConfig } from "@/content/data/site";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -14,27 +15,27 @@ export const metadata: Metadata = createPageMetadata({
 const contactItems = [
   {
     icon: Phone,
-    title: "电话咨询",
+    title: { zh: "电话咨询", en: "Phone" },
     value: "13277093146",
-    description: "工作日 09:00 - 18:00 会务支持",
+    description: { zh: "工作日 09:00–18:00 会务支持", en: "Weekdays 09:00–18:00 (GMT+8)" },
   },
   {
     icon: Mail,
-    title: "邮箱联系",
+    title: { zh: "邮箱联系", en: "Email" },
     value: "can.fang@dipath.cn",
-    description: "用于会务咨询、合作与资料提交",
+    description: { zh: "用于会务咨询、合作与资料提交", en: "For inquiries, partnerships & submissions" },
   },
   {
     icon: MapPinned,
-    title: "会场地址",
-    value: siteConfig.address,
-    description: "正式导航链接将在上线版本接入",
+    title: { zh: "会场地址", en: "Venue Address" },
+    value: { zh: siteConfig.address, en: siteConfig.addressEn },
+    description: { zh: "导航链接将在正式版本中接入", en: "Navigation link coming soon" },
   },
   {
     icon: QrCode,
-    title: "官方二维码",
-    value: "公众号 / 视频号 占位",
-    description: "后续替换为正式二维码资产",
+    title: { zh: "官方账号", en: "Official Channels" },
+    value: { zh: "微信公众号 / 视频号", en: "WeChat Official Account" },
+    description: { zh: "扫码关注获取峰会最新动态", en: "Follow us for the latest summit updates" },
   },
 ];
 
@@ -42,27 +43,39 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        description="联系方式页面同时承担会务、合作和品牌资产的承接任务，避免信息零散落在通知页或页脚。"
-        eyebrow="Contact"
-        meta={["方老师", "会务支持", "合作咨询"]}
-        title="联系我们"
+        description={
+          <T
+            zh="如有会务咨询、合作洽谈或其他需求，欢迎通过以下方式联系我们。"
+            en="For event inquiries, partnership discussions, or any other questions, feel free to reach out."
+          />
+        }
+        eyebrow={<T zh="联系我们" en="Contact" />}
+        meta={[
+          <T key="t" zh="方老师" en="Ms. Fang" />,
+          <T key="s" zh="会务支持" en="Event Support" />,
+          <T key="p" zh="合作咨询" en="Partnership" />,
+        ]}
+        title={<T zh="联系我们" en="Get in Touch" />}
       />
       <section className="container-shell pb-24 pt-18 sm:pb-28 sm:pt-20">
         <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
           {contactItems.map((item) => {
             const Icon = item.icon;
+            const displayValue = typeof item.value === "string"
+              ? item.value
+              : <T zh={item.value.zh} en={item.value.en} />;
 
             return (
-              <div className="panel rounded-[1.75rem] p-6" key={item.title}>
+              <div className="panel rounded-[1.75rem] p-6" key={item.title.zh}>
                 <div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-cyan-200">
                   <Icon className="size-5" />
                 </div>
                 <h2 className="mt-5 text-xl font-semibold text-white">
-                  {item.title}
+                  <T zh={item.title.zh} en={item.title.en} />
                 </h2>
-                <p className="mt-3 text-lg text-slate-100">{item.value}</p>
+                <p className="mt-3 text-lg text-slate-100">{displayValue}</p>
                 <p className="mt-4 text-sm leading-7 text-slate-300/80">
-                  {item.description}
+                  <T zh={item.description.zh} en={item.description.en} />
                 </p>
               </div>
             );
@@ -70,13 +83,16 @@ export default function ContactPage() {
         </div>
         <div className="panel mt-10 rounded-[2rem] p-6 sm:p-8">
           <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
-            Service Promise
+            <T zh="会务服务" en="Event Services" />
           </div>
           <h2 className="mt-4 font-serif text-3xl text-white">
-            正式版可扩展的联系能力
+            <T zh="我们随时为您提供帮助" en="We're Here to Help" />
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/82">
-            当前为展示版联系页面。后续可以在不改动布局的前提下接入一键拨号、地图导航、飞书/微信二维码，以及不同角色的会务联系人卡片。
+            <T
+              zh="无论您是参会嘉宾、合作伙伴还是媒体代表，会务组将为您提供全程支持。如需了解更多信息，请通过以上方式联系我们。"
+              en="Whether you're an attendee, partner, or media representative, our organizing committee provides full support. Please reach out through any of the channels above."
+            />
           </p>
         </div>
       </section>

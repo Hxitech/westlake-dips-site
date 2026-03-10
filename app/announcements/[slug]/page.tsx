@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ButtonLink } from "@/components/ui/button-link";
+import { T } from "@/components/ui/t";
 import { createPageMetadata } from "@/lib/metadata";
 import { formatDisplayDate, getAnnouncementBySlug, getAnnouncementSummaries } from "@/lib/content";
 
@@ -64,7 +65,7 @@ export default async function AnnouncementDetailPage({
           className="inline-flex items-center gap-2 text-sm text-cyan-200 transition hover:text-cyan-100"
           href="/announcements"
         >
-          返回通知列表
+          <T zh="返回通知列表" en="Back to Announcements" />
         </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
           <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-slate-400">
@@ -99,7 +100,7 @@ export default async function AnnouncementDetailPage({
           ))}
         </div>
         <ButtonLink className="mt-8" href="/register" variant="secondary">
-          查看报名说明
+          <T zh="查看报名说明" en="View Registration" />
         </ButtonLink>
       </div>
     </section>

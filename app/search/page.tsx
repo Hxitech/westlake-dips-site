@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { SearchExperience } from "@/components/search/search-experience";
 import { PageHero } from "@/components/ui/page-hero";
+import { T } from "@/components/ui/t";
 import { speakers } from "@/content/data/speakers";
 import { createPageMetadata } from "@/lib/metadata";
 import { getAnnouncementSummaries, getArchiveSummaries } from "@/lib/content";
@@ -27,10 +28,19 @@ export default async function SearchPage() {
   return (
     <>
       <PageHero
-        description="搜索入口覆盖通知、嘉宾和往届内容，不把用户逼回多级导航。"
-        eyebrow="Search"
-        meta={["通知", "嘉宾", "往届"]}
-        title="搜索峰会内容"
+        description={
+          <T
+            zh="搜索峰会通知、嘉宾信息和往届内容。"
+            en="Search summit announcements, speaker profiles, and past summit content."
+          />
+        }
+        eyebrow={<T zh="搜索" en="Search" />}
+        meta={[
+          <T key="n" zh="通知" en="News" />,
+          <T key="s" zh="嘉宾" en="Speakers" />,
+          <T key="a" zh="往届" en="Archives" />,
+        ]}
+        title={<T zh="搜索峰会内容" en="Search Summit Content" />}
       />
       <section className="container-shell pb-24 pt-18 sm:pb-28 sm:pt-20">
         <SearchExperience items={items} />

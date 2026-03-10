@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ButtonLink } from "@/components/ui/button-link";
+import { T } from "@/components/ui/t";
 import { createPageMetadata } from "@/lib/metadata";
 import { getArchiveByYear, getArchiveSummaries } from "@/lib/content";
 
@@ -59,7 +60,7 @@ export default async function ArchiveDetailPage({
           className="inline-flex items-center gap-2 text-sm text-cyan-200 transition hover:text-cyan-100"
           href="/archives"
         >
-          返回往届列表
+          <T zh="返回往届列表" en="Back to Archives" />
         </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
           <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
@@ -85,7 +86,7 @@ export default async function ArchiveDetailPage({
           <div className="mt-10">{entry.content}</div>
         </div>
         <ButtonLink className="mt-8" href="/partners" variant="secondary">
-          了解合作伙伴体系
+          <T zh="了解合作伙伴" en="View Partners" />
         </ButtonLink>
       </div>
     </section>

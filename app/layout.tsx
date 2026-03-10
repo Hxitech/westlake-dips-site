@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { SiteShell } from "@/components/layout/site-shell";
+import { LocaleProvider } from "@/lib/locale-context";
 import { siteConfig } from "@/content/data/site";
 import "./globals.css";
 
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     "数字病理",
     "人工智能",
     "病理学术会议",
+    "digital pathology",
+    "AI pathology",
+    "DIPS",
   ],
   openGraph: {
     title: siteConfig.name,
@@ -42,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="overflow-x-hidden bg-background text-foreground antialiased">
-        <SiteShell>{children}</SiteShell>
+        <LocaleProvider>
+          <SiteShell>{children}</SiteShell>
+        </LocaleProvider>
       </body>
     </html>
   );

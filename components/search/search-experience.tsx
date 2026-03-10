@@ -4,13 +4,15 @@ import Link from "next/link";
 import { useDeferredValue, useId, useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 
+import { T } from "@/components/ui/t";
 import type { SearchItem } from "@/content/types";
+import { useLocale } from "@/lib/locale-context";
 import { searchContent } from "@/lib/search";
 
-const kindLabels: Record<SearchItem["kind"], string> = {
-  announcement: "通知",
-  speaker: "嘉宾",
-  archive: "往届",
+const kindLabels: Record<SearchItem["kind"], { zh: string; en: string }> = {
+  announcement: { zh: "通知", en: "News" },
+  speaker: { zh: "嘉宾", en: "Speaker" },
+  archive: { zh: "往届", en: "Archive" },
 };
 
 type SearchExperienceProps = {
@@ -25,6 +27,7 @@ export function SearchExperience({
   variant = "page",
 }: SearchExperienceProps) {
   const inputId = useId();
+  const { locale } = useLocale();
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const results = searchContent(items, deferredQuery);
@@ -41,7 +44,7 @@ export function SearchExperience({
           data-testid="search-input"
           id={inputId}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="搜索通知、嘉宾、往届关键词"
+          placeholder={locale === "zh" ? "搜索通知、嘉宾、往届关键词" : "Search announcements, speakers, archives..."}
           value={query}
         />
       </label>
@@ -63,9 +66,8 @@ export function SearchExperience({
             <div>
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-cyan-200/90">
-                  {kindLabels[item.kind]}
+                  {locale === "zh" ? kindLabels[item.kind].zh : kindLabels[item.kind].en}
                 </span>
-                <span className="text-sm text-slate-400">#{item.id}</span>
               </div>
               <h3 className="mt-3 text-lg font-semibold text-white">
                 {item.title}
@@ -79,7 +81,10 @@ export function SearchExperience({
         ))}
         {results.length === 0 ? (
           <div className="panel rounded-[1.5rem] p-6 text-sm leading-7 text-slate-300/80">
-            没有找到对应结果。可以试试“嘉宾”“通知”“2025”“AI 诊断”等关键词。
+            <T
+              zh="没有找到对应结果。试试「嘉宾」「通知」「2025」「AI 诊断」等关键词。"
+              en="No results found. Try keywords like 'speaker', 'AI', '2025', or 'diagnosis'."
+            />
           </div>
         ) : null}
       </div>

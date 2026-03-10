@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { X } from "lucide-react";
 
+import { T } from "@/components/ui/t";
 import type { SearchItem } from "@/content/types";
 import { SearchExperience } from "@/components/search/search-experience";
 
@@ -48,14 +49,14 @@ export function SearchDialog({
         <div className="mb-5 flex items-center justify-between">
           <div>
             <div className="text-sm uppercase tracking-[0.28em] text-cyan-200/88">
-              Search Hub
+              <T zh="搜索" en="Search" />
             </div>
             <h2 className="mt-2 font-serif text-2xl text-white">
-              搜索峰会内容
+              <T zh="搜索峰会内容" en="Search Summit Content" />
             </h2>
           </div>
           <button
-            aria-label="关闭搜索"
+            aria-label="Close search"
             className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:bg-white/10 hover:text-white"
             onClick={onClose}
             type="button"
