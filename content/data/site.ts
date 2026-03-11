@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
   descriptionEn:
     "China's flagship academic summit on the innovation and integration of AI and digital pathology in the era of large models.",
   locale: "zh_CN",
-  url: "https://westlake-dips.vercel.app",
+  url: "https://dips.ccipd.net",
   themeColor: "#08152d",
   eventStart: "2026-05-09T09:00:00+08:00",
   eventEnd: "2026-05-10T18:00:00+08:00",

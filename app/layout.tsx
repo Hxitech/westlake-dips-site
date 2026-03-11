@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 
 import { SiteShell } from "@/components/layout/site-shell";
 import { LocaleProvider } from "@/lib/locale-context";
 import { siteConfig } from "@/content/data/site";
+import { getDocumentLang, LOCALE_COOKIE_NAME, resolveLocale } from "@/lib/locale";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,15 +40,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const initialLocale = resolveLocale(cookieStore.get(LOCALE_COOKIE_NAME)?.value);
+
   return (
-    <html lang="zh-CN">
+    <html lang={getDocumentLang(initialLocale)}>
       <body className="overflow-x-hidden bg-background text-foreground antialiased">
-        <LocaleProvider>
+        <LocaleProvider initialLocale={initialLocale}>
           <SiteShell>{children}</SiteShell>
         </LocaleProvider>
       </body>

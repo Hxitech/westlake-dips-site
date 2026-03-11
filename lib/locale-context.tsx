@@ -1,8 +1,13 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, startTransition, useCallback, useContext, useState } from "react";
 
-export type Locale = "zh" | "en";
+import {
+  DEFAULT_LOCALE,
+  getDocumentLang,
+  LOCALE_COOKIE_NAME,
+  type Locale,
+} from "@/lib/locale";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -10,37 +15,34 @@ type LocaleContextValue = {
 };
 
 const LocaleContext = createContext<LocaleContextValue>({
-  locale: "zh",
+  locale: DEFAULT_LOCALE,
   toggle: () => {},
 });
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("zh");
-  const [mounted, setMounted] = useState(false);
+export function LocaleProvider({
+  children,
+  initialLocale,
+}: {
+  children: React.ReactNode;
+  initialLocale: Locale;
+}) {
+  const [locale, setLocale] = useState<Locale>(initialLocale);
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("dips-locale");
-    if (saved === "en" || saved === "zh") {
-      setLocale(saved);
-    }
-    setMounted(true);
+  const persistLocale = useCallback((next: Locale) => {
+    window.localStorage.setItem(LOCALE_COOKIE_NAME, next);
+    document.cookie = `${LOCALE_COOKIE_NAME}=${next}; path=/; max-age=31536000; samesite=lax`;
+    document.documentElement.lang = getDocumentLang(next);
   }, []);
 
   const toggle = useCallback(() => {
-    setLocale((prev) => {
-      const next = prev === "zh" ? "en" : "zh";
-      window.localStorage.setItem("dips-locale", next);
-      return next;
+    startTransition(() => {
+      setLocale((prev) => {
+        const next = prev === "zh" ? "en" : "zh";
+        persistLocale(next);
+        return next;
+      });
     });
-  }, []);
-
-  if (!mounted) {
-    return (
-      <LocaleContext.Provider value={{ locale: "zh", toggle }}>
-        {children}
-      </LocaleContext.Provider>
-    );
-  }
+  }, [persistLocale]);
 
   return (
     <LocaleContext.Provider value={{ locale, toggle }}>

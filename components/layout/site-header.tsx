@@ -1,17 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
-import { SearchDialog } from "@/components/search/search-dialog";
 import { ButtonLink } from "@/components/ui/button-link";
 import { T } from "@/components/ui/t";
 import type { NavItem, SearchItem } from "@/content/types";
 import { useLocale } from "@/lib/locale-context";
 import { cn } from "@/lib/utils";
+
+const SearchDialog = dynamic(
+  () => import("@/components/search/search-dialog").then((mod) => mod.SearchDialog),
+  { ssr: false },
+);
 
 type SiteHeaderProps = {
   navigation: NavItem[];
@@ -144,11 +149,13 @@ export function SiteHeader({
           ) : null}
         </div>
       </header>
-      <SearchDialog
-        items={searchItems}
-        onClose={() => setSearchOpen(false)}
-        open={searchOpen}
-      />
+      {searchOpen ? (
+        <SearchDialog
+          items={searchItems}
+          onClose={() => setSearchOpen(false)}
+          open={searchOpen}
+        />
+      ) : null}
     </>
   );
 }

@@ -63,12 +63,42 @@ export function AmapVenueMap({
   const amapKey = process.env.NEXT_PUBLIC_AMAP_WEB_KEY;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<AMapMap | null>(null);
-  const [status, setStatus] = useState<"loading" | "ready" | "fallback">(
-    amapKey ? "loading" : "fallback",
+  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "fallback">(
+    amapKey ? "idle" : "fallback",
   );
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    if (!amapKey || !containerRef.current) {
+    if (!amapKey || !containerRef.current || shouldLoad) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (!entry?.isIntersecting) {
+          return;
+        }
+
+        setShouldLoad(true);
+        setStatus("loading");
+        observer.disconnect();
+      },
+      {
+        rootMargin: "240px 0px",
+      },
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [amapKey, shouldLoad]);
+
+  useEffect(() => {
+    if (!amapKey || !containerRef.current || !shouldLoad) {
       return;
     }
 
@@ -120,7 +150,7 @@ export function AmapVenueMap({
       mapRef.current?.destroy?.();
       mapRef.current = null;
     };
-  }, [amapKey, latitude, longitude, venue]);
+  }, [amapKey, latitude, longitude, shouldLoad, venue]);
 
   return (
     <div
@@ -141,6 +171,8 @@ export function AmapVenueMap({
             <p className="text-sm font-medium text-white">
               {status === "loading" ? (
                 <T zh="正在加载高德地图…" en="Loading Amap..." />
+              ) : status === "idle" ? (
+                <T zh="滚动到此区域后将加载地图。" en="The map will load as you reach this section." />
               ) : (
                 <T zh="地图暂时不可用，请先打开高德地图导航。" en="Map unavailable for now. Open Amap navigation instead." />
               )}
