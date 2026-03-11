@@ -29,15 +29,15 @@ export async function generateMetadata({
 
   if (!current) {
     return createPageMetadata({
-      title: "会议通知",
-      description: "峰会通知页面",
+      title: "会议通知 | Announcements",
+      description: "Summit announcements",
       path: "/announcements",
     });
   }
 
   return createPageMetadata({
-    title: current.title,
-    description: current.excerpt,
+    title: current.titleEn ? `${current.title} | ${current.titleEn}` : current.title,
+    description: current.excerptEn ?? current.excerpt,
     path: `/announcements/${current.slug}`,
   });
 }
@@ -69,14 +69,14 @@ export default async function AnnouncementDetailPage({
         </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
           <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-slate-400">
-            <span>{entry.frontmatter.category}</span>
-            <span>{formatDisplayDate(entry.frontmatter.date)}</span>
+            <span><T zh={entry.frontmatter.category} en={entry.frontmatter.categoryEn ?? entry.frontmatter.category} /></span>
+            <span><T zh={formatDisplayDate(entry.frontmatter.date, "zh")} en={formatDisplayDate(entry.frontmatter.date, "en")} /></span>
           </div>
           <h1 className="mt-5 font-serif text-4xl leading-tight text-white sm:text-5xl">
-            {entry.frontmatter.title}
+            <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300/84 sm:text-lg">
-            {entry.frontmatter.excerpt}
+            <T zh={entry.frontmatter.excerpt} en={entry.frontmatter.excerptEn ?? entry.frontmatter.excerpt} />
           </p>
           <div className="mt-10">{entry.content}</div>
         </div>
@@ -88,13 +88,13 @@ export default async function AnnouncementDetailPage({
               key={item.slug}
             >
               <div className="text-xs uppercase tracking-[0.24em] text-cyan-200/84">
-                {item.category}
+                <T zh={item.category} en={item.categoryEn ?? item.category} />
               </div>
               <h2 className="mt-3 text-xl font-semibold text-white">
-                {item.title}
+                <T zh={item.title} en={item.titleEn ?? item.title} />
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-300/80">
-                {item.excerpt}
+                <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
               </p>
             </Link>
           ))}

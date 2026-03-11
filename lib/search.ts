@@ -23,25 +23,31 @@ export function buildSearchIndex({
       id: `announcement-${item.slug}`,
       kind: "announcement" as const,
       title: item.title,
+      titleEn: item.titleEn,
       excerpt: item.excerpt,
+      excerptEn: item.excerptEn,
       href: `/announcements/${item.slug}`,
-      keywords: [item.category, item.date, item.slug],
+      keywords: [item.category, item.categoryEn ?? "", item.date, item.slug],
     })),
     ...speakers.map((item) => ({
       id: `speaker-${item.id}`,
       kind: "speaker" as const,
       title: item.name,
+      titleEn: item.nameEn,
       excerpt: `${item.role} · ${item.organization}`,
+      excerptEn: `${item.roleEn} · ${item.organizationEn}`,
       href: "/about",
-      keywords: [item.focus, item.organization, item.role],
+      keywords: [item.focus, item.focusEn, item.organization, item.organizationEn, item.role],
     })),
     ...archives.map((item) => ({
       id: `archive-${item.year}`,
       kind: "archive" as const,
       title: item.title,
+      titleEn: item.titleEn,
       excerpt: item.highlight,
+      excerptEn: item.highlightEn,
       href: `/archives/${item.year}`,
-      keywords: [item.theme, item.location, item.year],
+      keywords: [item.theme, item.themeEn ?? "", item.location, item.locationEn ?? "", item.year],
     })),
   ];
 }
@@ -55,7 +61,7 @@ export function searchContent(items: SearchItem[], query: string) {
 
   const engine = new Fuse(items, {
     includeScore: true,
-    keys: ["title", "excerpt", "keywords"],
+    keys: ["title", "titleEn", "excerpt", "excerptEn", "keywords"],
     threshold: 0.36,
   });
 

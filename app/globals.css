@@ -113,6 +113,121 @@ a {
   }
 }
 
+/* ── Floating orb animation for hero particles ── */
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+/* ── Scroll-triggered entrance animation ── */
+@keyframes slide-in-visible {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.animate-on-scroll.is-visible {
+  animation: slide-in-visible 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-on-scroll.is-visible > :nth-child(1) { animation-delay: 0ms; }
+.animate-on-scroll.is-visible > :nth-child(2) { animation-delay: 80ms; }
+.animate-on-scroll.is-visible > :nth-child(3) { animation-delay: 160ms; }
+.animate-on-scroll.is-visible > :nth-child(4) { animation-delay: 240ms; }
+
+/* ── Panel glow on hover ── */
+.panel-glow {
+  position: relative;
+}
+
+.panel-glow::before {
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(114, 215, 255, 0) 0deg,
+    rgba(114, 215, 255, 0.14) 120deg,
+    rgba(138, 164, 255, 0.1) 240deg,
+    rgba(114, 215, 255, 0) 360deg
+  );
+  content: "";
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.panel-glow:hover::before {
+  opacity: 1;
+}
+
+/* ── Countdown pulse ── */
+.countdown-pulse {
+  animation: countdown-glow 3s ease-in-out infinite;
+}
+
+@keyframes countdown-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(114, 215, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 16px 2px rgba(114, 215, 255, 0.12);
+  }
+}
+
+/* ── Section divider (pathology cell aesthetic) ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.5rem;
+}
+
+.section-divider::before,
+.section-divider::after {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(114, 215, 255, 0.18),
+    transparent
+  );
+  content: "";
+}
+
+.section-divider-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.section-divider-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: rgba(114, 215, 255, 0.28);
+  transform: rotate(45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -7,8 +7,8 @@ import { sponsorTiers } from "@/content/data/partners";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "赞助合作",
-  description: "了解峰会赞助合作方案与合作伙伴层级。",
+  title: "赞助合作 | Sponsors",
+  description: "Sponsorship packages and partnership opportunities for the DIPS Summit.",
   path: "/partners",
 });
 

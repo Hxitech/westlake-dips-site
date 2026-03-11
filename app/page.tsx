@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 import { CountdownClock } from "@/components/home/countdown-clock";
+import { FloatingParticles } from "@/components/home/floating-particles";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { ButtonLink } from "@/components/ui/button-link";
+import { SectionDivider } from "@/components/ui/section-divider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
 import { heroContent, quickFacts, schedulePreview, siteConfig, summitHighlights } from "@/content/data/site";
@@ -46,6 +49,10 @@ export default async function Home() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(93,194,255,0.18),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(106,123,255,0.2),transparent_30%),linear-gradient(180deg,rgba(6,12,25,0.3),rgba(6,12,25,0.88))]" />
+        <FloatingParticles />
+        {/* Large decorative blurred orbs */}
+        <div className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-cyan-400/8 blur-[100px]" aria-hidden />
+        <div className="pointer-events-none absolute -right-24 bottom-1/4 h-56 w-56 rounded-full bg-indigo-400/8 blur-[100px]" aria-hidden />
         <div className="container-shell relative py-20 sm:py-24">
           {/* Top: Full-width hero text */}
           <div className="max-w-4xl">
@@ -113,8 +120,10 @@ export default async function Home() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ── Summit Focus ── */}
-      <section className="container-shell py-16 sm:py-20">
+      <AnimatedSection className="container-shell py-16 sm:py-20">
         <SectionHeading
           description={
             <T
@@ -132,7 +141,7 @@ export default async function Home() {
             { idx: "03", zh: "产业融合与转化", zhSub: "从科研成果到临床应用的高效转化", en: "Industry & Translation", enSub: "Efficient translation from research to clinical practice" },
           ].map((item) => (
             <div
-              className="panel rounded-2xl p-5"
+              className="panel panel-glow rounded-2xl p-5"
               key={item.idx}
             >
               <div className="text-xs uppercase tracking-[0.25em] text-cyan-200/76">{item.idx}</div>
@@ -145,10 +154,12 @@ export default async function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
+
+      <SectionDivider />
 
       {/* ── Highlights ── */}
-      <section className="container-shell py-16 sm:py-20">
+      <AnimatedSection className="container-shell py-16 sm:py-20">
         <SectionHeading
           description={
             <T
@@ -161,7 +172,7 @@ export default async function Home() {
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {summitHighlights.map((item) => (
-            <div className="panel rounded-2xl p-6" key={item.title}>
+            <div className="panel panel-glow rounded-2xl p-6" key={item.title}>
               <div className="text-xs uppercase tracking-[0.25em] text-cyan-200/90">
                 <T zh={item.metric} en={item.metricEn} />
               </div>
@@ -174,10 +185,12 @@ export default async function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
+
+      <SectionDivider />
 
       {/* ── Announcements + Schedule ── */}
-      <section className="container-shell py-16 sm:py-20">
+      <AnimatedSection className="container-shell py-16 sm:py-20">
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Left: Announcements */}
           <div>
@@ -204,8 +217,8 @@ export default async function Home() {
                   key={item.slug}
                 >
                   <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400">
-                    <span>{item.category}</span>
-                    <span>{formatDisplayDate(item.date)}</span>
+                    <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
+                    <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
                     {item.pinned ? (
                       <span className="rounded-full border border-cyan-300/30 px-2 py-0.5 text-cyan-200">
                         <T zh="置顶" en="Pinned" />
@@ -213,10 +226,11 @@ export default async function Home() {
                     ) : null}
                   </div>
                   <h3 className="mt-2 text-lg font-semibold text-white transition group-hover:text-cyan-200">
-                    {String(index + 1).padStart(2, "0")} {item.title}
+                    {String(index + 1).padStart(2, "0")}{" "}
+                    <T zh={item.title} en={item.titleEn ?? item.title} />
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-slate-300/78 line-clamp-2">
-                    {item.excerpt}
+                    <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
                   </p>
                 </Link>
               ))}
@@ -255,10 +269,12 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
+
+      <SectionDivider />
 
       {/* ── Speakers ── */}
-      <section className="container-shell py-16 sm:py-20">
+      <AnimatedSection className="container-shell py-16 sm:py-20">
         <SectionHeading
           description={
             <T
@@ -272,7 +288,7 @@ export default async function Home() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {speakers.map((speaker, index) => (
             <div
-              className="panel group rounded-2xl p-5 transition hover:-translate-y-0.5 hover:border-cyan-300/22"
+              className="panel panel-glow group rounded-2xl p-5 transition hover:-translate-y-0.5 hover:border-cyan-300/22"
               key={speaker.id}
             >
               <div className="flex gap-4">
@@ -300,10 +316,12 @@ export default async function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
+
+      <SectionDivider />
 
       {/* ── Sponsorship ── */}
-      <section className="container-shell py-16 sm:py-20">
+      <AnimatedSection className="container-shell py-16 sm:py-20">
         <SectionHeading
           action={
             <ButtonLink href="/partners" variant="secondary">
@@ -322,7 +340,7 @@ export default async function Home() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {sponsorTiers.map((tier) => (
             <div
-              className="panel rounded-2xl p-5 transition hover:border-cyan-300/22"
+              className="panel panel-glow rounded-2xl p-5 transition hover:border-cyan-300/22"
               key={tier.tier}
             >
               <div className="text-xs uppercase tracking-[0.2em] text-cyan-200/80">
@@ -340,11 +358,11 @@ export default async function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* ── Archive Preview ── */}
       {featuredArchive ? (
-        <section className="container-shell py-16 sm:py-20">
+        <AnimatedSection className="container-shell py-16 sm:py-20">
           <SectionHeading
             action={
               <ButtonLink href="/archives" variant="secondary">
@@ -364,19 +382,27 @@ export default async function Home() {
             <div className="grid gap-6 lg:grid-cols-[0.3fr_0.7fr]">
               <div>
                 <div className="font-serif text-4xl text-white">{featuredArchive.year}</div>
-                <div className="mt-2 text-sm text-slate-400">{featuredArchive.location}</div>
+                <div className="mt-2 text-sm text-slate-400">
+                  <T zh={featuredArchive.location} en={featuredArchive.locationEn ?? featuredArchive.location} />
+                </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white">{featuredArchive.title}</h3>
-                <p className="mt-1 text-base text-cyan-200/90">{featuredArchive.theme}</p>
-                <p className="mt-3 text-sm leading-7 text-slate-300/80">{featuredArchive.highlight}</p>
+                <h3 className="text-xl font-semibold text-white">
+                  <T zh={featuredArchive.title} en={featuredArchive.titleEn ?? featuredArchive.title} />
+                </h3>
+                <p className="mt-1 text-base text-cyan-200/90">
+                  <T zh={featuredArchive.theme} en={featuredArchive.themeEn ?? featuredArchive.theme} />
+                </p>
+                <p className="mt-3 text-sm leading-7 text-slate-300/80">
+                  <T zh={featuredArchive.highlight} en={featuredArchive.highlightEn ?? featuredArchive.highlight} />
+                </p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                  {featuredArchive.gallery.map((item) => (
+                  {featuredArchive.gallery.map((item, i) => (
                     <div
                       className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-slate-300/78"
                       key={item}
                     >
-                      {item}
+                      <T zh={item} en={featuredArchive.galleryEn?.[i] ?? item} />
                     </div>
                   ))}
                 </div>
@@ -390,7 +416,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
       ) : null}
 
       {/* ── Final CTA ── */}

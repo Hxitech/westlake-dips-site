@@ -70,10 +70,10 @@ export function SearchExperience({
                 </span>
               </div>
               <h3 className="mt-3 text-lg font-semibold text-white">
-                {item.title}
+                {locale === "zh" ? item.title : (item.titleEn ?? item.title)}
               </h3>
               <p className="mt-2 text-sm leading-7 text-slate-300/80">
-                {item.excerpt}
+                {locale === "zh" ? item.excerpt : (item.excerptEn ?? item.excerpt)}
               </p>
             </div>
             <ArrowUpRight className="mt-1 size-5 shrink-0 text-cyan-200 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

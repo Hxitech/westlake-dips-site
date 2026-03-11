@@ -29,15 +29,15 @@ export async function generateMetadata({
 
   if (!current) {
     return createPageMetadata({
-      title: "往届会议",
-      description: "往届峰会回顾",
+      title: "往届会议 | Archives",
+      description: "Past summit archives",
       path: "/archives",
     });
   }
 
   return createPageMetadata({
-    title: current.title,
-    description: current.highlight,
+    title: current.titleEn ? `${current.title} | ${current.titleEn}` : current.title,
+    description: current.highlightEn ?? current.highlight,
     path: `/archives/${current.year}`,
   });
 }
@@ -64,22 +64,24 @@ export default async function ArchiveDetailPage({
         </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
           <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
-            {entry.frontmatter.year} · {entry.frontmatter.location}
+            {entry.frontmatter.year} · <T zh={entry.frontmatter.location} en={entry.frontmatter.locationEn ?? entry.frontmatter.location} />
           </div>
           <h1 className="mt-5 font-serif text-4xl leading-tight text-white sm:text-5xl">
-            {entry.frontmatter.title}
+            <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
-          <p className="mt-5 text-xl text-slate-200">{entry.frontmatter.theme}</p>
+          <p className="mt-5 text-xl text-slate-200">
+            <T zh={entry.frontmatter.theme} en={entry.frontmatter.themeEn ?? entry.frontmatter.theme} />
+          </p>
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300/84 sm:text-lg">
-            {entry.frontmatter.highlight}
+            <T zh={entry.frontmatter.highlight} en={entry.frontmatter.highlightEn ?? entry.frontmatter.highlight} />
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {entry.frontmatter.gallery.map((item) => (
+            {entry.frontmatter.gallery.map((item, i) => (
               <div
                 className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-slate-300/82"
                 key={item}
               >
-                {item}
+                <T zh={item} en={entry.frontmatter.galleryEn?.[i] ?? item} />
               </div>
             ))}
           </div>

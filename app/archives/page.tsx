@@ -7,8 +7,8 @@ import { createPageMetadata } from "@/lib/metadata";
 import { getArchiveSummaries } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "往届会议",
-  description: "浏览历届全国数智病理西湖峰会的主题、成果与回顾。",
+  title: "往届会议 | Archives",
+  description: "Explore highlights and themes from past DIPS summits.",
   path: "/archives",
 });
 
@@ -43,22 +43,26 @@ export default async function ArchivesPage() {
                 <div>
                   <div className="font-serif text-4xl text-white">{item.year}</div>
                   <div className="mt-2 text-sm uppercase tracking-[0.24em] text-cyan-200/84">
-                    {item.location}
+                    <T zh={item.location} en={item.locationEn ?? item.location} />
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-semibold text-white">{item.title}</h2>
-                  <p className="mt-3 text-lg text-slate-200">{item.theme}</p>
+                  <h2 className="text-3xl font-semibold text-white">
+                    <T zh={item.title} en={item.titleEn ?? item.title} />
+                  </h2>
+                  <p className="mt-3 text-lg text-slate-200">
+                    <T zh={item.theme} en={item.themeEn ?? item.theme} />
+                  </p>
                   <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/80">
-                    {item.highlight}
+                    <T zh={item.highlight} en={item.highlightEn ?? item.highlight} />
                   </p>
                   <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                    {item.gallery.map((entry) => (
+                    {item.gallery.map((entry, i) => (
                       <div
                         className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-slate-300/80"
                         key={entry}
                       >
-                        {entry}
+                        <T zh={entry} en={item.galleryEn?.[i] ?? entry} />
                       </div>
                     ))}
                   </div>

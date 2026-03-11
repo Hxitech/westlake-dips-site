@@ -10,8 +10,8 @@ import { venueInfo } from "@/content/data/venue";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "参会指南",
-  description: "查看峰会会场、交通方式、报名说明与现场动线。",
+  title: "参会指南 | Guide",
+  description: "Venue details, transportation, and attendance guide for the DIPS Summit.",
   path: "/guide",
 });
 

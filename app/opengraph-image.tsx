@@ -38,13 +38,13 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 68,
-              lineHeight: 1.05,
+              fontSize: 58,
+              lineHeight: 1.1,
               fontWeight: 700,
-              maxWidth: 860,
+              maxWidth: 900,
             }}
           >
-            全国数智病理西湖峰会
+            {siteConfig.nameEn}
           </div>
           <div
             style={{
@@ -53,19 +53,20 @@ export default function OpenGraphImage() {
               maxWidth: 880,
             }}
           >
-            数字病理 · AI 诊断 · 临床转化
+            Digital Pathology · AI Diagnosis · Clinical Translation
           </div>
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "flex-end",
             fontSize: 26,
             color: "#dce5f8",
           }}
         >
           <span>2026.05.09 - 05.10</span>
-          <span>{siteConfig.venue}</span>
+          <span>{siteConfig.venueEn} · {siteConfig.cityEn}</span>
         </div>
       </div>
     ),

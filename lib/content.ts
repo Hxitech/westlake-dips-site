@@ -29,8 +29,8 @@ function sortByDateDesc<T extends { date: string }>(items: T[]) {
   );
 }
 
-export function formatDisplayDate(date: string) {
-  return new Intl.DateTimeFormat("zh-CN", {
+export function formatDisplayDate(date: string, locale: "zh" | "en" = "zh") {
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
     dateStyle: "long",
   }).format(new Date(date));
 }
@@ -45,9 +45,12 @@ export async function getAnnouncementSummaries() {
       return {
         slug: file.replace(/\.mdx$/, ""),
         title: String(data.title),
+        titleEn: data.titleEn ? String(data.titleEn) : undefined,
         date: String(data.date),
         category: String(data.category),
+        categoryEn: data.categoryEn ? String(data.categoryEn) : undefined,
         excerpt: String(data.excerpt),
+        excerptEn: data.excerptEn ? String(data.excerptEn) : undefined,
         pinned: Boolean(data.pinned),
       } satisfies AnnouncementFrontmatter;
     }),
@@ -74,9 +77,12 @@ export async function getAnnouncementBySlug(slug: string) {
     frontmatter: {
       slug,
       title: String(data.title),
+      titleEn: data.titleEn ? String(data.titleEn) : undefined,
       date: String(data.date),
       category: String(data.category),
+      categoryEn: data.categoryEn ? String(data.categoryEn) : undefined,
       excerpt: String(data.excerpt),
+      excerptEn: data.excerptEn ? String(data.excerptEn) : undefined,
       pinned: Boolean(data.pinned),
     } satisfies AnnouncementFrontmatter,
     content: compiled.content,
@@ -93,11 +99,17 @@ export async function getArchiveSummaries() {
       return {
         year: String(data.year),
         title: String(data.title),
+        titleEn: data.titleEn ? String(data.titleEn) : undefined,
         theme: String(data.theme),
+        themeEn: data.themeEn ? String(data.themeEn) : undefined,
         location: String(data.location),
+        locationEn: data.locationEn ? String(data.locationEn) : undefined,
         highlight: String(data.highlight),
+        highlightEn: data.highlightEn ? String(data.highlightEn) : undefined,
         gallery: Array.isArray(data.gallery) ? data.gallery.map(String) : [],
+        galleryEn: Array.isArray(data.galleryEn) ? data.galleryEn.map(String) : undefined,
         videoLabel: data.videoLabel ? String(data.videoLabel) : undefined,
+        videoLabelEn: data.videoLabelEn ? String(data.videoLabelEn) : undefined,
       } satisfies ArchiveFrontmatter;
     }),
   );
@@ -123,11 +135,17 @@ export async function getArchiveByYear(year: string) {
     frontmatter: {
       year: String(data.year),
       title: String(data.title),
+      titleEn: data.titleEn ? String(data.titleEn) : undefined,
       theme: String(data.theme),
+      themeEn: data.themeEn ? String(data.themeEn) : undefined,
       location: String(data.location),
+      locationEn: data.locationEn ? String(data.locationEn) : undefined,
       highlight: String(data.highlight),
+      highlightEn: data.highlightEn ? String(data.highlightEn) : undefined,
       gallery: Array.isArray(data.gallery) ? data.gallery.map(String) : [],
+      galleryEn: Array.isArray(data.galleryEn) ? data.galleryEn.map(String) : undefined,
       videoLabel: data.videoLabel ? String(data.videoLabel) : undefined,
+      videoLabelEn: data.videoLabelEn ? String(data.videoLabelEn) : undefined,
     } satisfies ArchiveFrontmatter,
     content: compiled.content,
   };

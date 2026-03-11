@@ -147,27 +147,38 @@ export type HeroContent = {
 export type AnnouncementFrontmatter = {
   slug: string;
   title: string;
+  titleEn?: string;
   date: string;
   category: string;
+  categoryEn?: string;
   excerpt: string;
+  excerptEn?: string;
   pinned?: boolean;
 };
 
 export type ArchiveFrontmatter = {
   year: string;
   title: string;
+  titleEn?: string;
   theme: string;
+  themeEn?: string;
   location: string;
+  locationEn?: string;
   highlight: string;
+  highlightEn?: string;
   gallery: string[];
+  galleryEn?: string[];
   videoLabel?: string;
+  videoLabelEn?: string;
 };
 
 export type SearchItem = {
   id: string;
   kind: "announcement" | "speaker" | "archive";
   title: string;
+  titleEn?: string;
   excerpt: string;
+  excerptEn?: string;
   href: string;
   keywords: string[];
 };

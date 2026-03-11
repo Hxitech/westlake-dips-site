@@ -9,8 +9,8 @@ import { timeline } from "@/content/data/timeline";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "关于峰会",
-  description: "了解全国数智病理西湖峰会的定位、沿革与核心议题。",
+  title: "关于峰会 | About",
+  description: "Learn about the DIPS Summit — mission, history, and core themes.",
   path: "/about",
 });
 

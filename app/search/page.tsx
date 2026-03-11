@@ -9,8 +9,8 @@ import { getAnnouncementSummaries, getArchiveSummaries } from "@/lib/content";
 import { buildSearchIndex } from "@/lib/search";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "搜索",
-  description: "搜索通知、嘉宾与往届峰会内容。",
+  title: "搜索 | Search",
+  description: "Search summit announcements, speakers, and past summit content.",
   path: "/search",
 });
 

@@ -32,6 +32,7 @@ export const siteConfig: SiteConfig = {
     { href: "/", label: "首页", labelEn: "Home", description: "峰会首页", descriptionEn: "Summit homepage" },
     { href: "/about", label: "关于峰会", labelEn: "About", description: "峰会简介与沿革", descriptionEn: "Introduction & history" },
     { href: "/announcements", label: "会议通知", labelEn: "News", description: "最新通知与公告", descriptionEn: "Announcements" },
+    { href: "/abstract", label: "论文投稿", labelEn: "Abstract", description: "摘要投稿说明", descriptionEn: "Abstract submission" },
     { href: "/guide", label: "参会指南", labelEn: "Guide", description: "交通与参会说明", descriptionEn: "Venue & travel" },
     { href: "/archives", label: "往届会议", labelEn: "Archives", description: "往届峰会回顾", descriptionEn: "Past summits" },
     { href: "/partners", label: "赞助商与合作伙伴", labelEn: "Sponsors", description: "赞助商与合作单位", descriptionEn: "Sponsors & partners" },

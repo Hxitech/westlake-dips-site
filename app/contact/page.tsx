@@ -28,8 +28,8 @@ type ContactItem = BaseContactItem & {
 });
 
 export const metadata: Metadata = createPageMetadata({
-  title: "联系我们",
-  description: "联系峰会会务组，获取报名、合作与会务支持。",
+  title: "联系我们 | Contact",
+  description: "Contact the DIPS Summit organizing committee for registration, partnerships, and support.",
   path: "/contact",
 });
 

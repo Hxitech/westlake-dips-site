@@ -8,8 +8,8 @@ import { createPageMetadata } from "@/lib/metadata";
 import { getRegisterGuide } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "报名说明",
-  description: "查看峰会报名说明与注册信息。",
+  title: "报名说明 | Registration",
+  description: "Registration details and instructions for the DIPS Summit.",
   path: "/register",
 });
 

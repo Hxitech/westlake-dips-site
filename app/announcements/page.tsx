@@ -7,8 +7,8 @@ import { createPageMetadata } from "@/lib/metadata";
 import { formatDisplayDate, getAnnouncementSummaries } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "会议通知",
-  description: "查看全国数智病理西湖峰会的最新通知、日程动态与会务公告。",
+  title: "会议通知 | Announcements",
+  description: "Latest announcements, agenda updates, and event notices for the DIPS Summit.",
   path: "/announcements",
 });
 
@@ -42,8 +42,8 @@ export default async function AnnouncementsPage() {
             >
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-slate-400">
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{item.category}</span>
-                <span>{formatDisplayDate(item.date)}</span>
+                <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
+                <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
                 {item.pinned ? (
                   <span className="rounded-full border border-cyan-300/30 px-3 py-1 text-cyan-200">
                     <T zh="置顶" en="Pinned" />
@@ -51,10 +51,10 @@ export default async function AnnouncementsPage() {
                 ) : null}
               </div>
               <h2 className="mt-5 text-3xl font-semibold text-white transition group-hover:text-cyan-200">
-                {item.title}
+                <T zh={item.title} en={item.titleEn ?? item.title} />
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/80">
-                {item.excerpt}
+                <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
               </p>
             </Link>
           ))}

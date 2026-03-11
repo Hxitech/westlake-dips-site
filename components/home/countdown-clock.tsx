@@ -65,7 +65,7 @@ export function CountdownClock({
           ].map(([label, value]) => (
             <div
               key={String(label)}
-              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-center"
+              className="countdown-pulse rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-center"
             >
               <div className="font-serif text-4xl text-white sm:text-5xl">
                 {String(value).padStart(2, "0")}
