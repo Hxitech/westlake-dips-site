@@ -64,7 +64,7 @@ export default function OpenGraphImage() {
             color: "#dce5f8",
           }}
         >
-          <span>2026.10.24 - 10.25</span>
+          <span>2026.05.09 - 05.10</span>
           <span>{siteConfig.venue}</span>
         </div>
       </div>

@@ -14,9 +14,9 @@ export const siteConfig: SiteConfig = {
   shortNameEn: "DIPS",
   acronym: "DIPS",
   description:
-    "聚焦数字病理、人工智能诊断与临床转化的全国性旗舰学术峰会。",
+    "聚焦大模型浪潮下人工智能与数智病理的创新与融合的全国性旗舰学术峰会。",
   descriptionEn:
-    "China's flagship academic summit on digital pathology, AI-assisted diagnosis, and clinical translation.",
+    "China's flagship academic summit on the innovation and integration of AI and digital pathology in the era of large models.",
   locale: "zh_CN",
   url: "https://westlake-dips.vercel.app",
   themeColor: "#08152d",
@@ -45,9 +45,9 @@ export const heroContent: HeroContent = {
   title: "大模型时代的数智病理",
   titleEn: "Digital & Intelligent Pathology in the Era of Large Models",
   subtitle:
-    "汇聚全国病理学者、AI 研究者与产业先锋，共同探索大模型驱动下的数字病理与智能诊断前沿。",
+    "聚焦人工智能与数字病理学交叉学科的深度融合与最新进展，携手知名专家学者、业界领袖及创新团队，共同分享前沿研究与临床转化成果。",
   subtitleEn:
-    "Bringing together pathologists, AI researchers, and industry pioneers to explore AI-driven digital pathology.",
+    "Exploring the deep integration and latest advances at the intersection of AI and digital pathology, uniting leading experts, industry pioneers, and innovators to share frontier research and clinical translation.",
   location: "西安 · 西北大学",
   locationEn: "Xi'an · Northwest University",
   dateText: "2026 年 5 月 9–10 日",
@@ -72,8 +72,8 @@ export const quickFacts: QuickFact[] = [
     labelEn: "Tracks",
     value: "4 场",
     valueEn: "4",
-    detail: "算法 · 临床 · 标准化 · 转化",
-    detailEn: "AI · Clinical · Standards · Translation",
+    detail: "大模型 · 精准诊断 · 青年学者 · 产业融合",
+    detailEn: "Large Models · Precision Dx · Young Scholars · Industry",
   },
   {
     label: "演讲嘉宾",
@@ -132,41 +132,41 @@ export const schedulePreview: ScheduleItem[] = [
   {
     time: "第一天 · 14:00",
     timeEn: "Day 1 · 14:00",
-    title: "AI 智能诊断专场",
-    titleEn: "AI Diagnostics Track",
-    description: "AI 辅助判读、模型验证与临床部署经验。",
-    descriptionEn: "AI-assisted reading, model validation, and clinical deployment.",
+    title: "大模型前沿技术专场",
+    titleEn: "Large Model Frontier Technology",
+    description: "大模型在病理领域的最新应用、多模态融合与算法创新。",
+    descriptionEn: "Latest applications of large models in pathology, multimodal fusion, and algorithmic innovation.",
   },
   {
-    time: "第二天 · 09:30",
-    timeEn: "Day 2 · 09:30",
-    title: "数字病理流程专场",
-    titleEn: "Digital Pathology Workflow",
-    description: "数字切片、多院协同与标准化实践。",
-    descriptionEn: "Digital slides, multi-site collaboration, and standardization.",
+    time: "第二天 · 09:00",
+    timeEn: "Day 2 · 09:00",
+    title: "精准诊断专场 / 青年学者交流专场",
+    titleEn: "Precision Diagnosis / Young Scholar Exchange",
+    description: "AI 精准诊断临床实践与青年学者前沿交流。",
+    descriptionEn: "AI-driven precision diagnosis in clinical practice and young scholar exchange.",
   },
   {
-    time: "第二天 · 14:30",
-    timeEn: "Day 2 · 14:30",
-    title: "产业转化圆桌",
-    titleEn: "Industry Roundtable",
-    description: "科研机构、医院与企业探讨合作与产业化路径。",
-    descriptionEn: "Institutions, hospitals, and enterprises discuss collaboration pathways.",
+    time: "第二天 · 14:00",
+    timeEn: "Day 2 · 14:00",
+    title: "产业融合与未来发展交流专场",
+    titleEn: "Industry Integration & Future Development",
+    description: "科研机构、医院与企业探讨合作路径与产业化未来。",
+    descriptionEn: "Institutions, hospitals, and enterprises explore collaboration and industrialization pathways.",
   },
 ];
 
 export const focusPillars = [
-  "数字病理基础设施",
-  "AI 辅助诊断",
-  "病理数据标准化",
-  "临床转化与产业协同",
+  "大模型前沿技术",
+  "AI 精准诊断",
+  "青年学者创新",
+  "产业融合与转化",
 ];
 
 export const focusPillarsEn = [
-  "Digital Pathology Infrastructure",
-  "AI-Assisted Diagnosis",
-  "Pathology Data Standardization",
-  "Clinical Translation & Industry Collaboration",
+  "Large Model Frontier Technology",
+  "AI Precision Diagnosis",
+  "Young Scholar Innovation",
+  "Industry Integration & Translation",
 ];
 
 export const registrationConfig: RegistrationConfig = {

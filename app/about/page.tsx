@@ -45,8 +45,8 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-300/82">
               <T
-                zh="峰会汇聚全国病理学者、AI 研究者、临床专家与产业领袖，围绕数字病理基础设施、AI 辅助诊断与临床转化展开深度交流。由西湖大学与中华医学会病理学分会联合发起。"
-                en="The summit gathers leading pathologists, AI researchers, clinicians, and industry leaders for in-depth exchanges on digital pathology infrastructure, AI-assisted diagnosis, and clinical translation. Co-initiated by Westlake University and the Chinese Society of Pathology."
+                zh="峰会汇聚全国病理学者、AI 研究者、临床专家与产业领袖，围绕人工智能与数字病理学交叉学科的深度融合与最新进展展开深度交流。由西北大学、中华医学会病理学分会与北京精鉴病理学发展基金会联合主办。"
+                en="The summit gathers leading pathologists, AI researchers, clinicians, and industry leaders for in-depth exchanges on the deep integration of AI and digital pathology. Co-hosted by Northwest University, the Chinese Society of Pathology, and the Beijing Jingjian Pathology Development Foundation."
               />
             </p>
           </div>
@@ -84,10 +84,13 @@ export default function AboutPage() {
             </div>
             <div className="mt-4 space-y-3">
               <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
-                <T zh="西湖大学" en="Westlake University" />
+                <T zh="西北大学" en="Northwest University" />
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
                 <T zh="中华医学会病理学分会" en="Chinese Society of Pathology" />
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
+                <T zh="北京精鉴病理学发展基金会" en="Beijing Jingjian Pathology Development Foundation" />
               </div>
             </div>
           </div>
@@ -97,7 +100,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-4 space-y-3">
               <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
-                <T zh="西湖大学" en="Westlake University" />
+                <T zh="西北大学" en="Northwest University" />
               </div>
             </div>
           </div>

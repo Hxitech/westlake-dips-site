@@ -47,15 +47,16 @@ export type Speaker = {
   quoteEn: string;
 };
 
-export type PartnerTier = "strategic" | "co-host" | "innovation" | "supporting";
+export type SponsorTier = "strategic" | "diamond" | "gold";
 
-export type Partner = {
+export type SponsorTierInfo = {
+  tier: SponsorTier;
   name: string;
   nameEn: string;
-  tier: PartnerTier;
-  description: string;
-  descriptionEn: string;
-  href?: string;
+  price: string;
+  priceEn: string;
+  benefits: string[];
+  benefitsEn: string[];
 };
 
 export type TimelineEntry = {

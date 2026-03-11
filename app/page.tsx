@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
 import { heroContent, quickFacts, schedulePreview, siteConfig, summitHighlights } from "@/content/data/site";
-import { partners } from "@/content/data/partners";
+import { sponsorTiers } from "@/content/data/partners";
 import { speakers } from "@/content/data/speakers";
 import { timeline } from "@/content/data/timeline";
 import { getAnnouncementSummaries, getArchiveSummaries, formatDisplayDate } from "@/lib/content";
@@ -118,8 +118,8 @@ export default async function Home() {
         <SectionHeading
           description={
             <T
-              zh="以病理数字化为基座，聚焦 AI 辅助诊断、临床协作与产业转化。"
-              en="Built on digital pathology, focusing on AI-assisted diagnosis, clinical collaboration, and industry translation."
+              zh="深度聚焦人工智能与数字病理学交叉学科的融合与最新进展。"
+              en="Exploring the deep integration and latest advances at the intersection of AI and digital pathology."
             />
           }
           eyebrow={<T zh="峰会聚焦" en="Summit Focus" />}
@@ -127,9 +127,9 @@ export default async function Home() {
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           {[
-            { idx: "01", zh: "病理数据", zhSub: "结构化采集与可追溯治理", en: "Pathology Data", enSub: "Structured collection & traceable governance" },
-            { idx: "02", zh: "AI 诊断", zhSub: "可解释模型与临床协作", en: "AI Diagnostics", enSub: "Explainable models & clinical collaboration" },
-            { idx: "03", zh: "产业转化", zhSub: "从实验室到临床现场", en: "Translation", enSub: "From lab to bedside" },
+            { idx: "01", zh: "大模型前沿技术", zhSub: "大模型在病理领域的最新应用与算法创新", en: "Large Model Technology", enSub: "Latest large-model applications and algorithmic innovation in pathology" },
+            { idx: "02", zh: "AI 精准诊断", zhSub: "人工智能驱动的精准病理诊断与临床协作", en: "AI Precision Diagnosis", enSub: "AI-driven precision pathology diagnosis and clinical collaboration" },
+            { idx: "03", zh: "产业融合与转化", zhSub: "从科研成果到临床应用的高效转化", en: "Industry & Translation", enSub: "Efficient translation from research to clinical practice" },
           ].map((item) => (
             <div
               className="panel rounded-2xl p-5"
@@ -302,38 +302,40 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── Partners ── */}
+      {/* ── Sponsorship ── */}
       <section className="container-shell py-16 sm:py-20">
         <SectionHeading
           action={
             <ButtonLink href="/partners" variant="secondary">
-              <T zh="查看全部" en="View All" />
+              <T zh="查看详情" en="View Details" />
             </ButtonLink>
           }
           description={
             <T
-              zh="感谢各合作伙伴鼎力支持。"
-              en="We thank our partners for their generous support."
+              zh="诚邀先锋企业与合作伙伴共襄盛会，共同推动数智病理发展。"
+              en="Inviting leading enterprises and partners to jointly advance digital pathology."
             />
           }
-          eyebrow={<T zh="赞助商与合作伙伴" en="Sponsors & Partners" />}
-          title={<T zh="合作伙伴" en="Partners" />}
+          eyebrow={<T zh="赞助合作" en="Sponsorship" />}
+          title={<T zh="大会合作方案" en="Partnership Packages" />}
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {partners.slice(0, 8).map((partner) => (
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {sponsorTiers.map((tier) => (
             <div
               className="panel rounded-2xl p-5 transition hover:border-cyan-300/22"
-              key={partner.name}
+              key={tier.tier}
             >
               <div className="text-xs uppercase tracking-[0.2em] text-cyan-200/80">
-                <T zh={partner.tier === "strategic" ? "战略合作" : partner.tier === "co-host" ? "联合共建" : partner.tier === "innovation" ? "创新展示" : "支持伙伴"}
-                   en={partner.tier === "strategic" ? "Strategic" : partner.tier === "co-host" ? "Co-Host" : partner.tier === "innovation" ? "Innovation" : "Supporting"} />
+                <T zh={tier.name} en={tier.nameEn} />
               </div>
-              <h3 className="mt-3 text-base font-semibold text-white">
-                <T zh={partner.name} en={partner.nameEn} />
+              <h3 className="mt-3 font-serif text-2xl text-white">
+                <T zh={tier.price} en={tier.priceEn} />
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-300/78">
-                <T zh={partner.description} en={partner.descriptionEn} />
+              <p className="mt-3 text-sm leading-6 text-slate-300/78">
+                <T
+                  zh={tier.benefits.slice(0, 2).join("；")}
+                  en={tier.benefitsEn.slice(0, 2).join("; ")}
+                />
               </p>
             </div>
           ))}
