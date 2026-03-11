@@ -1,10 +1,31 @@
 import type { Metadata } from "next";
-import { Mail, MapPinned, Phone, QrCode } from "lucide-react";
+import { ExternalLink, Mail, MapPinned, Phone, QrCode } from "lucide-react";
 
 import { PageHero } from "@/components/ui/page-hero";
 import { T } from "@/components/ui/t";
 import { siteConfig } from "@/content/data/site";
+import { venueInfo } from "@/content/data/venue";
 import { createPageMetadata } from "@/lib/metadata";
+
+type LocalizedText = {
+  zh: string;
+  en: string;
+};
+
+type BaseContactItem = {
+  description: LocalizedText;
+  icon: typeof Phone;
+  title: LocalizedText;
+  value: string | LocalizedText;
+};
+
+type ContactItem = BaseContactItem & {
+  href?: undefined;
+  hrefLabel?: undefined;
+} | (BaseContactItem & {
+  href: string;
+  hrefLabel: LocalizedText;
+});
 
 export const metadata: Metadata = createPageMetadata({
   title: "联系我们",
@@ -12,7 +33,7 @@ export const metadata: Metadata = createPageMetadata({
   path: "/contact",
 });
 
-const contactItems = [
+const contactItems: ContactItem[] = [
   {
     icon: Phone,
     title: { zh: "电话咨询", en: "Phone" },
@@ -28,8 +49,10 @@ const contactItems = [
   {
     icon: MapPinned,
     title: { zh: "会场地址", en: "Venue Address" },
-    value: { zh: siteConfig.address, en: siteConfig.addressEn },
-    description: { zh: "导航链接将在正式版本中接入", en: "Navigation link coming soon" },
+    value: { zh: venueInfo.address, en: venueInfo.addressEn },
+    description: { zh: siteConfig.venue, en: siteConfig.venueEn },
+    href: venueInfo.mapUrl,
+    hrefLabel: { zh: venueInfo.mapLabel, en: venueInfo.mapLabelEn },
   },
   {
     icon: QrCode,
@@ -77,6 +100,18 @@ export default function ContactPage() {
                 <p className="mt-4 text-sm leading-7 text-slate-300/80">
                   <T zh={item.description.zh} en={item.description.en} />
                 </p>
+                {item.href && item.hrefLabel ? (
+                  <a
+                    className="mt-5 inline-flex items-center gap-2 text-sm text-cyan-200 transition hover:text-cyan-100 hover:underline"
+                    data-testid="contact-venue-map-link"
+                    href={item.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <T zh={item.hrefLabel.zh} en={item.hrefLabel.en} />
+                    <ExternalLink className="size-4" />
+                  </a>
+                ) : null}
               </div>
             );
           })}

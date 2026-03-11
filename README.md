@@ -20,6 +20,17 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Amap Setup
+
+Copy `.env.example` to `.env.local` and provide the following values before enabling the interactive venue map:
+
+```bash
+NEXT_PUBLIC_AMAP_WEB_KEY=your_amap_web_key
+AMAP_SECURITY_JS_CODE=your_amap_security_js_code
+```
+
+`NEXT_PUBLIC_AMAP_WEB_KEY` is used by the browser-side Amap JS loader. `AMAP_SECURITY_JS_CODE` stays on the server and is injected through the local `/_AMapService/*` proxy route.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

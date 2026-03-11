@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPinned, TrainFront, CarFront, BusFront } from "lucide-react";
 
+import { AmapVenueMap } from "@/components/venue/amap-venue-map";
 import { ButtonLink } from "@/components/ui/button-link";
 import { PageHero } from "@/components/ui/page-hero";
 import { T } from "@/components/ui/t";
@@ -46,13 +47,27 @@ export default function GuidePage() {
             <p className="mt-4 text-sm leading-8 text-slate-300/82">
               <T zh={`${venueInfo.city} · ${venueInfo.address}`} en={`${venueInfo.cityEn} · ${venueInfo.addressEn}`} />
             </p>
-            <div className="mt-8 rounded-[1.75rem] border border-white/10 bg-[linear-gradient(135deg,rgba(114,215,255,0.18),rgba(110,122,255,0.14))] p-6">
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-100/88">
-                <T zh="地图导航" en="Map & Navigation" />
+            <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10">
+              <AmapVenueMap
+                address={venueInfo.address}
+                addressEn={venueInfo.addressEn}
+                latitude={venueInfo.latitude}
+                longitude={venueInfo.longitude}
+                mapUrl={venueInfo.mapUrl}
+                venue={venueInfo.venue}
+                venueEn={venueInfo.venueEn}
+              />
+              <div className="bg-white/5 px-5 py-3 text-sm text-slate-300/88">
+                <a
+                  className="text-cyan-200 hover:underline"
+                  data-testid="guide-venue-map-link"
+                  href={venueInfo.mapUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <T zh={venueInfo.mapLabel} en={venueInfo.mapLabelEn} />
+                </a>
               </div>
-              <p className="mt-4 max-w-md text-sm leading-7 text-slate-100/88">
-                <T zh={venueInfo.mapLabel} en={venueInfo.mapLabelEn} />
-              </p>
             </div>
             <p className="mt-6 text-sm leading-7 text-slate-400">
               <T zh={venueInfo.floorplanNote} en={venueInfo.floorplanNoteEn} />

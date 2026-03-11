@@ -51,7 +51,7 @@ export function SiteFooter() {
                   />
                 </p>
                 <p>
-                  <T zh="备案号：浙 ICP 备 XXXXXXXX 号" en="ICP License: Pending" />
+                  <T zh="备案号待申请" en="ICP License: Pending" />
                 </p>
                 <p>© {new Date().getFullYear()} {siteConfig.name}</p>
               </div>

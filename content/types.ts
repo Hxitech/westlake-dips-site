@@ -78,6 +78,10 @@ export type VenueInfo = {
   addressEn: string;
   mapLabel: string;
   mapLabelEn: string;
+  mapUrl: string;
+  mapEmbedUrl: string;
+  latitude: number;
+  longitude: number;
   metro: string[];
   metroEn: string[];
   bus: string[];

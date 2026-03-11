@@ -34,3 +34,22 @@ test("unknown announcement routes render the 404 page", async ({ page }) => {
 
   await expect(page.getByRole("heading", { name: "页面不存在" })).toBeVisible();
 });
+
+test("guide page exposes the venue navigation link", async ({ page }) => {
+  await page.goto("/guide");
+
+  await expect(page.getByTestId("guide-venue-map-shell")).toBeVisible();
+  await expect(page.getByTestId("guide-venue-map-link")).toHaveAttribute(
+    "href",
+    /uri\.amap\.com\/marker/,
+  );
+});
+
+test("contact page reuses the venue navigation destination", async ({ page }) => {
+  await page.goto("/contact");
+
+  await expect(page.getByTestId("contact-venue-map-link")).toHaveAttribute(
+    "href",
+    /uri\.amap\.com\/marker/,
+  );
+});
