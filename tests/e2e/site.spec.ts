@@ -22,6 +22,19 @@ test("mobile navigation opens and shows key links", async ({ page, isMobile }) =
   await expect(page.getByTestId("mobile-nav-contact")).toBeVisible();
 });
 
+test("homepage does not overflow horizontally on mobile", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Only meaningful in the mobile project");
+
+  await page.goto("/");
+
+  const dimensions = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+
+  expect(dimensions.scrollWidth).toBe(dimensions.clientWidth);
+});
+
 test("search page returns cross-content results", async ({ page }) => {
   await page.goto("/search");
   await page.getByTestId("search-input").fill("赵清越");

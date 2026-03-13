@@ -7,9 +7,18 @@ import { cn } from "@/lib/utils";
 type AnimatedSectionProps = {
   children: React.ReactNode;
   className?: string;
+  variant?: "rise" | "fade" | "scale";
+  stagger?: boolean;
+  threshold?: number;
 };
 
-export function AnimatedSection({ children, className }: AnimatedSectionProps) {
+export function AnimatedSection({
+  children,
+  className,
+  variant = "rise",
+  stagger = false,
+  threshold = 0.12,
+}: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,16 +39,21 @@ export function AnimatedSection({ children, className }: AnimatedSectionProps) {
           observer.unobserve(element);
         }
       },
-      { threshold: 0.1 },
+      { threshold },
     );
 
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
 
   return (
-    <div className={cn("animate-on-scroll", className)} ref={ref}>
+    <div
+      className={cn("animate-on-scroll", className)}
+      data-stagger={stagger ? "true" : undefined}
+      data-variant={variant}
+      ref={ref}
+    >
       {children}
     </div>
   );
