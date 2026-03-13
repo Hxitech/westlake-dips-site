@@ -8,7 +8,6 @@ const colors = [
 
 function getParticleStyle(index: number) {
   // Deterministic positions computed from index (no Math.random for SSR/hydration safety)
-  const seed = (index * 137.5) % 100;
   const left = ((index * 23.7 + 11) % 100);
   const top = ((index * 31.3 + 7) % 100);
   const size = 3 + (index % 4) * 2;

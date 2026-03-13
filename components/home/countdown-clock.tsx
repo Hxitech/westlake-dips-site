@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 type CountdownClockProps = {
   eventStart: string;
   eventEnd: string;
+  variant?: "panel" | "embedded";
 };
 
 const labels = {
@@ -24,6 +25,7 @@ const unitLabels = {
 export function CountdownClock({
   eventStart,
   eventEnd,
+  variant = "panel",
 }: CountdownClockProps) {
   const { locale } = useLocale();
   const [state, setState] = useState(() =>
@@ -42,8 +44,16 @@ export function CountdownClock({
   const units = unitLabels[locale];
 
   return (
-    <div className="panel accent-ring relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-      <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-300/18 blur-3xl" />
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        variant === "panel" && "panel accent-ring rounded-[2rem] p-6 sm:p-8",
+        variant === "embedded" && "rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:p-6",
+      )}
+    >
+      {variant === "panel" ? (
+        <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-300/18 blur-3xl" />
+      ) : null}
       <div className="relative">
         <div
           className={cn(
@@ -56,7 +66,7 @@ export function CountdownClock({
         >
           {statusLabel}
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className={cn("grid grid-cols-2 gap-4 sm:grid-cols-4", variant === "panel" ? "mt-6" : "mt-5")}>
           {[
             [units[0], state.parts.days],
             [units[1], state.parts.hours],
@@ -65,9 +75,19 @@ export function CountdownClock({
           ].map(([label, value]) => (
             <div
               key={String(label)}
-              className="countdown-pulse rounded-[1.5rem] border border-white/10 bg-white/5 p-4 text-center"
+              className={cn(
+                "countdown-pulse rounded-[1.5rem] border border-white/10 text-center",
+                variant === "panel" && "bg-white/5 p-4",
+                variant === "embedded" && "bg-white/[0.04] p-4 sm:p-5",
+              )}
             >
-              <div className="font-serif text-4xl text-white sm:text-5xl">
+              <div
+                className={cn(
+                  "font-serif text-white",
+                  variant === "panel" && "text-4xl sm:text-5xl",
+                  variant === "embedded" && "text-4xl xl:text-[3.2rem]",
+                )}
+              >
                 {String(value).padStart(2, "0")}
               </div>
               <div className="mt-2 text-xs uppercase tracking-[0.24em] text-slate-400">

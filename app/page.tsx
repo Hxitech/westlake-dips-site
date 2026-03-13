@@ -29,6 +29,30 @@ const eventStructuredData = {
   },
 };
 
+const heroSignals = [
+  {
+    label: "Academic Axis",
+    titleZh: "AI x 病理",
+    titleEn: "AI x Pathology",
+    detailZh: "从基础研究到临床转化的连续坐标。",
+    detailEn: "A continuous axis from basic research to clinical translation.",
+  },
+  {
+    label: "Summit Format",
+    titleZh: "主论坛 + 专场",
+    titleEn: "Plenary + Tracks",
+    detailZh: "在一天内完成主题报告、专题交流与产业对话。",
+    detailEn: "A full day of keynotes, focused sessions, and industry dialogue.",
+  },
+  {
+    label: "Research Network",
+    titleZh: "全国协同",
+    titleEn: "Nationwide Network",
+    detailZh: "高校、医院、科研与企业代表深度汇聚。",
+    detailEn: "Universities, hospitals, research institutes, and industry converge together.",
+  },
+];
+
 export default async function Home() {
   const [announcements, archives] = await Promise.all([
     getAnnouncementSummaries(),
@@ -54,68 +78,113 @@ export default async function Home() {
         <div className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-cyan-400/8 blur-[100px]" aria-hidden />
         <div className="pointer-events-none absolute -right-24 bottom-1/4 h-56 w-56 rounded-full bg-indigo-400/8 blur-[100px]" aria-hidden />
         <div className="container-shell relative py-20 sm:py-24">
-          {/* Top: Full-width hero text */}
-          <div className="max-w-4xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/16 bg-cyan-300/10 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-cyan-200/90">
-              <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
-            </span>
-            <h1 className="mt-6 font-serif text-3xl leading-snug tracking-tight text-white sm:text-4xl lg:text-5xl">
-              <T zh={siteConfig.name} en={siteConfig.nameEn} />
-            </h1>
-            <p className="mt-3 text-xl text-gradient sm:text-2xl lg:text-3xl">
-              <T zh={heroContent.title} en={heroContent.titleEn} />
-            </p>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300/86 sm:text-lg sm:leading-8">
-              <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2.5 text-sm text-slate-200">
-              <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5">
-                <T zh={heroContent.location} en={heroContent.locationEn} />
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(24rem,0.92fr)] xl:items-start">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/16 bg-cyan-300/10 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-cyan-200/90">
+                <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5">
-                <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5">
-                <T zh={siteConfig.venue} en={siteConfig.venueEn} />
-              </span>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {heroContent.ctas.map((cta) => (
-                <ButtonLink
-                  href={cta.href}
-                  key={cta.href}
-                  variant={cta.variant}
-                >
-                  <T zh={cta.label} en={cta.labelEn} />
-                </ButtonLink>
-              ))}
-            </div>
-          </div>
+              <h1 className="mt-6 font-serif text-3xl leading-snug tracking-tight text-white sm:text-4xl lg:text-5xl">
+                <T zh={siteConfig.name} en={siteConfig.nameEn} />
+              </h1>
+              <p className="mt-3 text-xl text-gradient sm:text-2xl lg:text-3xl">
+                <T zh={heroContent.title} en={heroContent.titleEn} />
+              </p>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300/86 sm:text-lg sm:leading-8">
+                <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
+              </p>
 
-          {/* Bottom: 2-col — Quick Facts + Countdown */}
-          <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {quickFacts.map((fact) => (
-                <div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
-                  key={fact.label}
-                >
-                  <div className="font-serif text-2xl text-white sm:text-3xl">
-                    <T zh={fact.value} en={fact.valueEn} />
+              <div className="mt-7 flex flex-wrap gap-3 text-sm text-slate-200">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/80">
+                    <T zh="地点" en="Venue" />
+                  </span>
+                  <span className="text-sm text-white">
+                    <T zh={heroContent.location} en={heroContent.locationEn} />
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/80">
+                    <T zh="时间" en="Date" />
+                  </span>
+                  <span className="text-sm text-white">
+                    <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {heroContent.ctas.map((cta) => (
+                  <ButtonLink
+                    href={cta.href}
+                    key={cta.href}
+                    variant={cta.variant}
+                  >
+                    <T zh={cta.label} en={cta.labelEn} />
+                  </ButtonLink>
+                ))}
+              </div>
+            </div>
+
+            <div className="panel accent-ring rounded-[2rem] p-5 sm:p-6 lg:p-7">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.26em] text-cyan-200/78">
+                    Summit Signal Deck
                   </div>
-                  <div className="mt-1.5 text-sm font-medium text-slate-100">
-                    <T zh={fact.label} en={fact.labelEn} />
-                  </div>
-                  <div className="mt-1.5 text-xs leading-5 text-slate-400">
-                    <T zh={fact.detail} en={fact.detailEn} />
+                  <div className="mt-2 text-sm text-slate-300/78">
+                    <T
+                      zh="用一块信息面板快速掌握本届峰会的主题、时间与规模。"
+                      en="A single information deck for the summit theme, timing, and scale."
+                    />
                   </div>
                 </div>
-              ))}
+                <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs uppercase tracking-[0.24em] text-slate-200">
+                  DIPS / 2026
+                </span>
+              </div>
+
+              <div className="mt-6 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+                  <T zh="会议主题" en="Theme" />
+                </div>
+                <h2 className="mt-3 font-serif text-2xl leading-tight text-white sm:text-[2rem]">
+                  <T zh={heroContent.title} en={heroContent.titleEn} />
+                </h2>
+                <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300/78">
+                  <T
+                    zh="聚焦前沿研究、临床转化与产业共建，打造更高密度的学术交流场域。"
+                    en="Focused on frontier research, clinical translation, and ecosystem collaboration in one high-density academic gathering."
+                  />
+                </p>
+              </div>
+
+              <div className="mt-5">
+                <CountdownClock
+                  eventEnd={siteConfig.eventEnd}
+                  eventStart={siteConfig.eventStart}
+                  variant="embedded"
+                />
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 gap-4">
+                {quickFacts.map((fact) => (
+                  <div
+                    className="rounded-[1.5rem] border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
+                    key={fact.label}
+                  >
+                    <div className="font-serif text-2xl text-white sm:text-3xl">
+                      <T zh={fact.value} en={fact.valueEn} />
+                    </div>
+                    <div className="mt-2 text-sm font-medium text-slate-100">
+                      <T zh={fact.label} en={fact.labelEn} />
+                    </div>
+                    <div className="mt-2 text-xs leading-5 text-slate-400">
+                      <T zh={fact.detail} en={fact.detailEn} />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <CountdownClock
-              eventEnd={siteConfig.eventEnd}
-              eventStart={siteConfig.eventStart}
-            />
           </div>
         </div>
       </section>
@@ -124,7 +193,26 @@ export default async function Home() {
 
       {/* ── Summit Focus ── */}
       <AnimatedSection className="container-shell py-16 sm:py-20">
+        <div className="grid gap-4 md:grid-cols-3">
+          {heroSignals.map((item) => (
+            <div
+              className="panel panel-glow rounded-2xl p-5"
+              key={item.label}
+            >
+              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-cyan-200/76">
+                {item.label}
+              </div>
+              <div className="mt-3 text-lg font-medium text-white">
+                <T zh={item.titleZh} en={item.titleEn} />
+              </div>
+              <div className="mt-2 text-sm leading-6 text-slate-300/80">
+                <T zh={item.detailZh} en={item.detailEn} />
+              </div>
+            </div>
+          ))}
+        </div>
         <SectionHeading
+          className="mt-12"
           description={
             <T
               zh="深度聚焦人工智能与数字病理学交叉学科的融合与最新进展。"
