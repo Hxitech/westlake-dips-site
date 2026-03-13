@@ -25,18 +25,18 @@ export function SectionHeading({
         className,
       )}
     >
-      <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/92">
+      <div className={cn("max-w-3xl", align === "center" && "mx-auto")}>
+        <span className="luxe-badge">
           {eyebrow}
         </span>
-        <h2 className="mt-5 font-serif text-3xl tracking-tight text-white sm:text-4xl">
+        <h2 className="mt-5 font-serif text-[clamp(2rem,3vw,3.25rem)] leading-[1.08] tracking-[-0.04em] text-white [text-wrap:balance]">
           {title}
         </h2>
-        <p className="mt-4 text-base leading-8 text-slate-300/82 sm:text-lg">
+        <p className="mt-4 text-[clamp(0.98rem,1.28vw,1.12rem)] leading-8 text-slate-300/82 [text-wrap:pretty]">
           {description}
         </p>
       </div>
-      {action}
+      {action ? <div className="shrink-0">{action}</div> : null}
     </div>
   );
 }

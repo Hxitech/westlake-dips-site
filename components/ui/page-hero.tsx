@@ -1,3 +1,5 @@
+import { HeroAtmosphere } from "@/components/ui/hero-atmosphere";
+
 type PageHeroProps = {
   eyebrow: React.ReactNode;
   title: React.ReactNode;
@@ -13,15 +15,16 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-white/10">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(64,190,255,0.18),transparent_30%),radial-gradient(circle_at_85%_0%,rgba(96,122,255,0.22),transparent_34%),linear-gradient(180deg,rgba(6,12,24,0.2),rgba(6,12,24,0.88))]" />
+      <HeroAtmosphere intensity="soft" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,12,24,0.18),rgba(6,12,24,0.9))]" />
       <div className="container-shell relative py-24 sm:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-1 text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/90">
+        <span className="luxe-badge">
           {eyebrow}
         </span>
-        <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="mt-6 max-w-4xl font-serif text-[clamp(2.4rem,4vw,4.8rem)] leading-[1.08] tracking-[-0.04em] text-white [text-wrap:balance]">
           {title}
         </h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300/88 sm:text-xl">
+        <p className="mt-6 max-w-3xl text-[clamp(1rem,1.5vw,1.22rem)] leading-8 text-slate-300/88 [text-wrap:pretty]">
           {description}
         </p>
         {meta.length > 0 ? (
@@ -29,7 +32,7 @@ export function PageHero({
             {meta.map((item, index) => (
               <span
                 key={index}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2"
+                className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 backdrop-blur"
               >
                 {item}
               </span>
