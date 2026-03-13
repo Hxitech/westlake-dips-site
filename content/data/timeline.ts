@@ -27,12 +27,12 @@ export const timeline: TimelineEntry[] = [
     theme: "大模型浪潮下人工智能与数智病理的创新与融合",
     themeEn: "Innovation & Integration of AI and Digital Pathology in the Era of Large Models",
     achievements: [
-      "移师西安西北大学，由西北大学、中华医学会病理学分会、北京精鉴病理学发展基金会联合主办。",
+      "移师西安西北大学长安校区，第二届会场设于学生活动中心星空报告厅。",
       "设置大模型前沿技术、精准诊断、青年学者交流、产业融合四大专场。",
       "深度聚焦人工智能与数字病理学交叉学科的融合与最新进展。",
     ],
     achievementsEn: [
-      "Relocated to Northwest University, Xi'an; co-hosted by NWU, Chinese Society of Pathology, and Beijing Jingjian Foundation.",
+      "Relocated to Northwest University Chang'an Campus in Xi'an, with the 2nd edition held at the Xingkong Auditorium in the Student Activity Center.",
       "Four dedicated tracks: Large Model Technology, Precision Diagnosis, Young Scholar Exchange, and Industry Integration.",
       "Deep focus on the integration and latest advances at the intersection of AI and digital pathology.",
     ],

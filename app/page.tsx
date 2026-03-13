@@ -8,7 +8,7 @@ import { SectionDivider } from "@/components/ui/section-divider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
 import { heroContent, quickFacts, schedulePreview, siteConfig, summitHighlights } from "@/content/data/site";
-import { sponsorTiers } from "@/content/data/partners";
+import { partnerCollaborationAreas } from "@/content/data/partners";
 import { speakers } from "@/content/data/speakers";
 import { timeline } from "@/content/data/timeline";
 import { getAnnouncementSummaries, getArchiveSummaries, formatDisplayDate } from "@/lib/content";
@@ -242,12 +242,12 @@ export default async function Home() {
             <SectionHeading
               description={
                 <T
-                  zh="涵盖开幕主论坛、AI 诊断、流程重构与产业圆桌。"
-                  en="Opening plenary, AI diagnostics, workflow, and industry roundtable."
+                  zh="聚焦 5 月 10 日开幕主论坛、专题交流与产业对话。"
+                  en="Focused on the May 10 plenary, specialist sessions, and industry dialogue."
                 />
               }
               eyebrow={<T zh="日程预览" en="Schedule" />}
-              title={<T zh="两天精彩议程" en="Two-Day Agenda" />}
+              title={<T zh="精彩议程" en="Agenda Highlights" />}
             />
             <div className="mt-8 space-y-3">
               {schedulePreview.map((item) => (
@@ -320,7 +320,7 @@ export default async function Home() {
 
       <SectionDivider />
 
-      {/* ── Sponsorship ── */}
+      {/* ── Partners ── */}
       <AnimatedSection className="container-shell py-16 sm:py-20">
         <SectionHeading
           action={
@@ -330,30 +330,24 @@ export default async function Home() {
           }
           description={
             <T
-              zh="诚邀先锋企业与合作伙伴共襄盛会，共同推动数智病理发展。"
-              en="Inviting leading enterprises and partners to jointly advance digital pathology."
+              zh="欢迎高校、医院、科研机构、企业与社会组织围绕学术、临床与产业协同开展合作。"
+              en="Universities, hospitals, research institutes, enterprises, and social organizations are welcome to collaborate across academic, clinical, and industry initiatives."
             />
           }
-          eyebrow={<T zh="赞助合作" en="Sponsorship" />}
-          title={<T zh="大会合作方案" en="Partnership Packages" />}
+          eyebrow={<T zh="合作伙伴" en="Partners" />}
+          title={<T zh="共建数智病理合作网络" en="Build the Digital Pathology Partnership Network" />}
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {sponsorTiers.map((tier) => (
+          {partnerCollaborationAreas.map((item) => (
             <div
               className="panel panel-glow rounded-2xl p-5 transition hover:border-cyan-300/22"
-              key={tier.tier}
+              key={item.id}
             >
               <div className="text-xs uppercase tracking-[0.2em] text-cyan-200/80">
-                <T zh={tier.name} en={tier.nameEn} />
+                <T zh={item.title} en={item.titleEn} />
               </div>
-              <h3 className="mt-3 font-serif text-2xl text-white">
-                <T zh={tier.price} en={tier.priceEn} />
-              </h3>
               <p className="mt-3 text-sm leading-6 text-slate-300/78">
-                <T
-                  zh={tier.benefits.slice(0, 2).join("；")}
-                  en={tier.benefitsEn.slice(0, 2).join("; ")}
-                />
+                <T zh={item.description} en={item.descriptionEn} />
               </p>
             </div>
           ))}
@@ -436,8 +430,8 @@ export default async function Home() {
               </h2>
               <p className="mt-4 text-sm leading-7 text-slate-300/84 sm:text-base sm:leading-8">
                 <T
-                  zh="2026 年 5 月，西安西北大学，期待与您共同见证数智病理的最新突破。立即注册，锁定席位。"
-                  en="May 2026, Northwest University, Xi'an. Join us for the latest breakthroughs in digital pathology. Register now."
+                  zh="2026 年 5 月，西安西北大学长安校区，期待与您共同见证数智病理的最新突破。立即注册，锁定席位。"
+                  en="May 2026, Northwest University Chang'an Campus, Xi'an. Join us for the latest breakthroughs in digital pathology. Register now."
                 />
               </p>
             </div>

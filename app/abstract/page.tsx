@@ -69,7 +69,7 @@ const keyDates = [
   },
   {
     icon: FileText,
-    date: { zh: "2026 年 5 月 9-10 日", en: "May 9-10, 2026" },
+    date: { zh: "2026 年 5 月 10 日", en: "May 10, 2026" },
     label: { zh: "峰会报告", en: "Summit Presentation" },
   },
 ];
