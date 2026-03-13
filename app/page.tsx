@@ -107,8 +107,8 @@ export default async function Home() {
         <HeroAtmosphere />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,18,0.14),rgba(5,10,18,0.72)_58%,rgba(5,10,18,0.94))]" />
         <div className="container-shell relative py-14 sm:py-[4.5rem] lg:py-24">
-          <div className="grid gap-10 xl:grid-cols-[1.06fr_0.94fr] xl:items-start">
-            <div className="max-w-4xl">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(24rem,0.98fr)] xl:items-start">
+            <div className="max-w-3xl">
               <span className="luxe-badge">
                 <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
               </span>
@@ -125,26 +125,26 @@ export default async function Home() {
                 <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
               </p>
 
-              <div className="mt-7 grid gap-3 sm:max-w-2xl sm:grid-cols-2">
-                <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur">
-                  <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
-                    <T zh="峰会城市" en="Summit City" />
-                  </div>
-                  <div className="mt-2 text-sm text-white">
+              <div className="mt-7 flex flex-wrap gap-3 text-sm text-slate-200">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+                    <T zh="地点" en="Venue" />
+                  </span>
+                  <span className="text-sm text-white">
                     <T zh={heroContent.location} en={heroContent.locationEn} />
-                  </div>
+                  </span>
                 </div>
-                <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur">
-                  <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
-                    <T zh="会议时间" en="Event Date" />
-                  </div>
-                  <div className="mt-2 text-sm text-white">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+                    <T zh="时间" en="Date" />
+                  </span>
+                  <span className="text-sm text-white">
                     <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
-                  </div>
+                  </span>
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-10 flex flex-wrap gap-3">
                 {heroContent.ctas.map((cta) => (
                   <ButtonLink
                     href={cta.href}
@@ -155,121 +155,74 @@ export default async function Home() {
                   </ButtonLink>
                 ))}
               </div>
-
-              <div className="mt-10 grid gap-3 md:grid-cols-3">
-                {heroSignals.map((item) => (
-                  <div
-                    className="panel-glow rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,34,0.74),rgba(7,13,24,0.66))] px-4 py-4 backdrop-blur"
-                    key={item.label.en}
-                  >
-                    <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/76">
-                      <T zh={item.label.zh} en={item.label.en} />
-                    </div>
-                    <div className="mt-2 text-lg font-medium text-white">
-                      <T zh={item.value.zh} en={item.value.en} />
-                    </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-300/76">
-                      <T zh={item.detail.zh} en={item.detail.en} />
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <AnimatedSection className="xl:pt-8" threshold={0.08} variant="scale">
-              <div className="panel-luxe rounded-[2rem] border border-white/10 p-5 sm:p-6">
-                <div className="flex items-start justify-between gap-4">
+              <div className="panel-luxe rounded-[2rem] border border-white/10 p-5 sm:p-6 lg:p-7">
+                <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
                       Summit Signal Deck
                     </div>
-                    <h2 className="mt-3 font-serif text-[clamp(1.7rem,2vw,2.25rem)] leading-tight text-white">
+                    <p className="mt-2 text-sm leading-6 text-slate-300/76">
                       <T
-                        zh="高端 AI 学术会议的现场坐标"
-                        en="The Live Coordinates of a Premium AI Summit"
+                        zh="用一块信息甲板快速掌握本届峰会的主题、时间与规模。"
+                        en="One focused deck for the summit theme, timing, and scale."
                       />
-                    </h2>
+                    </p>
                   </div>
                   <div className="rounded-full border border-[rgba(217,196,157,0.22)] bg-[rgba(217,196,157,0.08)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-[rgba(236,220,193,0.9)]">
                     DIPS 2026
                   </div>
                 </div>
 
-                <div className="mt-6 grid gap-3 md:grid-cols-3 xl:grid-cols-1">
-                  {[
-                    {
-                      labelZh: "大会会场",
-                      labelEn: "Venue",
-                      valueZh: siteConfig.venue,
-                      valueEn: siteConfig.venueEn,
-                      detailZh: "学术交流、专题演讲与合作联结的核心场域。",
-                      detailEn: "The core venue for keynote exchange, specialist talks, and collaboration.",
-                    },
-                    {
-                      labelZh: "峰会形式",
-                      labelEn: "Format",
-                      valueZh: "线下主会场 / 线上联动",
-                      valueEn: "Onsite / Hybrid Reach",
-                      detailZh: "面向全国病理、AI 与临床协作网络开放。",
-                      detailEn: "Open to pathology, AI, and clinical collaboration networks nationwide.",
-                    },
-                    {
-                      labelZh: "会议主题",
-                      labelEn: "Theme",
-                      valueZh: "大模型时代的数智病理",
-                      valueEn: "Digital Pathology in the Era of Large Models",
-                      detailZh: "聚焦前沿研究、临床转化与产业共建。",
-                      detailEn: "Centered on frontier research, clinical translation, and ecosystem building.",
-                    },
-                  ].map((item) => (
+                <div className="mt-6 rounded-[1.7rem] border border-white/10 bg-white/[0.045] px-5 py-5 backdrop-blur-sm">
+                  <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/74">
+                    <T zh="会议主题" en="Theme" />
+                  </div>
+                  <h2 className="mt-3 font-serif text-[clamp(1.7rem,2.4vw,2.35rem)] leading-tight text-white [text-wrap:balance]">
+                    <T zh={heroContent.title} en={heroContent.titleEn} />
+                  </h2>
+                  <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300/76">
+                    <T
+                      zh="聚焦前沿研究、临床转化与产业共建，打造更高密度的学术交流场域。"
+                      en="Focused on frontier research, clinical translation, and ecosystem collaboration in one high-density academic gathering."
+                    />
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <CountdownClock
+                    eventEnd={siteConfig.eventEnd}
+                    eventStart={siteConfig.eventStart}
+                    variant="embedded"
+                  />
+                </div>
+
+                <AnimatedSection
+                  className="mt-5 grid grid-cols-2 gap-4"
+                  stagger
+                  threshold={0.04}
+                  variant="fade"
+                >
+                  {quickFacts.map((fact) => (
                     <div
-                      className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur"
-                      key={item.labelEn}
+                      className="panel-glow rounded-[1.55rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,26,45,0.78),rgba(9,16,29,0.72))] p-4 backdrop-blur-sm"
+                      key={fact.label}
                     >
-                      <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/74">
-                        <T zh={item.labelZh} en={item.labelEn} />
+                      <div className="font-serif text-[clamp(2rem,3.4vw,2.7rem)] leading-none text-white">
+                        <T zh={fact.value} en={fact.valueEn} />
                       </div>
-                      <div className="mt-2 text-base font-medium leading-7 text-white">
-                        <T zh={item.valueZh} en={item.valueEn} />
+                      <div className="mt-2 text-sm font-medium text-slate-100">
+                        <T zh={fact.label} en={fact.labelEn} />
                       </div>
-                      <p className="mt-2 text-sm leading-6 text-slate-300/74">
-                        <T zh={item.detailZh} en={item.detailEn} />
-                      </p>
+                      <div className="mt-2 text-xs leading-5 text-slate-400">
+                        <T zh={fact.detail} en={fact.detailEn} />
+                      </div>
                     </div>
                   ))}
-                </div>
+                </AnimatedSection>
               </div>
-
-              <div className="mt-4">
-                <CountdownClock
-                  eventEnd={siteConfig.eventEnd}
-                  eventStart={siteConfig.eventStart}
-                />
-              </div>
-
-              <AnimatedSection
-                className="mt-4 grid grid-cols-2 gap-4"
-                stagger
-                threshold={0.04}
-                variant="fade"
-              >
-                {quickFacts.map((fact) => (
-                  <div
-                    className="panel-glow rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,26,45,0.8),rgba(9,16,29,0.72))] p-4 backdrop-blur-sm"
-                    key={fact.label}
-                  >
-                    <div className="font-serif text-[clamp(1.8rem,3vw,2.45rem)] leading-none text-white">
-                      <T zh={fact.value} en={fact.valueEn} />
-                    </div>
-                    <div className="mt-2 text-sm font-medium text-slate-100">
-                      <T zh={fact.label} en={fact.labelEn} />
-                    </div>
-                    <div className="mt-2 text-xs leading-5 text-slate-400">
-                      <T zh={fact.detail} en={fact.detailEn} />
-                    </div>
-                  </div>
-                ))}
-              </AnimatedSection>
             </AnimatedSection>
           </div>
         </div>
@@ -278,8 +231,27 @@ export default async function Home() {
       <SectionDivider />
 
       <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
+        <AnimatedSection className="grid gap-4 md:grid-cols-3" stagger variant="fade">
+          {heroSignals.map((item) => (
+            <div
+              className="panel-glow rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,34,0.74),rgba(7,13,24,0.66))] px-4 py-4 backdrop-blur"
+              key={item.label.en}
+            >
+              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-cyan-200/76">
+                <T zh={item.label.zh} en={item.label.en} />
+              </div>
+              <div className="mt-3 text-lg font-medium text-white">
+                <T zh={item.value.zh} en={item.value.en} />
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-300/76">
+                <T zh={item.detail.zh} en={item.detail.en} />
+              </p>
+            </div>
+          ))}
+        </AnimatedSection>
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <SectionHeading
+            className="mt-12"
             description={
               <T
                 zh="以更清晰的议题轨道串联人工智能、临床诊断与成果转化，让峰会既有学术锋芒，也有产业落地。"
