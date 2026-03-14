@@ -9,7 +9,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
 import { heroContent, quickFacts, schedulePreview, siteConfig, summitHighlights } from "@/content/data/site";
 import { partnerCollaborationAreas } from "@/content/data/partners";
-import { speakers } from "@/content/data/speakers";
 import { timeline } from "@/content/data/timeline";
 import { getAnnouncementSummaries, getArchiveSummaries, formatDisplayDate } from "@/lib/content";
 
@@ -411,52 +410,6 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </AnimatedSection>
-
-      <SectionDivider />
-
-      <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-        <SectionHeading
-          description={
-            <T
-              zh="来自病理学、AI、医院管理与产业界的重磅嘉宾，以观点、案例与方法推动峰会的学术深度。"
-              en="Leading figures from pathology, AI, hospital management, and industry bring viewpoints, cases, and methods to the summit."
-            />
-          }
-          eyebrow={<T zh="特邀嘉宾" en="Speakers" />}
-          title={<T zh="核心嘉宾阵容" en="Speaker Lineup" />}
-        />
-        <AnimatedSection className="mt-10 grid gap-5 xl:grid-cols-2" stagger variant="fade">
-          {speakers.map((speaker, index) => (
-            <div
-              className="panel-glow group rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(12,22,38,0.86),rgba(8,15,26,0.72))] p-5 transition hover:-translate-y-0.5 hover:border-cyan-300/22"
-              key={speaker.id}
-            >
-              <div className="flex gap-4">
-                <div className="flex size-14 shrink-0 items-center justify-center rounded-[1.15rem] border border-white/10 bg-[linear-gradient(135deg,rgba(120,217,255,0.16),rgba(217,196,157,0.14))] font-serif text-lg text-white">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <div className="min-w-0">
-                  <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/80">
-                    <T zh={speaker.organization} en={speaker.organizationEn} />
-                  </div>
-                  <h3 className="mt-1 text-xl font-semibold text-white">
-                    <T zh={speaker.name} en={speaker.nameEn} />
-                  </h3>
-                  <p className="mt-1 text-sm text-slate-400">
-                    <T zh={speaker.role} en={speaker.roleEn} />
-                  </p>
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-300/78">
-                <T zh={speaker.focus} en={speaker.focusEn} />
-              </p>
-              <blockquote className="mt-4 border-l-2 border-cyan-300/36 pl-4 text-sm leading-7 text-white/84 italic">
-                &ldquo;<T zh={speaker.quote} en={speaker.quoteEn} />&rdquo;
-              </blockquote>
-            </div>
-          ))}
-        </AnimatedSection>
       </AnimatedSection>
 
       <SectionDivider />
