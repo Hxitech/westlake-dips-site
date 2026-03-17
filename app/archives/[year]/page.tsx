@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { PhotoCarousel } from "@/components/mdx/photo-carousel";
 import { ButtonLink } from "@/components/ui/button-link";
 import { T } from "@/components/ui/t";
+import { archiveGalleries } from "@/content/data/archive-galleries";
 import { createPageMetadata } from "@/lib/metadata";
 import { getArchiveByYear, getArchiveSummaries } from "@/lib/content";
 
@@ -53,6 +55,8 @@ export default async function ArchiveDetailPage({
     notFound();
   }
 
+  const gallery = archiveGalleries[year];
+
   return (
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
       <div className="max-w-5xl">
@@ -75,6 +79,14 @@ export default async function ArchiveDetailPage({
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300/84 sm:text-lg">
             <T zh={entry.frontmatter.highlight} en={entry.frontmatter.highlightEn ?? entry.frontmatter.highlight} />
           </p>
+          {gallery ? (
+            <>
+              <h2 className="mt-12 scroll-mt-28 border-t border-white/10 pt-8 font-serif text-2xl text-white">
+                <T zh="峰会掠影" en="Photo Gallery" />
+              </h2>
+              <PhotoCarousel images={gallery} />
+            </>
+          ) : null}
           <div className="mt-10">{entry.content}</div>
         </div>
         <ButtonLink className="mt-8" href="/partners" variant="secondary">

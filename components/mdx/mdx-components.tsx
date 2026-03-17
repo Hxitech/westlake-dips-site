@@ -1,8 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
-import { PhotoCarousel } from "@/components/mdx/photo-carousel";
-
 export const mdxComponents: MDXComponents = {
   h2: (props) => (
     <h2
@@ -54,5 +52,4 @@ export const mdxComponents: MDXComponents = {
       />
     );
   },
-  PhotoCarousel,
 };
