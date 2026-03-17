@@ -14,13 +14,13 @@ type CarouselImage = {
 };
 
 type PhotoCarouselProps = {
-  images: CarouselImage[];
+  images?: CarouselImage[];
 };
 
 const AUTO_PLAY_MS = 3200;
 
 export function PhotoCarousel({
-  images,
+  images = [],
 }: PhotoCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const currentIndexRef = useRef(0);
@@ -137,6 +137,10 @@ export function PhotoCarousel({
 
     return () => window.clearInterval(intervalId);
   }, [images.length, isPlaying, reduceMotion, scrollToIndex]);
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mt-6 rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,29,48,0.9),rgba(9,16,28,0.72))] p-4 sm:p-5">
