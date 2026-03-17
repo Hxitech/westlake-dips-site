@@ -71,8 +71,8 @@ export function SiteHeader({
                 <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
                   DIPS · 2026
                 </div>
-                <div className="mt-1 truncate text-sm font-medium text-white">
-                  <T zh="数智病理西湖峰会" en="DIPS Summit" />
+                <div className="mt-1 truncate whitespace-nowrap text-sm font-medium text-white">
+                  <T zh="数智病理峰会" en="DIPS Summit" />
                 </div>
               </div>
             </Link>

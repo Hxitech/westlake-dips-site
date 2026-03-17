@@ -8,7 +8,7 @@ import type {
 } from "@/content/types";
 
 export const siteConfig: SiteConfig = {
-  name: "全国数智病理西湖峰会",
+  name: "全国数智病理峰会",
   nameEn: "National Digital & Intelligent Pathology Summit",
   shortName: "数智病理峰会",
   shortNameEn: "DIPS",
@@ -175,7 +175,7 @@ export const registrationConfig: RegistrationConfig = {
   primaryLabel: "报名通道即将开放",
   primaryLabelEn: "Registration Opening Soon",
   description:
-    "第二届全国数智病理西湖峰会报名通道即将上线，届时可通过本页面进入注册流程。",
+    "第二届全国数智病理峰会报名通道即将上线，届时可通过本页面进入注册流程。",
   descriptionEn:
     "Registration for the 2nd DIPS Summit will open soon. You can register directly through this page.",
   tips: [

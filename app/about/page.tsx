@@ -65,19 +65,30 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        description={
-          <T
-            zh="峰会以病理数字化与人工智能协作为中心议题，连接学术、临床与产业，推动数智病理持续发展。"
-            en="The summit focuses on digital pathology and AI collaboration, connecting academia, clinics, and industry."
-          />
-        }
         eyebrow={<T zh="关于峰会" en="About" />}
         meta={[
           <T key="a" zh={siteConfig.acronym} en={siteConfig.acronym} />,
-          <T key="c" zh={siteConfig.city} en={siteConfig.cityEn} />,
-          <T key="v" zh={siteConfig.venue} en={siteConfig.venueEn} />,
         ]}
-        title={<T zh="聚焦数智病理，连接学术与产业" en="Bridging AI & Pathology, Academia & Industry" />}
+        title={(
+          <T
+            zh={(
+              <>
+                <span>聚焦数智病理，连接学术与产业</span>
+                <span className="ml-4 inline text-[clamp(1rem,1.5vw,1.22rem)] font-normal tracking-normal text-slate-300/88">
+                  峰会以病理数字化与人工智能协作为中心议题，连接学术、临床与产业，推动数智病理持续发展。
+                </span>
+              </>
+            )}
+            en={(
+              <>
+                <span>Bridging AI &amp; Pathology, Academia &amp; Industry</span>
+                <span className="ml-4 inline text-[clamp(1rem,1.5vw,1.22rem)] font-normal tracking-normal text-slate-300/88">
+                  The summit focuses on digital pathology and AI collaboration, connecting academia, clinics, and industry.
+                </span>
+              </>
+            )}
+          />
+        )}
       />
 
       {/* Summit Overview */}

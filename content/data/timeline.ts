@@ -3,7 +3,7 @@ import type { TimelineEntry } from "@/content/types";
 export const timeline: TimelineEntry[] = [
   {
     year: 2025,
-    title: "首届数智病理西湖峰会",
+    title: "首届数智病理峰会",
     titleEn: "1st DIPS Summit",
     theme: "从 DeepSeek 到 DeepPathAI — 大模型时代的数智病理",
     themeEn: "From DeepSeek to DeepPathAI — Digital & Intelligent Pathology in the Era of Large Models",
@@ -22,12 +22,12 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: 2026,
-    title: "第二届数智病理西湖峰会",
+    title: "数智病理西北峰会",
     titleEn: "2nd DIPS Summit",
     theme: "大模型浪潮下人工智能与数智病理的创新与融合",
     themeEn: "Innovation & Integration of AI and Digital Pathology in the Era of Large Models",
     achievements: [
-      "移师西安西北大学长安校区，第二届会场设于学生活动中心星空报告厅。",
+      "移师西安西北大学长安校区，第二届会场设于星空报告厅。",
       "设置大模型前沿技术、精准诊断、青年学者交流、产业融合四大专场。",
       "深度聚焦人工智能与数字病理学交叉学科的融合与最新进展。",
     ],

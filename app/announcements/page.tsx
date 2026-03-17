@@ -50,7 +50,7 @@ export default async function AnnouncementsPage() {
                   </span>
                 ) : null}
               </div>
-              <h2 className="mt-5 text-3xl font-semibold text-white transition group-hover:text-cyan-200">
+              <h2 className="mt-5 whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-white transition group-hover:text-cyan-200">
                 <T zh={item.title} en={item.titleEn ?? item.title} />
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/80">

@@ -80,7 +80,7 @@ export default function AbstractPage() {
       <PageHero
         description={
           <T
-            zh="欢迎向第二届数智病理西湖峰会提交学术摘要，分享您的研究成果。"
+            zh="欢迎向第二届数智病理峰会提交学术摘要，分享您的研究成果。"
             en="We welcome abstract submissions to the 2nd DIPS Summit. Share your research with the community."
           />
         }

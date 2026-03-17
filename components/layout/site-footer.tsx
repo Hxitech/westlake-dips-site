@@ -13,7 +13,7 @@ export function SiteFooter() {
             <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
               {siteConfig.acronym} · Digital Intelligence in Pathology Summit
             </div>
-            <h2 className="mt-3 max-w-xl font-serif text-[clamp(2rem,3vw,3rem)] leading-[1.08] tracking-[-0.04em] text-white">
+            <h2 className="mt-3 max-w-full whitespace-nowrap font-serif text-[clamp(2rem,3vw,3rem)] leading-[1.08] tracking-[-0.04em] text-white">
               <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300/78">

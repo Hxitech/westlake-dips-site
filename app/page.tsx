@@ -114,7 +114,7 @@ export default async function Home() {
               <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-slate-300/76">
                 DIPS / Digital Intelligence in Pathology Summit
               </div>
-              <h1 className="mt-4 font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-white [text-wrap:balance]">
+              <h1 className="mt-4 max-w-full whitespace-nowrap font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-white">
                 <T zh={siteConfig.name} en={siteConfig.nameEn} />
               </h1>
               <p className="mt-4 max-w-3xl text-[clamp(1.4rem,2.2vw,2.5rem)] leading-[1.16] text-gradient [text-wrap:balance]">
@@ -163,12 +163,6 @@ export default async function Home() {
                     <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
                       Summit Signal Deck
                     </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-300/76">
-                      <T
-                        zh="用一块信息甲板快速掌握本届峰会的主题、时间与规模。"
-                        en="One focused deck for the summit theme, timing, and scale."
-                      />
-                    </p>
                   </div>
                   <div className="rounded-full border border-[rgba(217,196,157,0.22)] bg-[rgba(217,196,157,0.08)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-[rgba(236,220,193,0.9)]">
                     DIPS 2026
@@ -248,24 +242,12 @@ export default async function Home() {
             </div>
           ))}
         </AnimatedSection>
-        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+        <div>
           <SectionHeading
             className="mt-12"
-            description={
-              <T
-                zh="以更清晰的议题轨道串联人工智能、临床诊断与成果转化，让峰会既有学术锋芒，也有产业落地。"
-                en="Three intentional tracks connect AI research, clinical diagnosis, and translation into one coherent summit narrative."
-              />
-            }
             eyebrow={<T zh="峰会聚焦" en="Summit Focus" />}
             title={<T zh="三大核心议题" en="Three Signature Tracks" />}
           />
-          <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(11,21,37,0.7),rgba(10,16,28,0.5))] px-5 py-5 text-sm leading-7 text-slate-300/78 backdrop-blur">
-            <T
-              zh="页面视觉与信息结构同步向“国际学术会议官网”靠拢：版式更稳、动效更克制、重点信息更集中。"
-              en="The visual system shifts toward an international academic summit language: steadier composition, more refined motion, and tighter information hierarchy."
-            />
-          </div>
         </div>
 
         <AnimatedSection className="mt-10 grid gap-4 lg:grid-cols-3" stagger variant="fade">
@@ -335,12 +317,6 @@ export default async function Home() {
                   <T zh="查看全部" en="View All" />
                 </ButtonLink>
               }
-              description={
-                <T
-                  zh="峰会最新日程、嘉宾确认与报名信息以信息流方式更新。"
-                  en="Agenda releases, speaker confirmations, and registration updates arrive as an editorial stream."
-                />
-              }
               eyebrow={<T zh="最新动态" en="News" />}
               title={<T zh="峰会通知" en="Announcements" />}
             />
@@ -374,12 +350,6 @@ export default async function Home() {
 
           <div>
             <SectionHeading
-              description={
-                <T
-                  zh="以更像 agenda rail 的方式呈现开幕主论坛、专题交流与产业对话。"
-                  en="Presented as an agenda rail that foregrounds the summit's keynote, specialist exchange, and industry dialogue."
-                />
-              }
               eyebrow={<T zh="日程预览" en="Schedule" />}
               title={<T zh="精彩议程" en="Agenda Highlights" />}
             />
@@ -501,16 +471,6 @@ export default async function Home() {
                       en={featuredArchive.highlightEn ?? featuredArchive.highlight}
                     />
                   </p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                    {featuredArchive.gallery.map((item, index) => (
-                      <div
-                        className="rounded-[1.3rem] border border-white/10 bg-white/[0.04] px-4 py-4 text-sm leading-6 text-slate-300/78"
-                        key={`${featuredArchive.year}-${item}`}
-                      >
-                        <T zh={item} en={featuredArchive.galleryEn?.[index] ?? item} />
-                      </div>
-                    ))}
-                  </div>
                   <ButtonLink
                     className="mt-6"
                     href={`/archives/${featuredArchive.year}`}

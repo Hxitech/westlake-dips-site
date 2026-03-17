@@ -1,7 +1,22 @@
 import { describe, expect, it } from "vitest";
 
-import { speakers } from "@/content/data/speakers";
 import { buildSearchIndex, searchContent } from "@/lib/search";
+
+const mockSpeakers = [
+  {
+    id: "zhao-qingyue",
+    name: "赵清越",
+    nameEn: "Qingyue Zhao",
+    role: "青年学者",
+    roleEn: "Young Scholar",
+    organization: "西湖大学",
+    organizationEn: "Westlake University",
+    focus: "多模态病理模型",
+    focusEn: "Multimodal pathology models",
+    quote: "推动病理与人工智能深度融合。",
+    quoteEn: "Advance the deep integration of pathology and AI.",
+  },
+];
 
 describe("search index", () => {
   const items = buildSearchIndex({
@@ -24,7 +39,7 @@ describe("search index", () => {
         gallery: ["主论坛"],
       },
     ],
-    speakers,
+    speakers: mockSpeakers,
   });
 
   it("builds a mixed index from announcements, speakers, and archives", () => {

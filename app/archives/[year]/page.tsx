@@ -66,7 +66,7 @@ export default async function ArchiveDetailPage({
           <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
             {entry.frontmatter.year} · <T zh={entry.frontmatter.location} en={entry.frontmatter.locationEn ?? entry.frontmatter.location} />
           </div>
-          <h1 className="mt-5 font-serif text-4xl leading-tight text-white sm:text-5xl">
+          <h1 className="mt-5 whitespace-nowrap font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-white">
             <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
           <p className="mt-5 text-xl text-slate-200">
@@ -75,16 +75,6 @@ export default async function ArchiveDetailPage({
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300/84 sm:text-lg">
             <T zh={entry.frontmatter.highlight} en={entry.frontmatter.highlightEn ?? entry.frontmatter.highlight} />
           </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {entry.frontmatter.gallery.map((item, i) => (
-              <div
-                className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-slate-300/82"
-                key={item}
-              >
-                <T zh={item} en={entry.frontmatter.galleryEn?.[i] ?? item} />
-              </div>
-            ))}
-          </div>
           <div className="mt-10">{entry.content}</div>
         </div>
         <ButtonLink className="mt-8" href="/partners" variant="secondary">

@@ -47,7 +47,7 @@ export default async function ArchivesPage() {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-semibold text-white">
+                  <h2 className="whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-white">
                     <T zh={item.title} en={item.titleEn ?? item.title} />
                   </h2>
                   <p className="mt-3 text-lg text-slate-200">

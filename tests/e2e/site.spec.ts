@@ -4,7 +4,7 @@ test("homepage routes users to registration and announcements", async ({ page })
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "全国数智病理西湖峰会",
+    "全国数智病理峰会",
   );
 
   await expect(
@@ -35,11 +35,11 @@ test("homepage does not overflow horizontally on mobile", async ({ page, isMobil
   expect(dimensions.scrollWidth).toBe(dimensions.clientWidth);
 });
 
-test("search page returns cross-content results", async ({ page }) => {
+test("search page returns archive results", async ({ page }) => {
   await page.goto("/search");
-  await page.getByTestId("search-input").fill("赵清越");
+  await page.getByTestId("search-input").fill("2025");
 
-  await expect(page.getByTestId("search-result").first()).toContainText("赵清越");
+  await expect(page.getByTestId("search-result").first()).toContainText("首届数智病理峰会");
 });
 
 test("unknown announcement routes render the 404 page", async ({ page }) => {
