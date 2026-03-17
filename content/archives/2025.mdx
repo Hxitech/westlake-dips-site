@@ -28,97 +28,100 @@ videoLabelEn: "Event Video Highlights"
 
 ## 峰会掠影
 
-<div className="mt-6 space-y-4">
-  <div className="overflow-hidden rounded-[1.9rem] border border-white/10 bg-white/5">
-    <img
-      alt="首届数智病理峰会现场合影"
-      className="h-[18rem] w-full object-cover sm:h-[24rem] lg:h-[32rem]"
-      decoding="async"
-      loading="lazy"
-      src="/archives/2025/FKK02629.JPG"
-    />
-  </div>
-
-  <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-      <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
-        <img
-          alt="首届数智病理峰会现场影像 1"
-          className="h-60 w-full object-cover sm:h-72"
-          decoding="async"
-          loading="lazy"
-          src="/archives/2025/FKK00318.JPG"
-        />
-      </div>
-      <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
-        <img
-          alt="首届数智病理峰会现场影像 2"
-          className="h-60 w-full object-cover sm:h-72"
-          decoding="async"
-          loading="lazy"
-          src="/archives/2025/FKK00309.JPG"
-        />
-      </div>
-    </div>
-
-    <div className="grid gap-4 sm:grid-cols-2">
-      <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5 sm:row-span-2">
-        <img
-          alt="首届数智病理峰会现场影像 3"
-          className="h-full min-h-[18rem] w-full object-cover sm:min-h-[100%]"
-          decoding="async"
-          loading="lazy"
-          src="/archives/2025/FKK00441.JPG"
-        />
-      </div>
-      <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
-        <img
-          alt="首届数智病理峰会现场影像 4"
-          className="h-52 w-full object-cover"
-          decoding="async"
-          loading="lazy"
-          src="/archives/2025/mmexport1743069842098.JPG"
-        />
-      </div>
-      <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
-        <img
-          alt="首届数智病理峰会现场影像 5"
-          className="h-52 w-full object-cover"
-          decoding="async"
-          loading="lazy"
-          src="/archives/2025/FKK02655.JPG"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div className="columns-1 gap-4 sm:columns-2 xl:columns-3">
-    {[
-      "FKK00448.JPG",
-      "FKK00502.JPG",
-      "FKK00555.JPG",
-      "FKK00665.JPG",
-      "FKK01878.JPG",
-      "FKK02139.JPG",
-      "FKK02448.JPG",
-      "FKK02598.JPG",
-      "FKK02611.JPG",
-    ].map((src, index) => (
-      <div
-        className="mb-4 break-inside-avoid overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5"
-        key={src}
-      >
-        <img
-          alt={`首届数智病理峰会现场影像 ${index + 6}`}
-          className="h-auto w-full object-cover"
-          decoding="async"
-          loading="lazy"
-          src={`/archives/2025/${src}`}
-        />
-      </div>
-    ))}
-  </div>
-</div>
+<PhotoCarousel
+  images={[
+    {
+      src: "/archives/2025/FKK02629.JPG",
+      alt: "首届数智病理峰会现场影像 1",
+      widthClass: "w-[84vw] sm:w-[38rem] lg:w-[54rem]",
+      heightClass: "h-[20rem] sm:h-[26rem] lg:h-[34rem]",
+    },
+    {
+      src: "/archives/2025/FKK00318.JPG",
+      alt: "首届数智病理峰会现场影像 2",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00309.JPG",
+      alt: "首届数智病理峰会现场影像 3",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00441.JPG",
+      alt: "首届数智病理峰会现场影像 4",
+      widthClass: "w-[56vw] sm:w-[22rem] lg:w-[26rem]",
+      heightClass: "h-[24rem] sm:h-[30rem] lg:h-[38rem]",
+    },
+    {
+      src: "/archives/2025/mmexport1743069842098.JPG",
+      alt: "首届数智病理峰会现场影像 5",
+      widthClass: "w-[60vw] sm:w-[24rem] lg:w-[30rem]",
+      heightClass: "h-[16rem] sm:h-[20rem] lg:h-[24rem]",
+    },
+    {
+      src: "/archives/2025/FKK02655.JPG",
+      alt: "首届数智病理峰会现场影像 6",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00448.JPG",
+      alt: "首届数智病理峰会现场影像 7",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00502.JPG",
+      alt: "首届数智病理峰会现场影像 8",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00555.JPG",
+      alt: "首届数智病理峰会现场影像 9",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK00665.JPG",
+      alt: "首届数智病理峰会现场影像 10",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK01878.JPG",
+      alt: "首届数智病理峰会现场影像 11",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK02139.JPG",
+      alt: "首届数智病理峰会现场影像 12",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK02448.JPG",
+      alt: "首届数智病理峰会现场影像 13",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK02598.JPG",
+      alt: "首届数智病理峰会现场影像 14",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+    {
+      src: "/archives/2025/FKK02611.JPG",
+      alt: "首届数智病理峰会现场影像 15",
+      widthClass: "w-[72vw] sm:w-[28rem] lg:w-[34rem]",
+      heightClass: "h-[18rem] sm:h-[24rem] lg:h-[30rem]",
+    },
+  ]}
+/>
 
 ## 年度主题
 
