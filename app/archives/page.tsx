@@ -35,31 +35,31 @@ export default async function ArchivesPage() {
         <div className="space-y-5">
           {archives.map((item) => (
             <Link
-              className="panel block rounded-[2rem] p-6 transition hover:border-cyan-300/24 hover:bg-white/8 sm:p-8"
+              className="panel block rounded-[2rem] p-6 transition hover:border-blue-200 hover:bg-blue-50/40 sm:p-8"
               href={`/archives/${item.year}`}
               key={item.year}
             >
               <div className="grid gap-6 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
                 <div>
-                  <div className="font-serif text-4xl text-white">{item.year}</div>
-                  <div className="mt-2 text-sm uppercase tracking-[0.24em] text-cyan-200/84">
+                  <div className="font-serif text-4xl text-gray-900">{item.year}</div>
+                  <div className="mt-2 text-sm uppercase tracking-[0.24em] text-blue-600">
                     <T zh={item.location} en={item.locationEn ?? item.location} />
                   </div>
                 </div>
                 <div>
-                  <h2 className="whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-white">
+                  <h2 className="whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-gray-900">
                     <T zh={item.title} en={item.titleEn ?? item.title} />
                   </h2>
-                  <p className="mt-3 text-lg text-slate-200">
+                  <p className="mt-3 text-lg text-gray-600">
                     <T zh={item.theme} en={item.themeEn ?? item.theme} />
                   </p>
-                  <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/80">
+                  <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
                     <T zh={item.highlight} en={item.highlightEn ?? item.highlight} />
                   </p>
                   <div className="mt-6 grid gap-3 sm:grid-cols-3">
                     {item.gallery.map((entry, i) => (
                       <div
-                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-slate-300/80"
+                        className="rounded-[1.25rem] border border-gray-200 bg-gray-50/80 px-4 py-4 text-sm leading-7 text-gray-500"
                         key={entry}
                       >
                         <T zh={entry} en={item.galleryEn?.[i] ?? entry} />

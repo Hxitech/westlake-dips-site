@@ -65,28 +65,20 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        description={(
+          <T
+            zh="峰会以病理数字化与人工智能协作为中心议题，连接学术、临床与产业，推动数智病理持续发展。"
+            en="The summit focuses on digital pathology and AI collaboration, connecting academia, clinics, and industry to drive continuous development."
+          />
+        )}
         eyebrow={<T zh="关于峰会" en="About" />}
         meta={[
           <T key="a" zh={siteConfig.acronym} en={siteConfig.acronym} />,
         ]}
         title={(
           <T
-            zh={(
-              <>
-                <span>聚焦数智病理，连接学术与产业</span>
-                <span className="ml-4 inline text-[clamp(1rem,1.5vw,1.22rem)] font-normal tracking-normal text-slate-300/88">
-                  峰会以病理数字化与人工智能协作为中心议题，连接学术、临床与产业，推动数智病理持续发展。
-                </span>
-              </>
-            )}
-            en={(
-              <>
-                <span>Bridging AI &amp; Pathology, Academia &amp; Industry</span>
-                <span className="ml-4 inline text-[clamp(1rem,1.5vw,1.22rem)] font-normal tracking-normal text-slate-300/88">
-                  The summit focuses on digital pathology and AI collaboration, connecting academia, clinics, and industry.
-                </span>
-              </>
-            )}
+            zh="聚焦数智病理，连接学术与产业"
+            en="Bridging AI & Pathology, Academia & Industry"
           />
         )}
       />
@@ -105,41 +97,41 @@ export default function AboutPage() {
         />
         <div className="mt-10 grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
           <article className="panel accent-ring relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-            <div className="absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top_left,rgba(93,194,255,0.16),transparent_55%),linear-gradient(180deg,rgba(255,255,255,0.06),transparent)]" />
+            <div className="absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top_left,rgba(26,95,180,0.06),transparent_55%)]" />
             <div className="relative">
-              <div className="flex flex-wrap gap-2 text-[0.68rem] uppercase tracking-[0.26em] text-cyan-200/88">
-                <span className="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1.5">DIPS</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+              <div className="flex flex-wrap gap-2 text-[0.68rem] uppercase tracking-[0.26em] text-blue-600">
+                <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5">DIPS</span>
+                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5">
                   <T zh="AI × Pathology" en="AI × Pathology" />
                 </span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5">
                   <T zh="Academic Summit" en="Academic Summit" />
                 </span>
               </div>
-              <h2 className="mt-6 max-w-3xl font-serif text-2xl leading-tight text-white sm:text-3xl lg:text-[2.25rem]">
+              <h2 className="mt-6 max-w-3xl font-serif text-2xl leading-tight text-gray-900 sm:text-3xl lg:text-[2.25rem]">
                 <T zh="以数智病理为核心，连接前沿研究、临床应用与产业未来" en="Connecting frontier research, clinical practice, and industry around digital and intelligent pathology" />
               </h2>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-100/92 sm:text-[1.18rem]">
+              <p className="mt-6 max-w-3xl text-lg leading-9 text-gray-600 sm:text-[1.18rem]">
                 <T zh={summitOverview.lead.zh} en={summitOverview.lead.en} />
               </p>
 
               <div className="mt-8 grid gap-4">
                 {summitOverview.body.map((paragraph, index) => (
                   <div
-                    className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 sm:p-6"
+                    className="rounded-[1.5rem] border border-gray-200 bg-gray-50/80 p-5 sm:p-6"
                     key={paragraph.zh}
                   >
-                    <div className="text-xs uppercase tracking-[0.24em] text-cyan-200/82">
+                    <div className="text-xs uppercase tracking-[0.24em] text-blue-600">
                       0{index + 1}
                     </div>
-                    <p className="mt-3 text-sm leading-8 text-slate-300/84 sm:text-[0.98rem]">
+                    <p className="mt-3 text-sm leading-8 text-gray-500 sm:text-[0.98rem]">
                       <T zh={paragraph.zh} en={paragraph.en} />
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-[1.5rem] border border-cyan-300/18 bg-cyan-300/8 px-5 py-4 text-sm leading-7 text-cyan-50/92">
+              <div className="mt-6 rounded-[1.5rem] border border-blue-200 bg-blue-50 px-5 py-4 text-sm leading-7 text-blue-800">
                 <T
                   zh="通过多元形式分享前沿研究、临床应用与产业趋势，推动病理学从数字化迈向智能化。"
                   en="Through diverse formats, DIPS shares frontier research, clinical applications, and industry trends while helping pathology evolve from digitalization to intelligence."
@@ -150,19 +142,19 @@ export default function AboutPage() {
 
           <div className="space-y-5">
             <div className="panel rounded-[2rem] p-6 sm:p-7">
-              <div className="text-xs uppercase tracking-[0.26em] text-cyan-200/88">
+              <div className="text-xs uppercase tracking-[0.26em] text-blue-600">
                 <T zh="核心议题" en="Core Themes" />
               </div>
-              <h3 className="mt-4 font-serif text-2xl text-white">
+              <h3 className="mt-4 font-serif text-2xl text-gray-900">
                 <T zh="每届围绕行业关键命题展开" en="Each edition centers on the field's most urgent themes" />
               </h3>
               <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
                 {focusPillars.map((item, index) => (
-                  <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-4" key={item}>
-                    <div className="text-xs uppercase tracking-[0.22em] text-cyan-200/76">
+                  <div className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 p-4" key={item}>
+                    <div className="text-xs uppercase tracking-[0.22em] text-blue-600">
                       0{index + 1}
                     </div>
-                    <div className="mt-2 text-base font-semibold text-white">
+                    <div className="mt-2 text-base font-semibold text-gray-900">
                       <T zh={item} en={focusPillarsEn[index]} />
                     </div>
                   </div>
@@ -171,22 +163,22 @@ export default function AboutPage() {
             </div>
 
             <div className="panel rounded-[2rem] p-6 sm:p-7">
-              <div className="text-xs uppercase tracking-[0.26em] text-cyan-200/88">
+              <div className="text-xs uppercase tracking-[0.26em] text-blue-600">
                 <T zh="长期愿景" en="Long-term Vision" />
               </div>
-              <h3 className="mt-4 font-serif text-2xl text-white">
+              <h3 className="mt-4 font-serif text-2xl text-gray-900">
                 <T zh="持续搭建更深层的合作基础设施" en="Building deeper infrastructure for collaboration" />
               </h3>
               <div className="mt-6 space-y-3">
                 {summitVision.map((item) => (
                   <div
-                    className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4"
+                    className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 px-4 py-4"
                     key={item.title.zh}
                   >
-                    <div className="text-base font-semibold text-white">
+                    <div className="text-base font-semibold text-gray-900">
                       <T zh={item.title.zh} en={item.title.en} />
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-300/80">
+                    <p className="mt-2 text-sm leading-7 text-gray-500">
                       <T zh={item.description.zh} en={item.description.en} />
                     </p>
                   </div>
@@ -214,19 +206,19 @@ export default function AboutPage() {
             <div className="panel rounded-2xl p-6 sm:p-8" key={item.year}>
               <div className="grid gap-5 lg:grid-cols-[0.25fr_0.75fr]">
                 <div>
-                  <div className="font-serif text-3xl text-white">{item.year}</div>
-                  <div className="mt-2 text-sm text-cyan-200/82">
+                  <div className="font-serif text-3xl text-gray-900">{item.year}</div>
+                  <div className="mt-2 text-sm text-blue-600">
                     <T zh={item.title} en={item.titleEn} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     <T zh={item.theme} en={item.themeEn} />
                   </h3>
                   <div className="mt-4 space-y-2">
                     {item.achievements.map((a, i) => (
                       <div
-                        className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-slate-300/80"
+                        className="rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 text-sm leading-6 text-gray-500"
                         key={a}
                       >
                         <T zh={a} en={item.achievementsEn[i]} />

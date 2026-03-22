@@ -1,29 +1,25 @@
-@import "@fontsource/noto-sans-sc/400.css";
-@import "@fontsource/noto-sans-sc/500.css";
-@import "@fontsource/noto-sans-sc/700.css";
-@import "@fontsource/noto-serif-sc/600.css";
-@import "@fontsource/noto-serif-sc/700.css";
 @import "tailwindcss";
 
 :root {
-  --background: #06101d;
-  --background-elevated: #0a1626;
-  --background-deep: #040914;
-  --foreground: #edf4ff;
-  --panel: rgba(8, 18, 33, 0.76);
-  --panel-strong: rgba(9, 19, 36, 0.92);
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --accent: #78d9ff;
-  --accent-strong: #9de7ff;
-  --accent-soft: rgba(120, 217, 255, 0.14);
-  --gold: #d9c49d;
-  --gold-soft: rgba(217, 196, 157, 0.12);
-  --shadow-strong: 0 30px 90px rgba(2, 6, 23, 0.42);
+  --background: #ffffff;
+  --background-elevated: #f0f4f9;
+  --background-deep: #f5f8fc;
+  --foreground: #1a2332;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --line: rgba(26, 95, 180, 0.1);
+  --line-strong: rgba(26, 95, 180, 0.18);
+  --accent: #1a5fb4;
+  --accent-strong: #145099;
+  --accent-soft: rgba(26, 95, 180, 0.07);
+  --gold: #b8860b;
+  --gold-soft: rgba(184, 134, 11, 0.08);
+  --shadow-strong: 0 30px 90px rgba(26, 95, 180, 0.1);
   --font-sans-stack:
-    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-    sans-serif;
-  --font-serif-stack: "Noto Serif SC", "Songti SC", "STSong", serif;
+    -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  --font-serif-stack:
+    "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", serif;
 }
 
 @theme inline {
@@ -50,10 +46,10 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 8%, rgba(103, 213, 255, 0.13), transparent 22%),
-    radial-gradient(circle at 86% 4%, rgba(132, 148, 255, 0.13), transparent 24%),
-    radial-gradient(circle at 50% 105%, rgba(217, 196, 157, 0.08), transparent 28%),
-    linear-gradient(180deg, #09111d 0%, #050c16 40%, #040a12 100%);
+    radial-gradient(circle at 12% 8%, rgba(26, 95, 180, 0.04), transparent 22%),
+    radial-gradient(circle at 86% 4%, rgba(26, 95, 180, 0.03), transparent 24%),
+    radial-gradient(circle at 50% 105%, rgba(184, 134, 11, 0.02), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafd 40%, #f0f4f9 100%);
   color: var(--foreground);
   font-family: var(--font-sans-stack);
 }
@@ -69,21 +65,20 @@ body::after {
 
 body::before {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(26, 95, 180, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 95, 180, 0.04) 1px, transparent 1px);
   background-position: center;
   background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 90%);
-  opacity: 0.42;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 90%);
+  opacity: 0.3;
 }
 
 body::after {
   z-index: -1;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent 18%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='46' cy='38' r='1'/%3E%3Ccircle cx='128' cy='18' r='1'/%3E%3Ccircle cx='94' cy='98' r='1'/%3E%3Ccircle cx='152' cy='132' r='1'/%3E%3Ccircle cx='28' cy='146' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
-  opacity: 0.24;
+    linear-gradient(135deg, rgba(26, 95, 180, 0.02), transparent 18%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5fb4' fill-opacity='0.03'%3E%3Ccircle cx='4' cy='4' r='1'/%3E%3Ccircle cx='46' cy='38' r='1'/%3E%3Ccircle cx='128' cy='18' r='1'/%3E%3Ccircle cx='94' cy='98' r='1'/%3E%3Ccircle cx='152' cy='132' r='1'/%3E%3Ccircle cx='28' cy='146' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
 }
 
 a {
@@ -97,8 +92,8 @@ img {
 }
 
 ::selection {
-  background: rgba(120, 217, 255, 0.24);
-  color: white;
+  background: rgba(26, 95, 180, 0.15);
+  color: #1a2332;
 }
 
 .container-shell {
@@ -111,16 +106,17 @@ img {
 .panel {
   border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(17, 30, 54, 0.76), rgba(9, 18, 35, 0.68));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 244, 249, 0.88));
   backdrop-filter: blur(24px);
+  box-shadow: 0 2px 12px rgba(26, 95, 180, 0.06);
 }
 
 .panel-luxe {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(14, 25, 44, 0.9), rgba(7, 15, 28, 0.76));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 248, 252, 0.92));
   backdrop-filter: blur(26px);
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 4px 24px rgba(26, 95, 180, 0.08);
 }
 
 .panel-luxe::before {
@@ -128,14 +124,14 @@ img {
   inset: 0;
   position: absolute;
   border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(26, 95, 180, 0.1);
   pointer-events: none;
 }
 
 .accent-ring {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 28px 100px rgba(2, 8, 23, 0.45);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 28px 100px rgba(26, 95, 180, 0.08);
 }
 
 .luxe-badge {
@@ -143,26 +139,26 @@ img {
   align-items: center;
   gap: 0.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(120, 217, 255, 0.18);
+  border: 1px solid rgba(26, 95, 180, 0.2);
   background:
-    linear-gradient(135deg, rgba(120, 217, 255, 0.1), rgba(217, 196, 157, 0.08));
+    linear-gradient(135deg, rgba(26, 95, 180, 0.06), rgba(184, 134, 11, 0.04));
   padding: 0.45rem 1rem;
   font-size: 0.68rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(206, 240, 255, 0.92);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: #1a5fb4;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #f7fbff 0%, #8ce2ff 38%, #a6b7ff 70%, #efd8b2 100%);
+  background: linear-gradient(135deg, #1a2332 0%, #1a5fb4 38%, #2d7dd2 70%, #b8860b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-soft {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(120, 217, 255, 0.86));
+  background: linear-gradient(135deg, #1a2332 0%, #1a5fb4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -181,10 +177,10 @@ img {
   border-radius: inherit;
   background: conic-gradient(
     from 180deg at 50% 50%,
-    rgba(120, 217, 255, 0) 0deg,
-    rgba(120, 217, 255, 0.16) 108deg,
-    rgba(217, 196, 157, 0.14) 220deg,
-    rgba(120, 217, 255, 0) 360deg
+    rgba(26, 95, 180, 0) 0deg,
+    rgba(26, 95, 180, 0.12) 108deg,
+    rgba(184, 134, 11, 0.08) 220deg,
+    rgba(26, 95, 180, 0) 360deg
   );
   opacity: 0;
   transition: opacity 0.45s ease;
@@ -195,7 +191,7 @@ img {
   position: absolute;
   inset: 1px;
   border-radius: inherit;
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0.14), transparent 24%, transparent 68%, rgba(120, 217, 255, 0.1));
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.8), transparent 24%, transparent 68%, rgba(26, 95, 180, 0.06));
   opacity: 0;
   transition: opacity 0.45s ease;
   pointer-events: none;
@@ -238,8 +234,8 @@ img {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(120, 217, 255, 0.28),
-    rgba(217, 196, 157, 0.16),
+    rgba(26, 95, 180, 0.2),
+    rgba(184, 134, 11, 0.12),
     transparent
   );
 }
@@ -253,9 +249,9 @@ img {
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 2px;
-  background: linear-gradient(135deg, rgba(120, 217, 255, 0.82), rgba(217, 196, 157, 0.68));
+  background: linear-gradient(135deg, rgba(26, 95, 180, 0.6), rgba(184, 134, 11, 0.4));
   transform: rotate(45deg);
-  box-shadow: 0 0 18px rgba(120, 217, 255, 0.18);
+  box-shadow: 0 0 12px rgba(26, 95, 180, 0.1);
 }
 
 .animate-on-scroll {
@@ -439,10 +435,10 @@ img {
 @keyframes countdown-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(120, 217, 255, 0);
+    box-shadow: 0 0 0 0 rgba(26, 95, 180, 0);
   }
   50% {
-    box-shadow: 0 0 22px 2px rgba(120, 217, 255, 0.12);
+    box-shadow: 0 0 22px 2px rgba(26, 95, 180, 0.08);
   }
 }
 

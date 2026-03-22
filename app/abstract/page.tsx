@@ -80,8 +80,8 @@ export default function AbstractPage() {
       <PageHero
         description={
           <T
-            zh="欢迎向第二届数智病理峰会提交学术摘要，分享您的研究成果。"
-            en="We welcome abstract submissions to the 2nd DIPS Summit. Share your research with the community."
+            zh="欢迎向第二届数智病理西北峰会提交学术摘要，分享您的研究成果。"
+            en="We welcome abstract submissions to the 2nd DIPS Northwest Summit. Share your research with the community."
           />
         }
         eyebrow={<T zh="论文投稿" en="Call for Abstracts" />}
@@ -95,13 +95,13 @@ export default function AbstractPage() {
 
       {/* ── Tracks ── */}
       <section className="container-shell py-18 sm:py-20">
-        <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+        <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
           <T zh="投稿方向" en="Submission Tracks" />
         </div>
-        <h2 className="mt-4 font-serif text-3xl text-white">
+        <h2 className="mt-4 font-serif text-3xl text-gray-900">
           <T zh="四大投稿专场" en="Four Submission Tracks" />
         </h2>
-        <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/82">
+        <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
           <T
             zh="请根据您的研究方向选择以下专场之一提交摘要。"
             en="Please select one of the following tracks that best matches your research."
@@ -113,13 +113,13 @@ export default function AbstractPage() {
 
             return (
               <div className="panel rounded-[1.75rem] p-6" key={track.title.zh}>
-                <div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-cyan-200">
+                <div className="flex size-12 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-600">
                   <Icon className="size-5" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-white">
+                <h3 className="mt-5 text-lg font-semibold text-gray-900">
                   <T zh={track.title.zh} en={track.title.en} />
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300/80">
+                <p className="mt-3 text-sm leading-7 text-gray-500">
                   <T zh={track.description.zh} en={track.description.en} />
                 </p>
               </div>
@@ -131,10 +131,10 @@ export default function AbstractPage() {
       {/* ── Guidelines ── */}
       <section className="container-shell pb-18 sm:pb-20">
         <div className="panel rounded-[2rem] p-6 sm:p-8">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             <T zh="投稿须知" en="Submission Guidelines" />
           </div>
-          <h2 className="mt-4 font-serif text-3xl text-white">
+          <h2 className="mt-4 font-serif text-3xl text-gray-900">
             <T zh="格式与要求" en="Format & Requirements" />
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
@@ -165,7 +165,7 @@ export default function AbstractPage() {
               },
             ].map((item) => (
               <div
-                className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5 text-sm leading-7 text-slate-300/82"
+                className="rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-5 text-sm leading-7 text-gray-600"
                 key={item.zh}
               >
                 <T zh={item.zh} en={item.en} />
@@ -180,10 +180,10 @@ export default function AbstractPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Key Dates */}
           <div className="panel rounded-[2rem] p-6 sm:p-8">
-            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
               <T zh="重要日期" en="Key Dates" />
             </div>
-            <h2 className="mt-4 font-serif text-3xl text-white">
+            <h2 className="mt-4 font-serif text-3xl text-gray-900">
               <T zh="时间节点" en="Timeline" />
             </h2>
             <div className="mt-8 space-y-4">
@@ -192,17 +192,17 @@ export default function AbstractPage() {
 
                 return (
                   <div
-                    className="flex items-center gap-4 rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-4"
+                    className="flex items-center gap-4 rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-4"
                     key={item.label.zh}
                   >
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/8 text-cyan-200">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-600">
                       <Icon className="size-4" />
                     </div>
                     <div>
-                      <div className="text-base font-semibold text-white">
+                      <div className="text-base font-semibold text-gray-900">
                         <T zh={item.date.zh} en={item.date.en} />
                       </div>
-                      <div className="mt-0.5 text-sm text-slate-400">
+                      <div className="mt-0.5 text-sm text-gray-400">
                         <T zh={item.label.zh} en={item.label.en} />
                       </div>
                     </div>
@@ -214,10 +214,10 @@ export default function AbstractPage() {
 
           {/* Review Process */}
           <div className="panel rounded-[2rem] p-6 sm:p-8">
-            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
               <T zh="评审流程" en="Review Process" />
             </div>
-            <h2 className="mt-4 font-serif text-3xl text-white">
+            <h2 className="mt-4 font-serif text-3xl text-gray-900">
               <T zh="审稿与录用" en="Review & Acceptance" />
             </h2>
             <div className="mt-8 space-y-4">
@@ -248,18 +248,18 @@ export default function AbstractPage() {
                 },
               ].map((item) => (
                 <div
-                  className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5"
+                  className="rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-5"
                   key={item.step}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs uppercase tracking-[0.25em] text-cyan-200/76">
+                    <span className="text-xs uppercase tracking-[0.25em] text-blue-600">
                       {item.step}
                     </span>
-                    <span className="text-base font-semibold text-white">
+                    <span className="text-base font-semibold text-gray-900">
                       <T zh={item.title.zh} en={item.title.en} />
                     </span>
                   </div>
-                  <p className="mt-2 text-sm leading-7 text-slate-300/80">
+                  <p className="mt-2 text-sm leading-7 text-gray-500">
                     <T zh={item.desc.zh} en={item.desc.en} />
                   </p>
                 </div>
@@ -271,19 +271,19 @@ export default function AbstractPage() {
 
       {/* ── CTA ── */}
       <section className="container-shell pb-24 sm:pb-28">
-        <div className="panel accent-ring relative overflow-hidden rounded-[2.25rem] border border-cyan-300/12 p-6 sm:p-8">
-          <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-cyan-300/14 blur-3xl" />
+        <div className="panel accent-ring relative overflow-hidden rounded-[2.25rem] border border-blue-200 bg-[linear-gradient(135deg,rgba(26,95,180,0.04),rgba(240,244,249,0.9))] p-6 sm:p-8">
+          <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-blue-500/8 blur-3xl" />
           <div className="relative">
-            <div className="flex items-center gap-3 text-cyan-200">
+            <div className="flex items-center gap-3 text-blue-600">
               <Mail className="size-5" />
               <span className="text-[0.68rem] uppercase tracking-[0.28em]">
                 <T zh="投稿邮箱" en="Submit via Email" />
               </span>
             </div>
-            <h2 className="mt-4 font-serif text-3xl text-white">
+            <h2 className="mt-4 font-serif text-3xl text-gray-900">
               <T zh="提交您的研究成果" en="Submit Your Research" />
             </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/82">
+            <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
               <T
                 zh="请将摘要稿件发送至 can.fang@dipath.cn，邮件标题格式：「DIPS2026投稿-专场名称-第一作者姓名」。如有疑问，欢迎联系会务组。"
                 en="Please send your abstract to can.fang@dipath.cn with the subject line: 'DIPS2026-Track-FirstAuthorName'. For questions, please contact the organizing committee."

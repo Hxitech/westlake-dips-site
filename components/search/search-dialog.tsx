@@ -44,20 +44,20 @@ export function SearchDialog({
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 px-4 py-6 backdrop-blur-xl sm:px-6">
-      <div className="mx-auto flex h-full max-w-4xl flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,14,28,0.98),rgba(6,12,24,0.98))] p-6 shadow-[0_30px_120px_rgba(2,8,23,0.7)]">
+    <div className="fixed inset-0 z-50 bg-gray-900/40 px-4 py-6 backdrop-blur-xl sm:px-6">
+      <div className="mx-auto flex h-full max-w-4xl flex-col rounded-[2rem] border border-gray-200 bg-white p-6 shadow-[0_30px_120px_rgba(26,95,180,0.12)]">
         <div className="mb-5 flex items-center justify-between">
           <div>
-            <div className="text-sm uppercase tracking-[0.28em] text-cyan-200/88">
+            <div className="text-sm uppercase tracking-[0.28em] text-blue-600">
               <T zh="搜索" en="Search" />
             </div>
-            <h2 className="mt-2 font-serif text-2xl text-white">
+            <h2 className="mt-2 font-serif text-2xl text-gray-900">
               <T zh="搜索峰会内容" en="Search Summit Content" />
             </h2>
           </div>
           <button
             aria-label="Close search"
-            className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:bg-white/10 hover:text-white"
+            className="rounded-full border border-gray-200 bg-gray-50 p-3 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
             onClick={onClose}
             type="button"
           >

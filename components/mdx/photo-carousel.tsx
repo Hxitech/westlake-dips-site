@@ -143,13 +143,13 @@ export function PhotoCarousel({
   }
 
   return (
-    <div className="mt-6 rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,29,48,0.9),rgba(9,16,28,0.72))] p-4 sm:p-5">
+    <div className="mt-6 rounded-[2rem] border border-gray-200 bg-gray-50/80 p-4 sm:p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/80">
+          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             <T zh="峰会影像" en="Photo Gallery" />
           </div>
-          <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-slate-300/78">
+          <div className="rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-gray-500">
             {currentIndex + 1} / {images.length}
           </div>
         </div>
@@ -157,7 +157,7 @@ export function PhotoCarousel({
         <div className="flex items-center gap-2">
           <button
             aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.18em] text-slate-200 transition hover:border-cyan-300/26 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-2 text-xs uppercase tracking-[0.18em] text-gray-600 transition hover:border-blue-200 hover:text-blue-600"
             onClick={() => setIsUserPaused((current) => !current)}
             type="button"
           >
@@ -166,7 +166,7 @@ export function PhotoCarousel({
           </button>
           <button
             aria-label="Previous photo"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-300/26 hover:text-white"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 transition hover:border-blue-200 hover:text-blue-600"
             onClick={() => scrollToIndex(currentIndexRef.current - 1)}
             type="button"
           >
@@ -174,7 +174,7 @@ export function PhotoCarousel({
           </button>
           <button
             aria-label="Next photo"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-300/26 hover:text-white"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 transition hover:border-blue-200 hover:text-blue-600"
             onClick={() => scrollToIndex(currentIndexRef.current + 1)}
             type="button"
           >
@@ -193,7 +193,7 @@ export function PhotoCarousel({
       >
         {images.map((item) => (
           <div
-            className={`group relative flex-none snap-center overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 ${item.widthClass} ${item.heightClass}`}
+            className={`group relative flex-none snap-center overflow-hidden rounded-[1.7rem] border border-gray-200 bg-gray-100 ${item.widthClass} ${item.heightClass}`}
             data-carousel-slide
             key={item.src}
           >
@@ -204,7 +204,7 @@ export function PhotoCarousel({
               sizes="(max-width: 640px) 84vw, (max-width: 1024px) 38rem, 54rem"
               src={item.src}
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(7,13,24,0.18))]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.08))]" />
           </div>
         ))}
       </div>

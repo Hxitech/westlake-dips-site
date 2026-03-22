@@ -90,19 +90,19 @@ export default function ContactPage() {
 
             return (
               <div className="panel rounded-[1.75rem] p-6" key={item.title.zh}>
-                <div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-cyan-200">
+                <div className="flex size-12 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-600">
                   <Icon className="size-5" />
                 </div>
-                <h2 className="mt-5 text-xl font-semibold text-white">
+                <h2 className="mt-5 text-xl font-semibold text-gray-900">
                   <T zh={item.title.zh} en={item.title.en} />
                 </h2>
-                <p className="mt-3 text-lg text-slate-100">{displayValue}</p>
-                <p className="mt-4 text-sm leading-7 text-slate-300/80">
+                <p className="mt-3 text-lg text-gray-700">{displayValue}</p>
+                <p className="mt-4 text-sm leading-7 text-gray-500">
                   <T zh={item.description.zh} en={item.description.en} />
                 </p>
                 {item.href && item.hrefLabel ? (
                   <a
-                    className="mt-5 inline-flex items-center gap-2 text-sm text-cyan-200 transition hover:text-cyan-100 hover:underline"
+                    className="mt-5 inline-flex items-center gap-2 text-sm text-blue-600 transition hover:text-blue-700 hover:underline"
                     data-testid="contact-venue-map-link"
                     href={item.href}
                     rel="noopener noreferrer"
@@ -117,13 +117,13 @@ export default function ContactPage() {
           })}
         </div>
         <div className="panel mt-10 rounded-[2rem] p-6 sm:p-8">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             <T zh="会务服务" en="Event Services" />
           </div>
-          <h2 className="mt-4 font-serif text-3xl text-white">
+          <h2 className="mt-4 font-serif text-3xl text-gray-900">
             <T zh="我们随时为您提供帮助" en="We're Here to Help" />
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/82">
+          <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
             <T
               zh="无论您是参会嘉宾、合作伙伴还是媒体代表，会务组将为您提供全程支持。如需了解更多信息，请通过以上方式联系我们。"
               en="Whether you're an attendee, partner, or media representative, our organizing committee provides full support. Please reach out through any of the channels above."

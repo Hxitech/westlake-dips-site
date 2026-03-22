@@ -36,24 +36,24 @@ export default async function AnnouncementsPage() {
         <div className="space-y-5">
           {announcements.map((item, index) => (
             <Link
-              className="panel group block rounded-[2rem] p-6 transition hover:border-cyan-300/24 hover:bg-white/8 sm:p-8"
+              className="panel group block rounded-[2rem] p-6 transition hover:border-blue-200 hover:bg-blue-50/40 sm:p-8"
               href={`/announcements/${item.slug}`}
               key={item.slug}
             >
-              <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-slate-400">
+              <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-gray-400">
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
                 <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
                 {item.pinned ? (
-                  <span className="rounded-full border border-cyan-300/30 px-3 py-1 text-cyan-200">
+                  <span className="rounded-full border border-blue-200 px-3 py-1 text-blue-600">
                     <T zh="置顶" en="Pinned" />
                   </span>
                 ) : null}
               </div>
-              <h2 className="mt-5 whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-white transition group-hover:text-cyan-200">
+              <h2 className="mt-5 whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-gray-900 transition group-hover:text-blue-600">
                 <T zh={item.title} en={item.titleEn ?? item.title} />
               </h2>
-              <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/80">
+              <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
                 <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
               </p>
             </Link>

@@ -1,10 +1,10 @@
 const PARTICLE_COUNT = 18;
 
 const colors = [
-  "rgba(114, 215, 255, 0.28)",
-  "rgba(93, 165, 255, 0.22)",
-  "rgba(138, 164, 255, 0.2)",
-  "rgba(217, 196, 157, 0.14)",
+  "rgba(26, 95, 180, 0.15)",
+  "rgba(45, 125, 210, 0.12)",
+  "rgba(70, 140, 220, 0.1)",
+  "rgba(184, 134, 11, 0.08)",
 ];
 
 function getParticleStyle(index: number) {
@@ -28,7 +28,7 @@ function getParticleStyle(index: number) {
     background: color,
     animation: `float-orb ${duration}s ease-in-out ${delay}s infinite`,
     filter: blur,
-    boxShadow: "0 0 24px rgba(119, 216, 255, 0.12)",
+    boxShadow: "0 0 16px rgba(26, 95, 180, 0.06)",
     willChange: "transform, opacity" as const,
   };
 }

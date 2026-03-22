@@ -4,30 +4,30 @@ import Link from "next/link";
 export const mdxComponents: MDXComponents = {
   h2: (props) => (
     <h2
-      className="mt-12 scroll-mt-28 border-t border-white/10 pt-8 font-serif text-2xl text-white"
+      className="mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-2xl text-gray-900"
       {...props}
     />
   ),
   h3: (props) => (
-    <h3 className="mt-8 text-xl font-semibold text-slate-100" {...props} />
+    <h3 className="mt-8 text-xl font-semibold text-gray-800" {...props} />
   ),
   p: (props) => (
     <p
-      className="mt-4 text-base leading-8 text-slate-300/88 sm:text-lg sm:leading-9"
+      className="mt-4 text-base leading-8 text-gray-600 sm:text-lg sm:leading-9"
       {...props}
     />
   ),
   ul: (props) => (
-    <ul className="mt-4 space-y-3 text-slate-300/88" {...props} />
+    <ul className="mt-4 space-y-3 text-gray-600" {...props} />
   ),
   ol: (props) => (
-    <ol className="mt-4 space-y-3 text-slate-300/88" {...props} />
+    <ol className="mt-4 space-y-3 text-gray-600" {...props} />
   ),
   li: (props) => <li className="ml-5 list-disc pl-2" {...props} />,
-  strong: (props) => <strong className="font-semibold text-white" {...props} />,
+  strong: (props) => <strong className="font-semibold text-gray-900" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="mt-6 border-l-2 border-cyan-400/70 pl-5 text-lg text-white/90"
+      className="mt-6 border-l-2 border-blue-400 pl-5 text-lg text-gray-700"
       {...props}
     />
   ),
@@ -36,7 +36,7 @@ export const mdxComponents: MDXComponents = {
       return (
         <Link
           href={href}
-          className="font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+          className="font-medium text-blue-600 underline decoration-blue-300/40 underline-offset-4 transition hover:text-blue-700"
           {...props}
         />
       );
@@ -45,7 +45,7 @@ export const mdxComponents: MDXComponents = {
     return (
       <a
         href={href}
-        className="font-medium text-cyan-300 underline decoration-cyan-400/30 underline-offset-4 transition hover:text-cyan-200"
+        className="font-medium text-blue-600 underline decoration-blue-300/40 underline-offset-4 transition hover:text-blue-700"
         rel="noreferrer"
         target="_blank"
         {...props}

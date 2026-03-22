@@ -35,19 +35,19 @@ export default function GuidePage() {
       <section className="container-shell py-18 sm:py-20">
         <div className="grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
           <div className="panel rounded-[2rem] p-6 sm:p-8">
-            <div className="flex items-center gap-3 text-cyan-200">
+            <div className="flex items-center gap-3 text-blue-600">
               <MapPinned className="size-5" />
               <span className="text-[0.68rem] uppercase tracking-[0.28em]">
                 <T zh="会场位置" en="Venue" />
               </span>
             </div>
-            <h2 className="mt-5 font-serif text-3xl text-white">
+            <h2 className="mt-5 font-serif text-3xl text-gray-900">
               <T zh={venueInfo.venue} en={venueInfo.venueEn} />
             </h2>
-            <p className="mt-4 text-sm leading-8 text-slate-300/82">
+            <p className="mt-4 text-sm leading-8 text-gray-500">
               <T zh={`${venueInfo.city} · ${venueInfo.address}`} en={`${venueInfo.cityEn} · ${venueInfo.addressEn}`} />
             </p>
-            <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-white/10">
+            <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-gray-200">
               <AmapVenueMap
                 address={venueInfo.address}
                 addressEn={venueInfo.addressEn}
@@ -57,9 +57,9 @@ export default function GuidePage() {
                 venue={venueInfo.venue}
                 venueEn={venueInfo.venueEn}
               />
-              <div className="bg-white/5 px-5 py-3 text-sm text-slate-300/88">
+              <div className="bg-gray-50 px-5 py-3 text-sm text-gray-500">
                 <a
-                  className="text-cyan-200 hover:underline"
+                  className="text-blue-600 hover:underline"
                   data-testid="guide-venue-map-link"
                   href={venueInfo.mapUrl}
                   rel="noopener noreferrer"
@@ -69,7 +69,7 @@ export default function GuidePage() {
                 </a>
               </div>
             </div>
-            <p className="mt-6 text-sm leading-7 text-slate-400">
+            <p className="mt-6 text-sm leading-7 text-gray-400">
               <T zh={venueInfo.floorplanNote} en={venueInfo.floorplanNoteEn} />
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function GuidePage() {
 
               return (
                 <div className="panel rounded-[1.75rem] p-5" key={item.title.zh}>
-                  <div className="flex items-center gap-3 text-cyan-200">
+                  <div className="flex items-center gap-3 text-blue-600">
                     <Icon className="size-5" />
                     <span className="text-[0.68rem] uppercase tracking-[0.28em]">
                       <T zh={item.title.zh} en={item.title.en} />
@@ -107,7 +107,7 @@ export default function GuidePage() {
                   <div className="mt-5 space-y-3">
                     {item.items.map((line, i) => (
                       <div
-                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-slate-300/80"
+                        className="rounded-[1.25rem] border border-gray-200 bg-gray-50/80 px-4 py-4 text-sm leading-7 text-gray-500"
                         key={line}
                       >
                         <T zh={line} en={item.itemsEn[i]} />
@@ -123,19 +123,19 @@ export default function GuidePage() {
 
       <section className="container-shell pb-24 pt-6 sm:pb-28">
         <div className="panel rounded-[2.25rem] p-6 sm:p-8">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             <T zh="报名须知" en="Registration Info" />
           </div>
-          <h2 className="mt-4 font-serif text-3xl text-white">
+          <h2 className="mt-4 font-serif text-3xl text-gray-900">
             <T zh="报名与现场须知" en="Registration & On-Site Information" />
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-8 text-slate-300/82">
+          <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
             <T zh={registrationConfig.description} en={registrationConfig.descriptionEn} />
           </p>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {registrationConfig.tips.map((tip, i) => (
               <div
-                className="rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-5 text-sm leading-7 text-slate-300/82"
+                className="rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-5 text-sm leading-7 text-gray-500"
                 key={tip}
               >
                 <T zh={tip} en={registrationConfig.tipsEn[i]} />

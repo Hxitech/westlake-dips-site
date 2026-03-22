@@ -10,7 +10,7 @@ export function LocaleSwitcher() {
   return (
     <button
       aria-label={locale === "zh" ? "Switch to English" : "切换为中文"}
-      className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium tracking-wide text-slate-300 transition hover:bg-white/10 hover:text-white"
+      className="flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-medium tracking-wide text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
       onClick={toggle}
       type="button"
     >

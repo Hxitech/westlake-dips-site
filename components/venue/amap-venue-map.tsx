@@ -154,7 +154,7 @@ export function AmapVenueMap({
 
   return (
     <div
-      className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70"
+      className="relative overflow-hidden rounded-[1.75rem] border border-gray-200 bg-gray-50"
       data-testid="guide-venue-map-shell"
     >
       <div
@@ -163,12 +163,12 @@ export function AmapVenueMap({
         ref={containerRef}
       />
       {status !== "ready" ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[linear-gradient(135deg,rgba(14,116,144,0.16),rgba(15,23,42,0.92))] px-6 text-center">
-          <div className="flex size-12 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[linear-gradient(135deg,rgba(26,95,180,0.06),rgba(240,244,249,0.95))] px-6 text-center">
+          <div className="flex size-12 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-600">
             <MapPinned className="size-5" />
           </div>
           <div className="space-y-2">
-            <p className="text-sm font-medium text-white">
+            <p className="text-sm font-medium text-gray-900">
               {status === "loading" ? (
                 <T zh="正在加载高德地图…" en="Loading Amap..." />
               ) : status === "idle" ? (
@@ -177,12 +177,12 @@ export function AmapVenueMap({
                 <T zh="地图暂时不可用，请先打开高德地图导航。" en="Map unavailable for now. Open Amap navigation instead." />
               )}
             </p>
-            <p className="text-sm leading-7 text-slate-300/86">
+            <p className="text-sm leading-7 text-gray-500">
               <T zh={`${venue} · ${address}`} en={`${venueEn} · ${addressEn}`} />
             </p>
           </div>
           <a
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100 transition hover:border-cyan-200/50 hover:bg-cyan-300/16"
+            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-600 transition hover:border-blue-300 hover:bg-blue-100"
             href={mapUrl}
             rel="noopener noreferrer"
             target="_blank"

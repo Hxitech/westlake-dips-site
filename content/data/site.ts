@@ -19,7 +19,7 @@ export const siteConfig: SiteConfig = {
     "China's flagship academic summit on the innovation and integration of AI and digital pathology in the era of large models.",
   locale: "zh_CN",
   url: "https://dips.ccipd.net",
-  themeColor: "#08152d",
+  themeColor: "#1a5fb4",
   eventStart: "2026-05-10T09:00:00+08:00",
   eventEnd: "2026-05-10T18:00:00+08:00",
   city: "中国 西安",

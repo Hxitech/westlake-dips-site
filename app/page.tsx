@@ -102,42 +102,45 @@ export default async function Home() {
         type="application/ld+json"
       />
 
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-gray-200">
         <HeroAtmosphere />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,10,18,0.14),rgba(5,10,18,0.72)_58%,rgba(5,10,18,0.94))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.3),rgba(240,244,249,0.85)_58%,rgba(240,244,249,0.96))]" />
         <div className="container-shell relative py-14 sm:py-[4.5rem] lg:py-24">
           <div className="grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(24rem,0.98fr)] xl:items-start">
             <div className="max-w-3xl">
               <span className="luxe-badge">
                 <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
               </span>
-              <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-slate-300/76">
+              <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-blue-600/60">
                 DIPS / Digital Intelligence in Pathology Summit
               </div>
-              <h1 className="mt-4 max-w-full whitespace-nowrap font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-white">
-                <T zh={siteConfig.name} en={siteConfig.nameEn} />
+              <h1 className="mt-4 max-w-full font-serif text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.12] tracking-[-0.04em] text-gray-900">
+                <T
+                  zh="首届数智病理西湖峰会、第二届数智病理西北峰会"
+                  en="1st DIPS Westlake Summit & 2nd DIPS Northwest Summit"
+                />
               </h1>
               <p className="mt-4 max-w-3xl text-[clamp(1.4rem,2.2vw,2.5rem)] leading-[1.16] text-gradient [text-wrap:balance]">
                 <T zh={heroContent.title} en={heroContent.titleEn} />
               </p>
-              <p className="mt-6 max-w-3xl text-[clamp(1rem,1.35vw,1.16rem)] leading-8 text-slate-300/84 [text-wrap:pretty]">
+              <p className="mt-6 max-w-3xl text-[clamp(1rem,1.35vw,1.16rem)] leading-8 text-gray-500 [text-wrap:pretty]">
                 <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-3 text-sm text-slate-200">
-                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 backdrop-blur-sm">
-                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+              <div className="mt-7 flex flex-wrap gap-3 text-sm text-gray-600">
+                <div className="inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
                     <T zh="地点" en="Venue" />
                   </span>
-                  <span className="text-sm text-white">
+                  <span className="text-sm text-gray-900">
                     <T zh={heroContent.location} en={heroContent.locationEn} />
                   </span>
                 </div>
-                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 backdrop-blur-sm">
-                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+                <div className="inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 backdrop-blur-sm">
+                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
                     <T zh="时间" en="Date" />
                   </span>
-                  <span className="text-sm text-white">
+                  <span className="text-sm text-gray-900">
                     <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
                   </span>
                 </div>
@@ -157,26 +160,26 @@ export default async function Home() {
             </div>
 
             <AnimatedSection className="xl:pt-8" threshold={0.08} variant="scale">
-              <div className="panel-luxe rounded-[2rem] border border-white/10 p-5 sm:p-6 lg:p-7">
+              <div className="panel-luxe rounded-[2rem] border border-gray-200 p-5 sm:p-6 lg:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
+                    <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
                       Summit Signal Deck
                     </div>
                   </div>
-                  <div className="rounded-full border border-[rgba(217,196,157,0.22)] bg-[rgba(217,196,157,0.08)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-[rgba(236,220,193,0.9)]">
+                  <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-amber-700">
                     DIPS 2026
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-[1.7rem] border border-white/10 bg-white/[0.045] px-5 py-5 backdrop-blur-sm">
-                  <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/74">
+                <div className="mt-6 rounded-[1.7rem] border border-gray-200 bg-gray-50/80 px-5 py-5 backdrop-blur-sm">
+                  <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
                     <T zh="会议主题" en="Theme" />
                   </div>
-                  <h2 className="mt-3 font-serif text-[clamp(1.7rem,2.4vw,2.35rem)] leading-tight text-white [text-wrap:balance]">
+                  <h2 className="mt-3 font-serif text-[clamp(1.7rem,2.4vw,2.35rem)] leading-tight text-gray-900 [text-wrap:balance]">
                     <T zh={heroContent.title} en={heroContent.titleEn} />
                   </h2>
-                  <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300/76">
+                  <p className="mt-3 max-w-xl text-sm leading-7 text-gray-500">
                     <T
                       zh="聚焦前沿研究、临床转化与产业共建，打造更高密度的学术交流场域。"
                       en="Focused on frontier research, clinical translation, and ecosystem collaboration in one high-density academic gathering."
@@ -200,16 +203,16 @@ export default async function Home() {
                 >
                   {quickFacts.map((fact) => (
                     <div
-                      className="panel-glow rounded-[1.55rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,26,45,0.78),rgba(9,16,29,0.72))] p-4 backdrop-blur-sm"
+                      className="panel-glow rounded-[1.55rem] border border-gray-200 bg-white/90 p-4 backdrop-blur-sm"
                       key={fact.label}
                     >
-                      <div className="font-serif text-[clamp(2rem,3.4vw,2.7rem)] leading-none text-white">
+                      <div className="font-serif text-[clamp(2rem,3.4vw,2.7rem)] leading-none text-blue-700">
                         <T zh={fact.value} en={fact.valueEn} />
                       </div>
-                      <div className="mt-2 text-sm font-medium text-slate-100">
+                      <div className="mt-2 text-sm font-medium text-gray-900">
                         <T zh={fact.label} en={fact.labelEn} />
                       </div>
-                      <div className="mt-2 text-xs leading-5 text-slate-400">
+                      <div className="mt-2 text-xs leading-5 text-gray-500">
                         <T zh={fact.detail} en={fact.detailEn} />
                       </div>
                     </div>
@@ -227,16 +230,16 @@ export default async function Home() {
         <AnimatedSection className="grid gap-4 md:grid-cols-3" stagger variant="fade">
           {heroSignals.map((item) => (
             <div
-              className="panel-glow rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,19,34,0.74),rgba(7,13,24,0.66))] px-4 py-4 backdrop-blur"
+              className="panel-glow rounded-[1.6rem] border border-gray-200 bg-white/90 px-4 py-4 backdrop-blur"
               key={item.label.en}
             >
-              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-cyan-200/76">
+              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-blue-600">
                 <T zh={item.label.zh} en={item.label.en} />
               </div>
-              <div className="mt-3 text-lg font-medium text-white">
+              <div className="mt-3 text-lg font-medium text-gray-900">
                 <T zh={item.value.zh} en={item.value.en} />
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-300/76">
+              <p className="mt-2 text-sm leading-6 text-gray-500">
                 <T zh={item.detail.zh} en={item.detail.en} />
               </p>
             </div>
@@ -253,18 +256,18 @@ export default async function Home() {
         <AnimatedSection className="mt-10 grid gap-4 lg:grid-cols-3" stagger variant="fade">
           {summitThemes.map((item) => (
             <div
-              className="panel-glow relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,27,46,0.88),rgba(9,16,28,0.76))] p-6"
+              className="panel-glow relative overflow-hidden rounded-[2rem] border border-gray-200 bg-white/90 p-6"
               key={item.idx}
             >
-              <div className="absolute -right-8 top-0 h-28 w-28 rounded-full bg-cyan-300/10 blur-3xl" />
-              <div className="absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(118,214,255,0.42),transparent)]" />
-              <div className="text-[0.68rem] uppercase tracking-[0.32em] text-cyan-200/80">
+              <div className="absolute -right-8 top-0 h-28 w-28 rounded-full bg-blue-500/8 blur-3xl" />
+              <div className="absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(26,95,180,0.2),transparent)]" />
+              <div className="text-[0.68rem] uppercase tracking-[0.32em] text-blue-600">
                 {item.idx}
               </div>
-              <div className="mt-4 font-serif text-[1.45rem] leading-tight text-white">
+              <div className="mt-4 font-serif text-[1.45rem] leading-tight text-gray-900">
                 <T zh={item.zh} en={item.en} />
               </div>
-              <p className="mt-4 text-sm leading-7 text-slate-300/80">
+              <p className="mt-4 text-sm leading-7 text-gray-500">
                 <T zh={item.zhSub} en={item.enSub} />
               </p>
             </div>
@@ -289,16 +292,16 @@ export default async function Home() {
         <AnimatedSection className="mt-10 grid gap-5 lg:grid-cols-3" stagger variant="fade">
           {summitHighlights.map((item) => (
             <div
-              className="panel-glow rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(12,22,38,0.86),rgba(8,15,26,0.72))] p-6"
+              className="panel-glow rounded-[2rem] border border-gray-200 bg-white/90 p-6"
               key={item.title}
             >
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
+              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
                 <T zh={item.metric} en={item.metricEn} />
               </div>
-              <h3 className="mt-3 text-[1.28rem] font-semibold text-white">
+              <h3 className="mt-3 text-[1.28rem] font-semibold text-gray-900">
                 <T zh={item.title} en={item.titleEn} />
               </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300/78">
+              <p className="mt-3 text-sm leading-7 text-gray-500">
                 <T zh={item.description} en={item.descriptionEn} />
               </p>
             </div>
@@ -310,7 +313,7 @@ export default async function Home() {
 
       <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
         <div className="grid gap-8 xl:grid-cols-[1.12fr_0.88fr]">
-          <div className="panel-luxe rounded-[2rem] border border-white/10 p-5 sm:p-6">
+          <div className="panel-luxe rounded-[2rem] border border-gray-200 p-5 sm:p-6">
             <SectionHeading
               action={
                 <ButtonLink href="/announcements" size="compact" variant="secondary">
@@ -323,24 +326,24 @@ export default async function Home() {
             <AnimatedSection className="mt-8 space-y-1" stagger variant="fade">
               {announcements.slice(0, 3).map((item, index) => (
                 <Link
-                  className="group block rounded-[1.5rem] px-4 py-4 transition hover:bg-white/[0.05]"
+                  className="group block rounded-[1.5rem] px-4 py-4 transition hover:bg-blue-50/60"
                   href={`/announcements/${item.slug}`}
                   key={item.slug}
                 >
-                  <div className="flex flex-wrap items-center gap-2 text-[0.68rem] uppercase tracking-[0.24em] text-slate-400">
+                  <div className="flex flex-wrap items-center gap-2 text-[0.68rem] uppercase tracking-[0.24em] text-gray-400">
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
                     <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
                     {item.pinned ? (
-                      <span className="rounded-full border border-cyan-300/26 px-2 py-0.5 text-cyan-200">
+                      <span className="rounded-full border border-blue-200 px-2 py-0.5 text-blue-600">
                         <T zh="置顶" en="Pinned" />
                       </span>
                     ) : null}
                   </div>
-                  <h3 className="mt-3 text-[1.1rem] font-semibold leading-7 text-white transition group-hover:text-cyan-200">
+                  <h3 className="mt-3 text-[1.1rem] font-semibold leading-7 text-gray-900 transition group-hover:text-blue-600">
                     <T zh={item.title} en={item.titleEn ?? item.title} />
                   </h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-300/76 line-clamp-2">
+                  <p className="mt-2 text-sm leading-7 text-gray-500 line-clamp-2">
                     <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
                   </p>
                 </Link>
@@ -353,24 +356,24 @@ export default async function Home() {
               eyebrow={<T zh="日程预览" en="Schedule" />}
               title={<T zh="精彩议程" en="Agenda Highlights" />}
             />
-            <div className="mt-8 panel-luxe rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6">
-              <AnimatedSection className="relative space-y-4 before:absolute before:bottom-3 before:left-[0.82rem] before:top-3 before:w-px before:bg-[linear-gradient(180deg,rgba(120,217,255,0.3),rgba(217,196,157,0.08))]" stagger variant="fade">
+            <div className="mt-8 panel-luxe rounded-[2rem] border border-gray-200 px-5 py-6 sm:px-6">
+              <AnimatedSection className="relative space-y-4 before:absolute before:bottom-3 before:left-[0.82rem] before:top-3 before:w-px before:bg-[linear-gradient(180deg,rgba(26,95,180,0.3),rgba(184,134,11,0.08))]" stagger variant="fade">
                 {schedulePreview.map((item) => (
                   <div
                     className="relative pl-10"
                     key={item.title}
                   >
-                    <div className="absolute left-0 top-1.5 flex size-7 items-center justify-center rounded-full border border-cyan-300/24 bg-cyan-300/10 text-[0.68rem] uppercase tracking-[0.2em] text-cyan-200">
+                    <div className="absolute left-0 top-1.5 flex size-7 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-[0.68rem] uppercase tracking-[0.2em] text-blue-600">
                       •
                     </div>
-                    <div className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur-sm">
-                      <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/76">
+                    <div className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 px-4 py-4 backdrop-blur-sm">
+                      <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
                         <T zh={item.time} en={item.timeEn} />
                       </div>
-                      <div className="mt-2 text-base font-medium text-white">
+                      <div className="mt-2 text-base font-medium text-gray-900">
                         <T zh={item.title} en={item.titleEn} />
                       </div>
-                      <div className="mt-2 text-sm leading-6 text-slate-300/78">
+                      <div className="mt-2 text-sm leading-6 text-gray-500">
                         <T zh={item.description} en={item.descriptionEn} />
                       </div>
                     </div>
@@ -403,13 +406,13 @@ export default async function Home() {
         <AnimatedSection className="mt-10 grid gap-4 sm:grid-cols-3" stagger variant="fade">
           {partnerCollaborationAreas.map((item) => (
             <div
-              className="panel-glow rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(12,22,38,0.84),rgba(8,15,26,0.72))] p-5"
+              className="panel-glow rounded-[1.8rem] border border-gray-200 bg-white/90 p-5"
               key={item.id}
             >
-              <div className="text-[0.68rem] uppercase tracking-[0.24em] text-cyan-200/78">
+              <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
                 <T zh={item.title} en={item.titleEn} />
               </div>
-              <p className="mt-3 text-sm leading-7 text-slate-300/78">
+              <p className="mt-3 text-sm leading-7 text-gray-500">
                 <T zh={item.description} en={item.descriptionEn} />
               </p>
             </div>
@@ -436,16 +439,16 @@ export default async function Home() {
               eyebrow={<T zh="往届回顾" en="Archives" />}
               title={<T zh="往届峰会" en="Past Summits" />}
             />
-            <div className="mt-10 panel-luxe rounded-[2rem] border border-white/10 p-6 sm:p-8">
+            <div className="mt-10 panel-luxe rounded-[2rem] border border-gray-200 p-6 sm:p-8">
               <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
-                <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] px-5 py-6">
-                  <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/78">
+                <div className="rounded-[1.8rem] border border-gray-200 bg-gray-50/80 px-5 py-6">
+                  <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
                     Archive Signal
                   </div>
-                  <div className="mt-4 font-serif text-[clamp(3rem,6vw,4.4rem)] leading-none text-white">
+                  <div className="mt-4 font-serif text-[clamp(3rem,6vw,4.4rem)] leading-none text-gray-900">
                     {featuredArchive.year}
                   </div>
-                  <div className="mt-3 text-sm leading-6 text-slate-300/78">
+                  <div className="mt-3 text-sm leading-6 text-gray-500">
                     <T
                       zh={featuredArchive.location}
                       en={featuredArchive.locationEn ?? featuredArchive.location}
@@ -453,19 +456,19 @@ export default async function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-[1.4rem] font-semibold leading-8 text-white">
+                  <h3 className="text-[1.4rem] font-semibold leading-8 text-gray-900">
                     <T
                       zh={featuredArchive.title}
                       en={featuredArchive.titleEn ?? featuredArchive.title}
                     />
                   </h3>
-                  <p className="mt-2 text-base text-cyan-200/90">
+                  <p className="mt-2 text-base text-blue-600">
                     <T
                       zh={featuredArchive.theme}
                       en={featuredArchive.themeEn ?? featuredArchive.theme}
                     />
                   </p>
-                  <p className="mt-4 text-sm leading-7 text-slate-300/80">
+                  <p className="mt-4 text-sm leading-7 text-gray-500">
                     <T
                       zh={featuredArchive.highlight}
                       en={featuredArchive.highlightEn ?? featuredArchive.highlight}
@@ -486,21 +489,21 @@ export default async function Home() {
       ) : null}
 
       <section className="container-shell pb-20 pt-8 sm:pb-24">
-        <div className="panel-luxe accent-ring relative overflow-hidden rounded-[2.2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-12">
-          <div className="absolute -right-10 top-0 h-44 w-44 rounded-full bg-cyan-300/14 blur-3xl" />
-          <div className="absolute -left-12 bottom-0 h-40 w-40 rounded-full bg-[rgba(217,196,157,0.12)] blur-3xl" />
+        <div className="panel-luxe accent-ring relative overflow-hidden rounded-[2.2rem] border border-blue-200 bg-[linear-gradient(135deg,rgba(26,95,180,0.04),rgba(240,244,249,0.9))] px-6 py-10 sm:px-10 sm:py-12">
+          <div className="absolute -right-10 top-0 h-44 w-44 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute -left-12 bottom-0 h-40 w-40 rounded-full bg-amber-500/6 blur-3xl" />
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/80">
+              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
                 <T zh="诚邀参会" en="Join Us" />
               </div>
-              <h2 className="mt-3 font-serif text-[clamp(2rem,3vw,3.35rem)] leading-[1.08] tracking-[-0.04em] text-white">
+              <h2 className="mt-3 font-serif text-[clamp(2rem,3vw,3.35rem)] leading-[1.08] tracking-[-0.04em] text-gray-900">
                 <T
                   zh="与全国顶尖专家共话数智病理未来"
                   en="Shape the Future of Digital Pathology"
                 />
               </h2>
-              <p className="mt-4 text-[clamp(1rem,1.25vw,1.08rem)] leading-8 text-slate-300/82">
+              <p className="mt-4 text-[clamp(1rem,1.25vw,1.08rem)] leading-8 text-gray-500">
                 <T
                   zh="2026 年 5 月，西安西北大学长安校区，期待与您共同见证数智病理的最新突破。立即注册，锁定席位。"
                   en="May 2026, Northwest University Chang'an Campus, Xi'an. Join us for the latest breakthroughs in digital pathology and secure your place now."
@@ -519,7 +522,7 @@ export default async function Home() {
           <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:flex lg:flex-wrap">
             {endingTimelineLinks.map((item) => (
               <Link
-                className="rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-sm text-slate-200 transition hover:border-cyan-300/28 hover:text-cyan-200"
+                className="rounded-full border border-gray-200 bg-white/80 px-3.5 py-2 text-sm text-gray-600 transition hover:border-blue-300 hover:text-blue-600"
                 href={item.href}
                 key={item.key}
               >

@@ -29,11 +29,11 @@ export function SectionHeading({
         <span className="luxe-badge">
           {eyebrow}
         </span>
-        <h2 className="mt-5 font-serif text-[clamp(2rem,3vw,3.25rem)] leading-[1.08] tracking-[-0.04em] text-white [text-wrap:balance]">
+        <h2 className="mt-5 font-serif text-[clamp(2rem,3vw,3.25rem)] leading-[1.08] tracking-[-0.04em] text-gray-900 [text-wrap:balance]">
           {title}
         </h2>
         {description ? (
-          <p className="mt-4 text-[clamp(0.98rem,1.28vw,1.12rem)] leading-8 text-slate-300/82 [text-wrap:pretty]">
+          <p className="mt-4 text-[clamp(0.98rem,1.28vw,1.12rem)] leading-8 text-gray-500 [text-wrap:pretty]">
             {description}
           </p>
         ) : null}

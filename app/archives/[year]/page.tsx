@@ -61,27 +61,27 @@ export default async function ArchiveDetailPage({
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
       <div className="max-w-5xl">
         <Link
-          className="inline-flex items-center gap-2 text-sm text-cyan-200 transition hover:text-cyan-100"
+          className="inline-flex items-center gap-2 text-sm text-blue-600 transition hover:text-blue-700"
           href="/archives"
         >
           <T zh="返回往届列表" en="Back to Archives" />
         </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             {entry.frontmatter.year} · <T zh={entry.frontmatter.location} en={entry.frontmatter.locationEn ?? entry.frontmatter.location} />
           </div>
-          <h1 className="mt-5 whitespace-nowrap font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-white">
+          <h1 className="mt-5 whitespace-nowrap font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-gray-900">
             <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
-          <p className="mt-5 text-xl text-slate-200">
+          <p className="mt-5 text-xl text-gray-600">
             <T zh={entry.frontmatter.theme} en={entry.frontmatter.themeEn ?? entry.frontmatter.theme} />
           </p>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300/84 sm:text-lg">
+          <p className="mt-4 max-w-3xl text-base leading-8 text-gray-500 sm:text-lg">
             <T zh={entry.frontmatter.highlight} en={entry.frontmatter.highlightEn ?? entry.frontmatter.highlight} />
           </p>
           {gallery ? (
             <>
-              <h2 className="mt-12 scroll-mt-28 border-t border-white/10 pt-8 font-serif text-2xl text-white">
+              <h2 className="mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-2xl text-gray-900">
                 <T zh="峰会掠影" en="Photo Gallery" />
               </h2>
               <PhotoCarousel images={gallery} />

@@ -38,9 +38,9 @@ export function SearchExperience({
         className="panel accent-ring flex items-center gap-3 rounded-[1.75rem] px-5 py-4"
         htmlFor={inputId}
       >
-        <Search className="size-5 text-cyan-200" />
+        <Search className="size-5 text-blue-600" />
         <input
-          className="w-full bg-transparent text-base text-white outline-none placeholder:text-slate-500"
+          className="w-full bg-transparent text-base text-gray-900 outline-none placeholder:text-gray-400"
           data-testid="search-input"
           id={inputId}
           onChange={(event) => setQuery(event.target.value)}
@@ -57,7 +57,7 @@ export function SearchExperience({
       >
         {results.map((item) => (
           <Link
-            className="panel group flex items-start justify-between gap-4 rounded-[1.5rem] p-5 transition hover:border-cyan-300/28 hover:bg-white/8"
+            className="panel group flex items-start justify-between gap-4 rounded-[1.5rem] p-5 transition hover:border-blue-200 hover:bg-blue-50/40"
             data-testid="search-result"
             href={item.href}
             key={item.id}
@@ -65,22 +65,22 @@ export function SearchExperience({
           >
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-cyan-200/90">
+                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-blue-600">
                   {locale === "zh" ? kindLabels[item.kind].zh : kindLabels[item.kind].en}
                 </span>
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-white">
+              <h3 className="mt-3 text-lg font-semibold text-gray-900">
                 {locale === "zh" ? item.title : (item.titleEn ?? item.title)}
               </h3>
-              <p className="mt-2 text-sm leading-7 text-slate-300/80">
+              <p className="mt-2 text-sm leading-7 text-gray-500">
                 {locale === "zh" ? item.excerpt : (item.excerptEn ?? item.excerpt)}
               </p>
             </div>
-            <ArrowUpRight className="mt-1 size-5 shrink-0 text-cyan-200 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <ArrowUpRight className="mt-1 size-5 shrink-0 text-blue-600 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         ))}
         {results.length === 0 ? (
-          <div className="panel rounded-[1.5rem] p-6 text-sm leading-7 text-slate-300/80">
+          <div className="panel rounded-[1.5rem] p-6 text-sm leading-7 text-gray-500">
             <T
               zh="没有找到对应结果。试试「嘉宾」「通知」「2025」「AI 诊断」等关键词。"
               en="No results found. Try keywords like 'speaker', 'AI', '2025', or 'diagnosis'."

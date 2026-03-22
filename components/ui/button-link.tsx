@@ -14,11 +14,11 @@ type ButtonLinkProps = {
 
 const variantClasses = {
   primary:
-    "border border-cyan-200/40 bg-[linear-gradient(135deg,rgba(243,251,255,0.92),rgba(117,219,255,0.92))] text-slate-950 shadow-[0_18px_50px_rgba(72,217,255,0.2)] hover:border-cyan-100 hover:shadow-[0_20px_60px_rgba(72,217,255,0.26)]",
+    "border border-blue-300 bg-[linear-gradient(135deg,#1a5fb4,#2d7dd2)] text-white shadow-[0_4px_16px_rgba(26,95,180,0.25)] hover:shadow-[0_6px_24px_rgba(26,95,180,0.35)] hover:brightness-110",
   secondary:
-    "border border-white/14 bg-white/[0.045] text-white hover:border-white/28 hover:bg-white/[0.09]",
+    "border border-gray-200 bg-white text-gray-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700",
   ghost:
-    "border border-transparent bg-transparent text-cyan-100 hover:bg-white/5",
+    "border border-transparent bg-transparent text-blue-600 hover:bg-blue-50",
 };
 
 const sizeClasses = {
@@ -49,7 +49,7 @@ export function ButtonLink({
       rel={external ? "noreferrer" : undefined}
       target={external ? "_blank" : undefined}
     >
-      <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent)] opacity-0 transition duration-500 group-hover/button:translate-x-full group-hover/button:opacity-100" />
+      <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent)] opacity-0 transition duration-500 group-hover/button:translate-x-full group-hover/button:opacity-100" />
       <span className="relative z-10">{children}</span>
       <Icon className="relative z-10 size-4 transition duration-300 group-hover/button:translate-x-0.5" />
     </Link>

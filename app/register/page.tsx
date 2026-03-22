@@ -55,16 +55,16 @@ export default async function RegisterPage() {
         <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-5">
             <div className="panel rounded-[2rem] p-6 sm:p-8">
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
                 <T zh="当前状态" en="Status" />
               </div>
-              <h2 className="mt-4 font-serif text-3xl text-white">
+              <h2 className="mt-4 font-serif text-3xl text-gray-900">
                 <T zh={registrationConfig.primaryLabel} en={registrationConfig.primaryLabelEn} />
               </h2>
-              <p className="mt-4 text-sm leading-8 text-slate-300/82">
+              <p className="mt-4 text-sm leading-8 text-gray-500">
                 <T zh={registrationConfig.description} en={registrationConfig.descriptionEn} />
               </p>
-              <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-slate-300/82">
+              <div className="mt-6 rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-4 text-sm leading-7 text-gray-500">
                 <T
                   zh="正式报名链接上线后，本页面将直接跳转至注册表单。"
                   en="Once registration opens, this page will link directly to the registration form."
@@ -72,7 +72,7 @@ export default async function RegisterPage() {
               </div>
             </div>
             {registrationConfig.tips.map((tip, i) => (
-              <div className="panel rounded-[1.6rem] p-5 text-sm leading-7 text-slate-300/82" key={tip}>
+              <div className="panel rounded-[1.6rem] p-5 text-sm leading-7 text-gray-500" key={tip}>
                 <T zh={tip} en={registrationConfig.tipsEn[i]} />
               </div>
             ))}

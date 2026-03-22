@@ -5,13 +5,13 @@ export default function NotFound() {
   return (
     <section className="container-shell flex min-h-[70vh] items-center py-20">
       <div className="panel max-w-3xl rounded-[2.5rem] p-8 sm:p-12">
-        <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/88">
+        <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
           404
         </div>
-        <h1 className="mt-4 font-serif text-4xl text-white sm:text-5xl">
+        <h1 className="mt-4 font-serif text-4xl text-gray-900 sm:text-5xl">
           <T zh="页面不存在" en="Page Not Found" />
         </h1>
-        <p className="mt-5 text-base leading-8 text-slate-300/82 sm:text-lg">
+        <p className="mt-5 text-base leading-8 text-gray-500 sm:text-lg">
           <T
             zh="该内容可能尚未发布，或链接已经变更。您可以返回首页或查看最新通知。"
             en="This page may not have been published yet or the link has changed. Return to the homepage or check the latest announcements."
