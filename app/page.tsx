@@ -114,11 +114,8 @@ export default async function Home() {
               <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-blue-600/60">
                 DIPS / Digital Intelligence in Pathology Summit
               </div>
-              <h1 className="mt-4 max-w-full font-serif text-[clamp(2rem,4.2vw,3.8rem)] leading-[1.12] tracking-[-0.04em] text-gray-900">
-                <T
-                  zh="首届数智病理西湖峰会、第二届数智病理西北峰会"
-                  en="1st DIPS Westlake Summit & 2nd DIPS Northwest Summit"
-                />
+              <h1 className="mt-4 max-w-full whitespace-nowrap font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-gray-900">
+                <T zh={siteConfig.name} en={siteConfig.nameEn} />
               </h1>
               <p className="mt-4 max-w-3xl text-[clamp(1.4rem,2.2vw,2.5rem)] leading-[1.16] text-gradient [text-wrap:balance]">
                 <T zh={heroContent.title} en={heroContent.titleEn} />
