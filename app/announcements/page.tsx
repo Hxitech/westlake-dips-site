@@ -27,8 +27,8 @@ export default function AnnouncementsPage() {
               eyebrow={<T zh="会议日程" en="Schedule" />}
               title={<T zh="会议日程" en="Summit Schedule" />}
             />
-            <div className="mt-6 flex items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 py-20">
-              <p className="text-lg text-gray-400">
+            <div className="mt-6 flex items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/80 py-20 shadow-sm shadow-slate-950/5">
+              <p className="text-lg font-medium text-slate-600">
                 <T zh="敬请期待" en="Coming Soon" />
               </p>
             </div>
@@ -38,8 +38,8 @@ export default function AnnouncementsPage() {
               eyebrow={<T zh="参会嘉宾" en="Guests" />}
               title={<T zh="参会嘉宾" en="Summit Guests" />}
             />
-            <div className="mt-6 flex items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 py-20">
-              <p className="text-lg text-gray-400">
+            <div className="mt-6 flex items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/80 py-20 shadow-sm shadow-slate-950/5">
+              <p className="text-lg font-medium text-slate-600">
                 <T zh="敬请期待" en="Coming Soon" />
               </p>
             </div>

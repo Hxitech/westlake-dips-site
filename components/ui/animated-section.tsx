@@ -25,12 +25,23 @@ export function AnimatedSection({
     const element = ref.current;
     if (!element) return;
 
-    // Skip animation if user prefers reduced motion
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) {
-      element.classList.remove("animate-on-scroll");
+      element.classList.add("is-visible");
       return;
     }
+
+    const rect = element.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const isInitiallyVisible = rect.top < viewportHeight && rect.bottom > 0;
+
+    if (isInitiallyVisible) {
+      element.classList.add("is-visible");
+      return;
+    }
+
+    // Only arm off-screen sections so we don't render blank bands before hydration.
+    element.dataset.armed = "true";
 
     const observer = new IntersectionObserver(
       ([entry]) => {

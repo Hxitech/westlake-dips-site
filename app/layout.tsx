@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 
 import { SiteShell } from "@/components/layout/site-shell";
 import { LocaleProvider } from "@/lib/locale-context";
 import { siteConfig } from "@/content/data/site";
 import { getDocumentLang, LOCALE_COOKIE_NAME, resolveLocale } from "@/lib/locale";
 import "./globals.css";
+
+const notoSansSc = Noto_Sans_SC({
+  display: "swap",
+  preload: false,
+  variable: "--font-noto-sans-sc",
+  weight: ["400", "500", "600", "700"],
+});
+
+const notoSerifSc = Noto_Serif_SC({
+  display: "swap",
+  preload: false,
+  variable: "--font-noto-serif-sc",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -50,7 +65,9 @@ export default async function RootLayout({
 
   return (
     <html lang={getDocumentLang(initialLocale)}>
-      <body className="overflow-x-hidden bg-background text-foreground antialiased">
+      <body
+        className={`${notoSansSc.variable} ${notoSerifSc.variable} overflow-x-hidden bg-background text-foreground antialiased`}
+      >
         <LocaleProvider initialLocale={initialLocale}>
           <SiteShell>{children}</SiteShell>
         </LocaleProvider>

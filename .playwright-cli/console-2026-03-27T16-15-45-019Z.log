@@ -1,0 +1,66 @@
+[    1626ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <Home>
+                <script>
+                <Home>
+                  <section className="relative o...">
+                    <HeroCarousel>
+                    <div className="container-...">
+                      <div>
+                      <div className="mt-10 max-...">
+                        <CountdownClock eventEnd="2026-05-10..." eventStart="2026-05-10..." variant="embedded">
+                          <div className="rounded-lg...">
+                            <div>
+                            <div className="mt-3 grid ...">
+                              <div>
+                              <div>
+                              <div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold tabular-nums sm:text-3xl text-white">
++                                 13
+-                                 14
+                                ...
+                ...
+            ...
+          ...
+
+    at throwOnHydrationMismatch (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:5531:11)
+    at prepareToHydrateHostInstance (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:5627:21)
+    at completeWork (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:12960:15)
+    at runWithFiberInDEV (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:987:30)
+    at completeUnitOfWork (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:19134:19)
+    at performUnitOfWork (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:19015:11)
+    at workLoopConcurrentByScheduler (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:18992:9)
+    at renderRootConcurrent (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:18974:15)
+    at performWorkOnRoot (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:17835:11)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:20385:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js:45:48)
+[   54904ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   55906ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   56908ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   57911ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   58914ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   63918ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   68922ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   73924ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   78928ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   83932ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   88937ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59
+[   93941ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=iIEay0bnm_vxDarZp-oTE' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/.pnpm/next@16.1.6_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js:59

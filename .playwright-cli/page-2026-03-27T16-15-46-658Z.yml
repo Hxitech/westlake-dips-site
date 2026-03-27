@@ -1,0 +1,147 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8]
+  - banner [ref=e11]:
+    - generic [ref=e12]:
+      - link "D 全国数智病理峰会" [ref=e13] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e14]: D
+        - generic [ref=e15]: 全国数智病理峰会
+      - navigation [ref=e16]:
+        - link "首页" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - link "关于峰会" [ref=e18] [cursor=pointer]:
+          - /url: /about
+        - link "会议通知" [ref=e19] [cursor=pointer]:
+          - /url: /announcements
+        - link "参会指南" [ref=e20] [cursor=pointer]:
+          - /url: /guide
+        - link "往届会议" [ref=e21] [cursor=pointer]:
+          - /url: /archives
+        - link "合作伙伴" [ref=e22] [cursor=pointer]:
+          - /url: /partners
+        - link "联系我们" [ref=e23] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e24]:
+        - button "Switch to English" [ref=e25]:
+          - img [ref=e26]
+          - text: EN
+        - button "打开搜索" [ref=e29]:
+          - img [ref=e30]
+        - link "立即注册" [ref=e33] [cursor=pointer]:
+          - /url: /register
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - img "西北大学长安校区航拍全景" [ref=e38]
+        - img "西北大学正门" [ref=e40]
+        - img "西北大学大学堂" [ref=e42]
+        - img "西北大学体育馆鸟瞰" [ref=e44]
+        - img "西北大学公诚勤朴校训" [ref=e46]
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: 第二届 · 2026
+          - heading "全国数智病理峰会" [level=1] [ref=e51]
+          - paragraph [ref=e52]: 聚集人工智能与病理学交叉学科的深度融合与最新进展
+          - generic [ref=e53]:
+            - generic [ref=e54]: 西安 · 西北大学长安校区
+            - generic [ref=e55]: 2026 年 5 月 10 日
+          - generic [ref=e56]:
+            - link "立即注册" [ref=e57] [cursor=pointer]:
+              - /url: /register
+            - link "查看日程" [ref=e58] [cursor=pointer]:
+              - /url: /announcements
+        - generic [ref=e60]:
+          - generic [ref=e61]: 距离大会开幕
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]: "43"
+              - generic [ref=e65]: 天
+            - generic [ref=e66]:
+              - generic [ref=e67]: "08"
+              - generic [ref=e68]: 时
+            - generic [ref=e69]:
+              - generic [ref=e70]: "44"
+              - generic [ref=e71]: 分
+            - generic [ref=e72]:
+              - generic [ref=e73]: "13"
+              - generic [ref=e74]: 秒
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e80]:
+          - paragraph [ref=e81]: 会议日程
+          - heading "会议日程" [level=2] [ref=e82]
+        - paragraph [ref=e84]: 敬请期待
+        - link "查看会议通知" [ref=e85] [cursor=pointer]:
+          - /url: /announcements
+          - text: 查看会议通知
+          - img [ref=e86]
+      - generic [ref=e88]:
+        - generic [ref=e90]:
+          - paragraph [ref=e91]: 参会嘉宾
+          - heading "参会嘉宾" [level=2] [ref=e92]
+        - paragraph [ref=e94]: 敬请期待
+        - link "查看会议通知" [ref=e95] [cursor=pointer]:
+          - /url: /announcements
+          - text: 查看会议通知
+          - img [ref=e96]
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - paragraph [ref=e102]: 往届回顾
+          - heading "往届峰会" [level=2] [ref=e103]
+        - link "查看详情" [ref=e105] [cursor=pointer]:
+          - /url: /archives
+          - text: 查看详情
+          - img [ref=e106]
+      - generic [ref=e108]:
+        - heading "首届数智病理西湖峰会" [level=3] [ref=e109]
+        - paragraph [ref=e110]: 从 DeepSeek 到 DeepPathAI — 大模型时代的数智病理
+        - paragraph [ref=e111]: 首届峰会于 2025 年 3 月 30 日在杭州西湖大学成功举办，汇聚 3 位中科院院士、近 500 人线下参会、5.2 万人次在线观看，探索大模型在病理领域的应用路径。
+    - generic [ref=e114]:
+      - paragraph [ref=e115]: 诚邀参会
+      - heading "与全国顶尖专家共话数智病理未来" [level=2] [ref=e116]
+      - paragraph [ref=e117]: 2026 年 5 月，西安西北大学长安校区，期待与您共同见证数智病理的最新突破。
+      - generic [ref=e118]:
+        - link "立即注册" [ref=e119] [cursor=pointer]:
+          - /url: /register
+        - link "联系会务组" [ref=e120] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e121]:
+        - link "2025 · 首届数智病理西湖峰会" [ref=e122] [cursor=pointer]:
+          - /url: /archives/2025
+        - link "2026 · 第二届全国数智病理峰会" [ref=e123] [cursor=pointer]:
+          - /url: /about
+  - contentinfo [ref=e124]:
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - paragraph [ref=e128]: DIGITAL AND INTELLIGENT PATHOLOGY SUMMIT
+        - heading "第二届全国数智病理峰会" [level=2] [ref=e129]
+        - paragraph [ref=e130]: 先锋学术会议
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img "西北大学"
+          - generic [ref=e133]:
+            - img "中华医学会"
+          - generic [ref=e134]:
+            - img "北京精鉴病理学发展基金会"
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - heading "快速入口" [level=3] [ref=e137]
+          - generic [ref=e138]:
+            - link "会议通知" [ref=e139] [cursor=pointer]:
+              - /url: /announcements
+            - link "参会指南" [ref=e140] [cursor=pointer]:
+              - /url: /guide
+            - link "报名说明" [ref=e141] [cursor=pointer]:
+              - /url: /register
+        - generic [ref=e142]:
+          - heading "会场" [level=3] [ref=e143]
+          - generic [ref=e144]:
+            - paragraph [ref=e145]: 西安市长安区郭杜镇学府大道 1 号
+            - paragraph [ref=e146]: 2026 年 5 月 10 日
+        - generic [ref=e147]:
+          - heading "备案" [level=3] [ref=e148]
+          - generic [ref=e149]:
+            - paragraph [ref=e150]: 备案号待申请
+            - paragraph [ref=e151]: © 2026 DIPS

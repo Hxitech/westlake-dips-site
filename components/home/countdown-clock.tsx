@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-import { T } from "@/components/ui/t";
 import { useLocale } from "@/lib/locale-context";
 import { getCountdownState } from "@/lib/countdown";
 import { cn } from "@/lib/utils";
@@ -49,13 +48,13 @@ export function CountdownClock({
       className={cn(
         "rounded-lg",
         variant === "panel" && "border border-gray-200 bg-white p-5",
-        variant === "embedded" && "bg-white/10 p-4 backdrop-blur-sm",
+        variant === "embedded" && "border border-white/18 bg-slate-950/28 p-4 shadow-[0_20px_40px_rgba(15,23,42,0.24)] backdrop-blur-sm",
       )}
     >
       <div
         className={cn(
           "inline-block rounded px-2 py-0.5 text-xs font-medium",
-          isDark ? "bg-white/15 text-blue-200" : "bg-blue-50 text-blue-700",
+          isDark ? "bg-white/18 text-blue-100" : "bg-blue-50 text-blue-700",
         )}
         data-testid="countdown-status"
       >
@@ -77,7 +76,7 @@ export function CountdownClock({
             </div>
             <div className={cn(
               "mt-1 text-xs",
-              isDark ? "text-gray-400" : "text-gray-400",
+              isDark ? "text-white/78" : "text-gray-500",
             )}>
               {label}
             </div>

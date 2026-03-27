@@ -41,7 +41,7 @@ export function HeroCarousel() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gray-900/65" />
+      <div className="absolute inset-0 bg-slate-950/72" />
     </div>
   );
 }

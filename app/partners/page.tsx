@@ -51,7 +51,7 @@ export default function PartnersPage() {
         <div className="mt-8 space-y-3">
           {partnerCollaborationNotes.map((note) => (
             <div
-              className="rounded-xl border border-gray-200 bg-gray-50/80 px-5 py-3.5 text-sm leading-6 text-gray-400"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-sm leading-6 text-slate-600"
               key={note.zh}
             >
               <T zh={note.zh} en={note.en} />

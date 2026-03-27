@@ -42,28 +42,28 @@ export default async function Home() {
         <HeroCarousel />
         <div className="container-shell relative py-20 sm:py-28 lg:py-36">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-blue-300">
+            <p className="text-sm font-medium text-blue-200">
               <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </h1>
-            <p className="mt-4 text-lg leading-8 text-gray-300 sm:text-xl">
+            <p className="mt-4 text-lg leading-8 text-white/90 sm:text-xl">
               <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
             </p>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-300">
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/78">
               <span><T zh={heroContent.location} en={heroContent.locationEn} /></span>
               <span><T zh={heroContent.dateText} en={heroContent.dateTextEn} /></span>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-500"
+                className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:bg-blue-400"
                 href="/register"
               >
                 <T zh="立即注册" en="Register Now" />
               </Link>
               <Link
-                className="rounded-md px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/10"
+                className="rounded-md border border-white/35 bg-white/16 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/24"
                 href="/announcements"
               >
                 <T zh="查看日程" en="View Agenda" />
@@ -89,8 +89,8 @@ export default async function Home() {
                 eyebrow={<T zh="会议日程" en="Schedule" />}
                 title={<T zh="会议日程" en="Summit Schedule" />}
               />
-              <div className="mt-6 flex items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 py-16">
-                <p className="text-lg text-gray-400">
+              <div className="mt-6 flex items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/80 py-16 shadow-sm shadow-slate-950/5">
+                <p className="text-lg font-medium text-slate-600">
                   <T zh="敬请期待" en="Coming Soon" />
                 </p>
               </div>
@@ -103,8 +103,8 @@ export default async function Home() {
                 eyebrow={<T zh="参会嘉宾" en="Guests" />}
                 title={<T zh="参会嘉宾" en="Summit Guests" />}
               />
-              <div className="mt-6 flex items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 py-16">
-                <p className="text-lg text-gray-400">
+              <div className="mt-6 flex items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/80 py-16 shadow-sm shadow-slate-950/5">
+                <p className="text-lg font-medium text-slate-600">
                   <T zh="敬请期待" en="Coming Soon" />
                 </p>
               </div>
@@ -156,14 +156,14 @@ export default async function Home() {
       {/* ── CTA ── */}
       <section className="bg-white">
         <div className="container-shell py-16 sm:py-20">
-          <div className="rounded-lg bg-gray-900 px-6 py-12 text-center sm:px-12 sm:py-16">
-            <p className="text-sm font-medium text-blue-400">
+          <div className="rounded-[1.75rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_34%),linear-gradient(135deg,_#0f172a_0%,_#111827_48%,_#030712_100%)] px-6 py-12 text-center shadow-[0_28px_80px_rgba(3,7,18,0.22)] sm:px-12 sm:py-16">
+            <p className="text-sm font-medium text-blue-200">
               <T zh="诚邀参会" en="Join Us" />
             </p>
             <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
               <T zh="与全国顶尖专家共话数智病理未来" en="Shape the Future of Digital Pathology" />
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-gray-400">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-white/88">
               <T
                 zh="2026 年 5 月，西安西北大学长安校区，期待与您共同见证数智病理的最新突破。"
                 en="May 2026, Northwest University, Xi'an. Join us for the latest breakthroughs."
@@ -171,13 +171,13 @@ export default async function Home() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
-                className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-500"
+                className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-950/35 transition hover:bg-blue-400"
                 href="/register"
               >
                 <T zh="立即注册" en="Register Now" />
               </Link>
               <Link
-                className="rounded-md px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/10"
+                className="rounded-md border border-white/30 bg-white/14 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
                 href="/contact"
               >
                 <T zh="联系会务组" en="Contact Us" />
@@ -186,7 +186,7 @@ export default async function Home() {
             <div className="mt-8 flex flex-wrap justify-center gap-2">
               {timeline.map((item) => (
                 <Link
-                  className="rounded bg-white/10 px-3 py-1.5 text-xs text-gray-300 transition hover:bg-white/20"
+                  className="rounded-full border border-white/18 bg-white/12 px-3.5 py-1.5 text-xs text-white/90 transition hover:bg-white/18"
                   href={item.year === 2025 ? `/archives/${item.year}` : "/about"}
                   key={item.year}
                 >

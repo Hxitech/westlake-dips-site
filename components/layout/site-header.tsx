@@ -43,7 +43,7 @@ export function SiteHeader({
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 border-b bg-white/95 backdrop-blur-sm transition-shadow",
+          "fixed inset-x-0 top-0 z-40 border-b bg-white/95 backdrop-blur-sm transition-[background-color,border-color,box-shadow]",
           scrolled ? "border-gray-200 shadow-sm" : "border-transparent",
         )}
       >
@@ -66,7 +66,7 @@ export function SiteHeader({
                     "px-3 py-1.5 text-sm transition",
                     active
                       ? "font-medium text-blue-700"
-                      : "text-gray-500 hover:text-gray-900",
+                      : "text-gray-600 hover:text-gray-900",
                   )}
                   href={item.href}
                   key={item.href}
@@ -81,7 +81,7 @@ export function SiteHeader({
             <LocaleSwitcher />
             <button
               aria-label={locale === "zh" ? "打开搜索" : "Open search"}
-              className="hidden rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 lg:inline-flex"
+              className="hidden rounded-md p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 lg:inline-flex"
               onClick={() => setSearchOpen(true)}
               type="button"
             >
@@ -96,7 +96,7 @@ export function SiteHeader({
             <button
               aria-expanded={mobileOpen}
               aria-label="Toggle navigation"
-              className="rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 lg:hidden"
+              className="rounded-md p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 lg:hidden"
               data-testid="mobile-nav-toggle"
               onClick={() => setMobileOpen((c) => !c)}
               type="button"
@@ -114,7 +114,7 @@ export function SiteHeader({
                 <Link
                   className={cn(
                     "block py-2 text-sm",
-                    active ? "font-medium text-blue-700" : "text-gray-600",
+                    active ? "font-medium text-blue-700" : "text-gray-700",
                   )}
                   data-testid={
                     item.href === "/"
@@ -131,7 +131,7 @@ export function SiteHeader({
             })}
             <div className="mt-2 flex gap-2 border-t border-gray-100 pt-3">
               <button
-                className="flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-200 py-2 text-sm text-gray-600"
+                className="flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-300 bg-gray-50 py-2 text-sm text-gray-700 transition hover:bg-gray-100"
                 onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
                 type="button"
               >
