@@ -25,15 +25,13 @@ export function SectionHeading({
         className,
       )}
     >
-      <div className={cn("max-w-3xl", align === "center" && "mx-auto")}>
-        <span className="luxe-badge">
-          {eyebrow}
-        </span>
-        <h2 className="mt-5 font-serif text-[clamp(2rem,3vw,3.25rem)] leading-[1.08] tracking-[-0.04em] text-gray-900 [text-wrap:balance]">
+      <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
+        <p className="text-sm font-medium text-blue-700">{eyebrow}</p>
+        <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           {title}
         </h2>
         {description ? (
-          <p className="mt-4 text-[clamp(0.98rem,1.28vw,1.12rem)] leading-8 text-gray-500 [text-wrap:pretty]">
+          <p className="mt-3 text-base leading-7 text-gray-500">
             {description}
           </p>
         ) : null}

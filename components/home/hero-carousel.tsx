@@ -24,7 +24,7 @@ export function HeroCarousel() {
   }, [advance]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0">
       {heroImages.map((img, i) => (
         <div
           key={img.src}
@@ -41,10 +41,7 @@ export function HeroCarousel() {
           />
         </div>
       ))}
-      {/* Dark blue overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(8,22,48,0.78)] via-[rgba(10,30,60,0.72)] to-[rgba(12,25,50,0.88)]" />
-      {/* Subtle tech grid pattern */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2260%22%20height%3D%2260%22%3E%3Cpath%20d%3D%22M0%200h60v60H0z%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%220.5%22/%3E%3C/svg%3E')]" />
+      <div className="absolute inset-0 bg-gray-900/65" />
     </div>
   );
 }

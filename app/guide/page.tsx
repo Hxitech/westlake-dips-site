@@ -18,35 +18,30 @@ export default function GuidePage() {
   return (
     <>
       <PageHero
-        description={
-          <T
-            zh="了解会场位置、交通方式，轻松规划您的参会之旅。"
-            en="Find venue details and transportation options to plan your visit."
-          />
-        }
-        eyebrow={<T zh="参会指南" en="Attendance Guide" />}
+        eyebrow={<T zh="参会指南" en="Guide" />}
+        title={<T zh="参会指南" en="Attendance Guide" />}
+        description={<T zh="了解会场位置、交通方式，轻松规划您的参会之旅。" en="Find venue details and transportation options to plan your visit." />}
         meta={[
           <T key="v" zh={siteConfig.venue} en={siteConfig.venueEn} />,
           <T key="c" zh={siteConfig.city} en={siteConfig.cityEn} />,
         ]}
-        title={<T zh="参会指南" en="Attendance Guide" />}
       />
-      <section className="container-shell py-18 sm:py-20">
-        <div className="grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
-          <div className="panel rounded-[2rem] p-6 sm:p-8">
-            <div className="flex items-center gap-3 text-blue-600">
-              <MapPinned className="size-5" />
-              <span className="text-[0.68rem] uppercase tracking-[0.28em]">
-                <T zh="会场位置" en="Venue" />
-              </span>
+
+      <section className="container-shell py-16 sm:py-20">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+          {/* Venue + Map */}
+          <div>
+            <div className="flex items-center gap-2 text-blue-700">
+              <MapPinned className="size-4" />
+              <span className="text-sm font-medium"><T zh="会场位置" en="Venue" /></span>
             </div>
-            <h2 className="mt-5 font-serif text-3xl text-gray-900">
+            <h2 className="mt-2 text-2xl font-bold text-gray-900">
               <T zh={venueInfo.venue} en={venueInfo.venueEn} />
             </h2>
-            <p className="mt-4 text-sm leading-8 text-gray-500">
+            <p className="mt-2 text-sm text-gray-500">
               <T zh={`${venueInfo.city} · ${venueInfo.address}`} en={`${venueInfo.cityEn} · ${venueInfo.addressEn}`} />
             </p>
-            <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-gray-200">
+            <div className="mt-6 overflow-hidden rounded-lg border border-gray-200">
               <Image
                 src="/venue-map.png"
                 alt="西北大学长安校区地图"
@@ -54,9 +49,9 @@ export default function GuidePage() {
                 height={500}
                 className="w-full object-cover"
               />
-              <div className="bg-gray-50 px-5 py-3 text-sm text-gray-500">
+              <div className="bg-gray-50 px-4 py-2 text-sm">
                 <a
-                  className="text-blue-600 hover:underline"
+                  className="text-blue-700 hover:underline"
                   data-testid="guide-venue-map-link"
                   href={venueInfo.mapUrl}
                   rel="noopener noreferrer"
@@ -67,64 +62,41 @@ export default function GuidePage() {
               </div>
             </div>
           </div>
-          <div className="space-y-5">
-            <div className="grid gap-5 sm:grid-cols-3">
-              {[
-                {
-                  icon: TrainFront,
-                  title: { zh: "地铁到场", en: "Metro" },
-                  items: venueInfo.metro,
-                  itemsEn: venueInfo.metroEn,
-                },
-                {
-                  icon: BusFront,
-                  title: { zh: "公交路线", en: "Bus" },
-                  items: venueInfo.bus,
-                  itemsEn: venueInfo.busEn,
-                },
-                {
-                  icon: CarFront,
-                  title: { zh: "自驾建议", en: "Driving" },
-                  items: venueInfo.drive,
-                  itemsEn: venueInfo.driveEn,
-                },
-              ].map((item) => {
-                const Icon = item.icon;
 
-                return (
-                  <div className="panel rounded-[1.75rem] p-5" key={item.title.zh}>
-                    <div className="flex items-center gap-3 text-blue-600">
-                      <Icon className="size-5" />
-                      <span className="text-[0.68rem] uppercase tracking-[0.28em]">
-                        <T zh={item.title.zh} en={item.title.en} />
-                      </span>
-                    </div>
-                    <div className="mt-5 space-y-3">
-                      {item.items.map((line, i) => (
-                        <div
-                          className="rounded-[1.25rem] border border-gray-200 bg-gray-50/80 px-4 py-4 text-sm leading-7 text-gray-500"
-                          key={line}
-                        >
-                          <T zh={line} en={item.itemsEn[i]} />
-                        </div>
-                      ))}
-                    </div>
+          {/* Transportation */}
+          <div className="space-y-4">
+            {[
+              { icon: TrainFront, title: { zh: "地铁到场", en: "Metro" }, items: venueInfo.metro, itemsEn: venueInfo.metroEn },
+              { icon: BusFront, title: { zh: "公交路线", en: "Bus" }, items: venueInfo.bus, itemsEn: venueInfo.busEn },
+              { icon: CarFront, title: { zh: "自驾建议", en: "Driving" }, items: venueInfo.drive, itemsEn: venueInfo.driveEn },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div className="rounded-lg border border-gray-200 p-4" key={item.title.zh}>
+                  <div className="flex items-center gap-2 text-blue-700">
+                    <Icon className="size-4" />
+                    <span className="text-sm font-medium"><T zh={item.title.zh} en={item.title.en} /></span>
                   </div>
-                );
-              })}
-            </div>
+                  <div className="mt-3 space-y-2">
+                    {item.items.map((line, i) => (
+                      <p className="text-sm leading-6 text-gray-600" key={line}>
+                        <T zh={line} en={item.itemsEn[i]} />
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
 
-            <div className="panel rounded-[1.75rem] p-5">
-              <div className="flex items-center gap-3 text-amber-600">
-                <Info className="size-5" />
-                <span className="text-[0.68rem] uppercase tracking-[0.28em]">
-                  <T zh="温馨提示" en="Reminder" />
-                </span>
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+              <div className="flex items-center gap-2 text-amber-700">
+                <Info className="size-4" />
+                <span className="text-sm font-medium"><T zh="温馨提示" en="Reminder" /></span>
               </div>
-              <p className="mt-4 text-sm leading-7 text-gray-600">
+              <p className="mt-2 text-sm leading-6 text-amber-800">
                 <T
                   zh="建议参会嘉宾从西北大学长安校区正门（北门）入校。"
-                  en="Attendees are advised to enter the campus through the main entrance (North Gate) of Northwest University Chang'an Campus."
+                  en="Attendees are advised to enter through the main entrance (North Gate)."
                 />
               </p>
             </div>

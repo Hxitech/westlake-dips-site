@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
-import { focusPillars, focusPillarsEn, siteConfig } from "@/content/data/site";
+import { focusPillars, focusPillarsEn } from "@/content/data/site";
 import { timeline } from "@/content/data/timeline";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -16,169 +16,84 @@ export const metadata: Metadata = createPageMetadata({
 const summitOverview = {
   lead: {
     zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合，以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的先锋学术会议。",
-    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It is a pioneering academic conference focused on the deep integration of cutting-edge technologies such as AI with pathology, driving high-quality development of digital pathology, computational pathology, and pathology AI through interdisciplinary medical-engineering collaboration.",
+    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It is a pioneering academic conference focused on the deep integration of cutting-edge technologies such as AI with pathology.",
   },
   body: [
     {
       zh: "峰会立足医工交叉创新方向，紧扣人工智能发展浪潮与病理学科临床需求，每届围绕前沿热点、技术突破、临床转化与产业融合设定核心主题，汇聚全球人工智能、数字病理及精准医疗领域的知名专家、临床大咖、科研人才与先锋代表，通过多元形式分享前沿研究、临床应用与产业趋势，搭建思想交流、技术对接、合作共赢的高效平台。",
-      en: "The summit is rooted in interdisciplinary medical-engineering innovation and responds directly to both the rise of AI and the practical needs of pathology. Each edition is organized around frontier topics, technical breakthroughs, clinical translation, and industry collaboration, bringing together renowned experts, clinical leaders, researchers, and pioneering representatives from AI, digital pathology, and precision medicine to exchange cutting-edge research, clinical applications, and industry trends.",
+      en: "The summit is rooted in interdisciplinary medical-engineering innovation. Each edition brings together renowned experts from AI, digital pathology, and precision medicine to exchange cutting-edge research, clinical applications, and industry trends.",
     },
     {
-      zh: "峰会致力于推动病理学从数字化迈向智能化，助力 AI 技术与病理临床、科研、产业深度融合，赋能精准医疗创新发展。未来，峰会将逐年举办、迭代升级，聚焦行业核心痛点与发展方向，不断拓宽交流边界、深化合作维度，打造数智病理领域的学术交流高地、技术转化桥梁、产业合作平台与人才培养阵地，诚邀国内外同仁携手共探发展新路径，共促产业新升级，推动我国数智病理事业创新突破与国际接轨。",
-      en: "DIPS is committed to moving pathology from digitalization toward true intelligence, accelerating the integration of AI with clinical pathology, research, and industry to power innovation in precision medicine. Looking ahead, the summit will continue on an annual basis, evolving with the field's core challenges and future directions, expanding the boundaries of exchange, deepening collaboration, and growing into a hub for academic dialogue, a bridge for technology transfer, a platform for industry partnership, and a base for talent cultivation.",
+      zh: "峰会致力于推动病理学从数字化迈向智能化，助力 AI 技术与病理临床、科研、产业深度融合，赋能精准医疗创新发展。未来，峰会将逐年举办、迭代升级，聚焦行业核心痛点与发展方向，打造数智病理领域的学术交流高地、技术转化桥梁、产业合作平台与人才培养阵地。",
+      en: "DIPS is committed to moving pathology from digitalization toward true intelligence. Looking ahead, the summit will continue annually, growing into a hub for academic dialogue, technology transfer, industry partnership, and talent cultivation.",
     },
   ],
 };
 
 const summitVision = [
-  {
-    title: { zh: "学术交流高地", en: "Academic Exchange Hub" },
-    description: {
-      zh: "汇聚全球数智病理、AI 与精准医疗领域专家，形成高密度学术对话。",
-      en: "Gather global experts across digital pathology, AI, and precision medicine for high-quality scholarly dialogue.",
-    },
-  },
-  {
-    title: { zh: "技术转化桥梁", en: "Translation Bridge" },
-    description: {
-      zh: "让前沿算法、数字病理流程与临床落地之间建立更直接的连接。",
-      en: "Create a more direct path from frontier algorithms and digital pathology workflows to clinical adoption.",
-    },
-  },
-  {
-    title: { zh: "产业合作平台", en: "Industry Platform" },
-    description: {
-      zh: "推动医院、科研机构、高校与企业之间形成长期协作关系。",
-      en: "Strengthen long-term collaboration among hospitals, research institutes, universities, and enterprises.",
-    },
-  },
-  {
-    title: { zh: "人才培养阵地", en: "Talent Base" },
-    description: {
-      zh: "为青年学者、科研人才与产业先锋提供展示、连接与成长机会。",
-      en: "Provide young scholars, researchers, and innovators with opportunities to present, connect, and grow.",
-    },
-  },
+  { title: { zh: "学术交流高地", en: "Academic Hub" }, description: { zh: "汇聚全球数智病理、AI 与精准医疗领域专家，形成高密度学术对话。", en: "Gather global experts for high-quality scholarly dialogue." } },
+  { title: { zh: "技术转化桥梁", en: "Translation Bridge" }, description: { zh: "让前沿算法与临床落地之间建立更直接的连接。", en: "Create a direct path from algorithms to clinical adoption." } },
+  { title: { zh: "产业合作平台", en: "Industry Platform" }, description: { zh: "推动医院、科研机构、高校与企业之间形成长期协作关系。", en: "Strengthen long-term collaboration across institutions." } },
+  { title: { zh: "人才培养阵地", en: "Talent Base" }, description: { zh: "为青年学者与科研人才提供展示、连接与成长机会。", en: "Provide young scholars opportunities to present and grow." } },
 ];
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        description={(
-          <T
-            zh="峰会以病理数字化与人工智能协作为中心议题，连接学术、临床与产业，推动数智病理持续发展。"
-            en="The summit focuses on digital pathology and AI collaboration, connecting academia, clinics, and industry to drive continuous development."
-          />
-        )}
         eyebrow={<T zh="关于峰会" en="About" />}
-        meta={[
-          <T key="a" zh={siteConfig.acronym} en={siteConfig.acronym} />,
-        ]}
-        title={(
-          <T
-            zh="聚焦数智病理，连接学术与产业"
-            en="Bridging AI & Pathology, Academia & Industry"
-          />
-        )}
+        title={<T zh="聚焦数智病理，连接学术与产业" en="Bridging AI & Pathology" />}
+        description={<T zh="探讨数智病理的系列创新，推动新技术在病理领域的落地。" en="Exploring innovations in digital pathology, driving new technologies into clinical practice." />}
       />
 
-      {/* Summit Overview */}
       <section className="container-shell py-16 sm:py-20">
         <SectionHeading
-          description={
-            <T
-              zh="探讨数智病理的系列创新，推动新技术在病理领域的落地。"
-              en="Exploring innovations in digital and intelligent pathology, driving new technologies into clinical practice."
-            />
-          }
           eyebrow={<T zh="峰会简介" en="Overview" />}
           title={<T zh="全国数智病理领域的先锋学术会议" en="A Pioneering Forum for Digital & Intelligent Pathology" />}
         />
-        <div className="mt-10 grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
-          <article className="panel accent-ring relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-            <div className="absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top_left,rgba(26,95,180,0.06),transparent_55%)]" />
-            <div className="relative">
-              <div className="flex flex-wrap gap-2 text-[0.68rem] uppercase tracking-[0.26em] text-blue-600">
-                <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5">DIPS</span>
-                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5">
-                  <T zh="AI × Pathology" en="AI × Pathology" />
-                </span>
-                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5">
-                  <T zh="Academic Summit" en="Academic Summit" />
-                </span>
-              </div>
-              <h2 className="mt-6 max-w-3xl font-serif text-2xl leading-tight text-gray-900 sm:text-3xl lg:text-[2.25rem]">
-                <T zh="探讨数智病理的系列创新，推动新技术在病理领域的落地" en="Exploring innovations in digital pathology, driving new technologies into clinical practice" />
-              </h2>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-gray-600 sm:text-[1.18rem]">
-                <T zh={summitOverview.lead.zh} en={summitOverview.lead.en} />
-              </p>
+        <div className="mt-8 max-w-3xl">
+          <p className="text-base leading-8 text-gray-600">
+            <T zh={summitOverview.lead.zh} en={summitOverview.lead.en} />
+          </p>
+          {summitOverview.body.map((p) => (
+            <p className="mt-4 text-sm leading-7 text-gray-500" key={p.zh.slice(0, 20)}>
+              <T zh={p.zh} en={p.en} />
+            </p>
+          ))}
+        </div>
+      </section>
 
-              <div className="mt-8 grid gap-4">
-                {summitOverview.body.map((paragraph, index) => (
-                  <div
-                    className="rounded-[1.5rem] border border-gray-200 bg-gray-50/80 p-5 sm:p-6"
-                    key={paragraph.zh}
-                  >
-                    <div className="text-xs uppercase tracking-[0.24em] text-blue-600">
-                      0{index + 1}
-                    </div>
-                    <p className="mt-3 text-sm leading-8 text-gray-500 sm:text-[0.98rem]">
-                      <T zh={paragraph.zh} en={paragraph.en} />
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-[1.5rem] border border-blue-200 bg-blue-50 px-5 py-4 text-sm leading-7 text-blue-800">
-                <T
-                  zh="通过多元形式分享前沿研究、临床应用与产业趋势，推动病理学从数字化迈向智能化。"
-                  en="Through diverse formats, DIPS shares frontier research, clinical applications, and industry trends while helping pathology evolve from digitalization to intelligence."
-                />
-              </div>
-            </div>
-          </article>
-
-          <div className="space-y-5">
-            <div className="panel rounded-[2rem] p-6 sm:p-7">
-              <div className="text-xs uppercase tracking-[0.26em] text-blue-600">
-                <T zh="核心议题" en="Core Themes" />
-              </div>
-              <h3 className="mt-4 font-serif text-2xl text-gray-900">
-                <T zh="每届围绕行业关键命题展开" en="Each edition centers on the field's most urgent themes" />
-              </h3>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-                {focusPillars.map((item, index) => (
-                  <div className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 p-4" key={item}>
-                    <div className="text-xs uppercase tracking-[0.22em] text-blue-600">
-                      0{index + 1}
-                    </div>
-                    <div className="mt-2 text-base font-semibold text-gray-900">
-                      <T zh={item} en={focusPillarsEn[index]} />
-                    </div>
+      <section className="border-t border-gray-200 bg-gray-50">
+        <div className="container-shell py-16 sm:py-20">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <SectionHeading
+                eyebrow={<T zh="核心议题" en="Core Themes" />}
+                title={<T zh="每届围绕行业关键命题展开" en="Centered on the field's most urgent themes" />}
+              />
+              <div className="mt-6 space-y-3">
+                {focusPillars.map((item, i) => (
+                  <div className="flex items-center gap-3 rounded-md border border-gray-200 bg-white px-4 py-3" key={item}>
+                    <span className="text-xs font-medium text-blue-700">0{i + 1}</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      <T zh={item} en={focusPillarsEn[i]} />
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="panel rounded-[2rem] p-6 sm:p-7">
-              <div className="text-xs uppercase tracking-[0.26em] text-blue-600">
-                <T zh="长期愿景" en="Long-term Vision" />
-              </div>
-              <h3 className="mt-4 font-serif text-2xl text-gray-900">
-                <T zh="持续搭建更深层的合作基础设施" en="Building deeper infrastructure for collaboration" />
-              </h3>
+            <div>
+              <SectionHeading
+                eyebrow={<T zh="长期愿景" en="Vision" />}
+                title={<T zh="持续搭建更深层的合作基础设施" en="Building deeper collaboration infrastructure" />}
+              />
               <div className="mt-6 space-y-3">
                 {summitVision.map((item) => (
-                  <div
-                    className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 px-4 py-4"
-                    key={item.title.zh}
-                  >
-                    <div className="text-base font-semibold text-gray-900">
+                  <div className="rounded-md border border-gray-200 bg-white px-4 py-3" key={item.title.zh}>
+                    <div className="text-sm font-medium text-gray-900">
                       <T zh={item.title.zh} en={item.title.en} />
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-gray-500">
+                    <p className="mt-1 text-sm text-gray-500">
                       <T zh={item.description.zh} en={item.description.en} />
                     </p>
                   </div>
@@ -189,44 +104,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="container-shell pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <section className="container-shell py-16 sm:py-20">
         <SectionHeading
-          description={
-            <T
-              zh="峰会自 2025 年创办以来，持续积累学术成果与品牌影响力。"
-              en="Since its founding in 2025, the summit has steadily built academic impact."
-            />
-          }
           eyebrow={<T zh="历史沿革" en="History" />}
           title={<T zh="峰会发展历程" en="Summit Timeline" />}
         />
-        <div className="mt-10 space-y-5">
+        <div className="mt-8 space-y-4">
           {timeline.map((item) => (
-            <div className="panel rounded-2xl p-6 sm:p-8" key={item.year}>
-              <div className="grid gap-5 lg:grid-cols-[0.25fr_0.75fr]">
-                <div>
-                  <div className="font-serif text-3xl text-gray-900">{item.year}</div>
-                  <div className="mt-2 text-sm text-blue-600">
-                    <T zh={item.title} en={item.titleEn} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    <T zh={item.theme} en={item.themeEn} />
-                  </h3>
-                  <div className="mt-4 space-y-2">
-                    {item.achievements.map((a, i) => (
-                      <div
-                        className="rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 text-sm leading-6 text-gray-500"
-                        key={a}
-                      >
-                        <T zh={a} en={item.achievementsEn[i]} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            <div className="rounded-lg border border-gray-200 p-5 sm:p-6" key={item.year}>
+              <div className="flex items-baseline gap-4">
+                <span className="text-2xl font-bold text-gray-900">{item.year}</span>
+                <span className="text-sm text-blue-700">
+                  <T zh={item.title} en={item.titleEn} />
+                </span>
               </div>
+              <p className="mt-2 text-sm font-medium text-gray-700">
+                <T zh={item.theme} en={item.themeEn} />
+              </p>
+              <ul className="mt-3 space-y-1">
+                {item.achievements.map((a, i) => (
+                  <li className="text-sm leading-6 text-gray-500" key={a}>
+                    <T zh={a} en={item.achievementsEn[i]} />
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
