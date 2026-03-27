@@ -60,12 +60,6 @@ export default async function ArchiveDetailPage({
   return (
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
       <div className="max-w-5xl">
-        <Link
-          className="inline-flex items-center gap-2 text-sm text-blue-600 transition hover:text-blue-700"
-          href="/archives"
-        >
-          <T zh="返回往届列表" en="Back to Archives" />
-        </Link>
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
           <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
             {entry.frontmatter.year} · <T zh={entry.frontmatter.location} en={entry.frontmatter.locationEn ?? entry.frontmatter.location} />
