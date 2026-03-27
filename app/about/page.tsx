@@ -15,13 +15,13 @@ export const metadata: Metadata = createPageMetadata({
 
 const summitOverview = {
   lead: {
-    zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由国内顶尖高校与中华医学会病理学分会、北京精鉴病理学发展基金会共同发起，是国内聚焦人工智能大模型与病理学深度融合的高端学术会议。",
-    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading Chinese universities, the Chinese Society of Pathology, and the Beijing Jingjian Pathology Development Foundation. It is a premier academic forum dedicated to the deep integration of large AI models and pathology.",
+    zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合，以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的先锋学术会议。",
+    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It is a pioneering academic conference focused on the deep integration of cutting-edge technologies such as AI with pathology, driving high-quality development of digital pathology, computational pathology, and pathology AI through interdisciplinary medical-engineering collaboration.",
   },
   body: [
     {
-      zh: "作为行业专业学术盛会，峰会立足医工交叉创新方向，紧扣人工智能发展浪潮与病理学科临床需求，每届围绕前沿热点、技术突破、临床转化与产业融合设定核心主题，汇聚全球人工智能、数字病理及精准医疗领域的知名专家、临床大咖、科研人才与先锋代表，通过多元形式分享前沿研究、临床应用与产业趋势，搭建思想交流、技术对接、合作共赢的高效平台。",
-      en: "As a leading professional gathering, the summit is rooted in interdisciplinary medical-engineering innovation and responds directly to both the rise of AI and the practical needs of pathology. Each edition is organized around frontier topics, technical breakthroughs, clinical translation, and industry collaboration, bringing together renowned experts, clinical leaders, researchers, and pioneering representatives from AI, digital pathology, and precision medicine to exchange cutting-edge research, clinical applications, and industry trends.",
+      zh: "峰会立足医工交叉创新方向，紧扣人工智能发展浪潮与病理学科临床需求，每届围绕前沿热点、技术突破、临床转化与产业融合设定核心主题，汇聚全球人工智能、数字病理及精准医疗领域的知名专家、临床大咖、科研人才与先锋代表，通过多元形式分享前沿研究、临床应用与产业趋势，搭建思想交流、技术对接、合作共赢的高效平台。",
+      en: "The summit is rooted in interdisciplinary medical-engineering innovation and responds directly to both the rise of AI and the practical needs of pathology. Each edition is organized around frontier topics, technical breakthroughs, clinical translation, and industry collaboration, bringing together renowned experts, clinical leaders, researchers, and pioneering representatives from AI, digital pathology, and precision medicine to exchange cutting-edge research, clinical applications, and industry trends.",
     },
     {
       zh: "峰会致力于推动病理学从数字化迈向智能化，助力 AI 技术与病理临床、科研、产业深度融合，赋能精准医疗创新发展。未来，峰会将逐年举办、迭代升级，聚焦行业核心痛点与发展方向，不断拓宽交流边界、深化合作维度，打造数智病理领域的学术交流高地、技术转化桥梁、产业合作平台与人才培养阵地，诚邀国内外同仁携手共探发展新路径，共促产业新升级，推动我国数智病理事业创新突破与国际接轨。",
@@ -88,12 +88,12 @@ export default function AboutPage() {
         <SectionHeading
           description={
             <T
-              zh="围绕人工智能大模型与病理学深度融合，打造连接学术、临床、科研与产业的高端平台。"
-              en="A high-level platform connecting academia, clinical practice, research, and industry around the deep integration of large AI models and pathology."
+              zh="探讨数智病理的系列创新，推动新技术在病理领域的落地。"
+              en="Exploring innovations in digital and intelligent pathology, driving new technologies into clinical practice."
             />
           }
           eyebrow={<T zh="峰会简介" en="Overview" />}
-          title={<T zh="全国数智病理领域的高端学术会议" en="A Premier Forum for Digital & Intelligent Pathology" />}
+          title={<T zh="全国数智病理领域的先锋学术会议" en="A Pioneering Forum for Digital & Intelligent Pathology" />}
         />
         <div className="mt-10 grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
           <article className="panel accent-ring relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <h2 className="mt-6 max-w-3xl font-serif text-2xl leading-tight text-gray-900 sm:text-3xl lg:text-[2.25rem]">
-                <T zh="以数智病理为核心，连接前沿研究、临床应用与产业未来" en="Connecting frontier research, clinical practice, and industry around digital and intelligent pathology" />
+                <T zh="探讨数智病理的系列创新，推动新技术在病理领域的落地" en="Exploring innovations in digital pathology, driving new technologies into clinical practice" />
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-9 text-gray-600 sm:text-[1.18rem]">
                 <T zh={summitOverview.lead.zh} en={summitOverview.lead.en} />

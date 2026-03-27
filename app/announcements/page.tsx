@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
+import { ButtonLink } from "@/components/ui/button-link";
 import { PageHero } from "@/components/ui/page-hero";
 import { T } from "@/components/ui/t";
 import { createPageMetadata } from "@/lib/metadata";
-import { formatDisplayDate, getAnnouncementSummaries } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
   title: "会议通知 | Announcements",
@@ -12,16 +11,14 @@ export const metadata: Metadata = createPageMetadata({
   path: "/announcements",
 });
 
-export default async function AnnouncementsPage() {
-  const announcements = await getAnnouncementSummaries();
-
+export default function AnnouncementsPage() {
   return (
     <>
       <PageHero
         description={
           <T
-            zh="获取峰会最新日程、嘉宾确认、报名信息及会务公告。"
-            en="Stay updated with the latest agenda, speaker confirmations, registration details, and event notices."
+            zh="获取峰会最新日程、参会嘉宾、报名信息及会务公告。"
+            en="Stay updated with the latest agenda, guest speakers, registration details, and event notices."
           />
         }
         eyebrow={<T zh="会议通知" en="Announcements" />}
@@ -33,31 +30,40 @@ export default async function AnnouncementsPage() {
         title={<T zh="会议通知" en="Summit Announcements" />}
       />
       <section className="container-shell pb-24 pt-18 sm:pb-28 sm:pt-20">
-        <div className="space-y-5">
-          {announcements.map((item, index) => (
-            <Link
-              className="panel group block rounded-[2rem] p-6 transition hover:border-blue-200 hover:bg-blue-50/40 sm:p-8"
-              href={`/announcements/${item.slug}`}
-              key={item.slug}
-            >
-              <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-gray-400">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
-                <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
-                {item.pinned ? (
-                  <span className="rounded-full border border-blue-200 px-3 py-1 text-blue-600">
-                    <T zh="置顶" en="Pinned" />
-                  </span>
-                ) : null}
-              </div>
-              <h2 className="mt-5 whitespace-nowrap text-[clamp(1.4rem,5vw,1.875rem)] font-semibold text-gray-900 transition group-hover:text-blue-600">
-                <T zh={item.title} en={item.titleEn ?? item.title} />
-              </h2>
-              <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
-                <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="panel rounded-[2rem] p-6 sm:p-8">
+            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+              <T zh="会议日程" en="Schedule" />
+            </div>
+            <h2 className="mt-4 font-serif text-3xl text-gray-900">
+              <T zh="会议日程" en="Summit Schedule" />
+            </h2>
+            <div className="mt-8 flex flex-col items-center justify-center rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-16 text-center">
+              <p className="font-serif text-2xl text-gray-400">
+                <T zh="敬请期待" en="Coming Soon" />
               </p>
-            </Link>
-          ))}
+            </div>
+          </div>
+
+          <div className="panel rounded-[2rem] p-6 sm:p-8">
+            <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+              <T zh="参会嘉宾" en="Guests" />
+            </div>
+            <h2 className="mt-4 font-serif text-3xl text-gray-900">
+              <T zh="参会嘉宾" en="Summit Guests" />
+            </h2>
+            <div className="mt-8 flex flex-col items-center justify-center rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-16 text-center">
+              <p className="font-serif text-2xl text-gray-400">
+                <T zh="敬请期待" en="Coming Soon" />
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <ButtonLink href="/register">
+            <T zh="立即报名" en="Register Now" />
+          </ButtonLink>
         </div>
       </section>
     </>

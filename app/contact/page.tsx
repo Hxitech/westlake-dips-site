@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ExternalLink, Mail, MapPinned, Phone, QrCode } from "lucide-react";
 
 import { PageHero } from "@/components/ui/page-hero";
@@ -100,6 +101,17 @@ export default function ContactPage() {
                 <p className="mt-4 text-sm leading-7 text-gray-500">
                   <T zh={item.description.zh} en={item.description.en} />
                 </p>
+                {item.icon === QrCode ? (
+                  <div className="mt-5">
+                    <Image
+                      src="/wechat-qr.png"
+                      alt="微信二维码"
+                      width={180}
+                      height={180}
+                      className="rounded-xl border border-gray-200"
+                    />
+                  </div>
+                ) : null}
                 {item.href && item.hrefLabel ? (
                   <a
                     className="mt-5 inline-flex items-center gap-2 text-sm text-blue-600 transition hover:text-blue-700 hover:underline"

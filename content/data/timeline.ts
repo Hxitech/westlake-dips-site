@@ -22,8 +22,8 @@ export const timeline: TimelineEntry[] = [
   },
   {
     year: 2026,
-    title: "数智病理西北峰会",
-    titleEn: "2nd DIPS Summit",
+    title: "第二届全国数智病理峰会",
+    titleEn: "2nd National DIPS Summit",
     theme: "大模型浪潮下人工智能与数智病理的创新与融合",
     themeEn: "Innovation & Integration of AI and Digital Pathology in the Era of Large Models",
     achievements: [

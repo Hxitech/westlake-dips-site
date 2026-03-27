@@ -49,7 +49,7 @@ export function CountdownClock({
       className={cn(
         "relative overflow-hidden",
         variant === "panel" && "panel-luxe accent-ring rounded-[2rem] border border-gray-200 p-6 sm:p-8",
-        variant === "embedded" && "rounded-[1.7rem] border border-gray-200 bg-white/80 p-5 backdrop-blur-sm sm:p-6",
+        variant === "embedded" && "rounded-[1.7rem] border border-white/15 bg-white/10 p-5 backdrop-blur-sm sm:p-6",
       )}
     >
       {variant === "panel" ? (
@@ -62,9 +62,12 @@ export function CountdownClock({
         <div
           className={cn(
             "inline-flex rounded-full px-4 py-1 text-xs uppercase tracking-[0.28em]",
-            state.status === "upcoming" && "bg-blue-50 text-blue-600",
-            state.status === "live" && "bg-emerald-50 text-emerald-600",
-            state.status === "ended" && "bg-gray-100 text-gray-500",
+            variant === "panel" && state.status === "upcoming" && "bg-blue-50 text-blue-600",
+            variant === "panel" && state.status === "live" && "bg-emerald-50 text-emerald-600",
+            variant === "panel" && state.status === "ended" && "bg-gray-100 text-gray-500",
+            variant === "embedded" && state.status === "upcoming" && "bg-blue-500/20 text-blue-200",
+            variant === "embedded" && state.status === "live" && "bg-emerald-500/20 text-emerald-200",
+            variant === "embedded" && state.status === "ended" && "bg-white/10 text-white/60",
           )}
           data-testid="countdown-status"
         >
@@ -98,21 +101,21 @@ export function CountdownClock({
             <div
               key={String(label)}
               className={cn(
-                "countdown-pulse rounded-[1.5rem] border border-gray-200 text-center backdrop-blur-sm",
-                variant === "panel" && "bg-gray-50 p-4",
-                variant === "embedded" && "bg-gray-50/80 p-4 sm:p-5",
+                "countdown-pulse rounded-[1.5rem] text-center backdrop-blur-sm",
+                variant === "panel" && "border border-gray-200 bg-gray-50 p-4",
+                variant === "embedded" && "border border-white/10 bg-white/10 p-4 sm:p-5",
               )}
             >
               <div
                 className={cn(
-                  "font-serif leading-none text-gray-900",
-                  variant === "panel" && "text-[clamp(2.2rem,5vw,3.25rem)]",
-                  variant === "embedded" && "text-[clamp(2.4rem,5.4vw,3.6rem)]",
+                  "font-serif leading-none",
+                  variant === "panel" && "text-[clamp(2.2rem,5vw,3.25rem)] text-gray-900",
+                  variant === "embedded" && "text-[clamp(2.4rem,5.4vw,3.6rem)] text-white",
                 )}
               >
                 {String(value).padStart(2, "0")}
               </div>
-              <div className="mt-2 text-xs uppercase tracking-[0.24em] text-gray-400">
+              <div className={cn("mt-2 text-xs uppercase tracking-[0.24em]", variant === "panel" ? "text-gray-400" : "text-blue-200/60")}>
                 {label}
               </div>
             </div>

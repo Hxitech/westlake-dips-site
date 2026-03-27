@@ -14,9 +14,9 @@ export const siteConfig: SiteConfig = {
   shortNameEn: "DIPS",
   acronym: "DIPS",
   description:
-    "聚焦大模型浪潮下人工智能与数智病理的创新与融合的全国性旗舰学术峰会。",
+    "聚焦人工智能等前沿技术与病理学深度融合的先锋学术会议。",
   descriptionEn:
-    "China's flagship academic summit on the innovation and integration of AI and digital pathology in the era of large models.",
+    "A pioneering academic conference on the deep integration of AI and digital pathology.",
   locale: "zh_CN",
   url: "https://dips.ccipd.net",
   themeColor: "#1a5fb4",
@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
     { href: "/", label: "首页", labelEn: "Home", description: "峰会首页", descriptionEn: "Summit homepage" },
     { href: "/about", label: "关于峰会", labelEn: "About", description: "峰会简介与沿革", descriptionEn: "Introduction & history" },
     { href: "/announcements", label: "会议通知", labelEn: "News", description: "最新通知与公告", descriptionEn: "Announcements" },
-    { href: "/abstract", label: "论文投稿", labelEn: "Abstract", description: "摘要投稿说明", descriptionEn: "Abstract submission" },
+
     { href: "/guide", label: "参会指南", labelEn: "Guide", description: "交通与参会说明", descriptionEn: "Venue & travel" },
     { href: "/archives", label: "往届会议", labelEn: "Archives", description: "往届峰会回顾", descriptionEn: "Past summits" },
     { href: "/partners", label: "合作伙伴", labelEn: "Partners", description: "合作方案与合作单位", descriptionEn: "Partnership details" },
@@ -46,9 +46,9 @@ export const heroContent: HeroContent = {
   title: "大模型时代的数智病理",
   titleEn: "Digital & Intelligent Pathology in the Era of Large Models",
   subtitle:
-    "聚焦人工智能与数字病理学交叉学科的深度融合与最新进展，携手知名专家学者、业界领袖及创新团队，共同分享前沿研究与临床转化成果。",
+    "聚集人工智能与病理学交叉学科的深度融合与最新进展",
   subtitleEn:
-    "Exploring the deep integration and latest advances at the intersection of AI and digital pathology, uniting leading experts, industry pioneers, and innovators to share frontier research and clinical translation.",
+    "Focusing on the deep integration and latest advances at the intersection of AI and pathology.",
   location: "西安 · 西北大学长安校区",
   locationEn: "Xi'an · Northwest University Chang'an Campus",
   dateText: "2026 年 5 月 10 日",
@@ -172,20 +172,18 @@ export const focusPillarsEn = [
 
 export const registrationConfig: RegistrationConfig = {
   status: "preview",
-  primaryLabel: "报名通道即将开放",
-  primaryLabelEn: "Registration Opening Soon",
+  primaryLabel: "参会注册",
+  primaryLabelEn: "Registration",
   description:
-    "第二届全国数智病理峰会报名通道即将上线，届时可通过本页面进入注册流程。",
+    "面向病理、临床和AI等领域专家。可点击下方链接完成参会注册。",
   descriptionEn:
-    "Registration for the 2nd DIPS Summit will open soon. You can register directly through this page.",
+    "Open to experts in pathology, clinical medicine, and AI. Click the link below to complete registration.",
   tips: [
-    "正式报名链接上线后，本页面将跳转至注册表单。",
-    "参会面向病理、临床、AI 和医院管理等领域专业人员。",
+    "注册确认信息将通过短信发送。",
     "如需团体报名或合作洽谈，请通过联系页面与会务组对接。",
   ],
   tipsEn: [
-    "Once registration opens, this page will link directly to the form.",
-    "Open to professionals in pathology, clinical medicine, AI, and hospital management.",
+    "Registration confirmation will be sent via SMS.",
     "For group registration or partnership inquiries, please contact us.",
   ],
 };

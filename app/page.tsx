@@ -1,16 +1,15 @@
 import Link from "next/link";
 
 import { CountdownClock } from "@/components/home/countdown-clock";
+import { HeroCarousel } from "@/components/home/hero-carousel";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { ButtonLink } from "@/components/ui/button-link";
-import { HeroAtmosphere } from "@/components/ui/hero-atmosphere";
 import { SectionDivider } from "@/components/ui/section-divider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
-import { heroContent, quickFacts, schedulePreview, siteConfig, summitHighlights } from "@/content/data/site";
-import { partnerCollaborationAreas } from "@/content/data/partners";
+import { heroContent, siteConfig } from "@/content/data/site";
 import { timeline } from "@/content/data/timeline";
-import { getAnnouncementSummaries, getArchiveSummaries, formatDisplayDate } from "@/lib/content";
+import { getArchiveSummaries } from "@/lib/content";
 
 const eventStructuredData = {
   "@context": "https://schema.org",
@@ -28,57 +27,6 @@ const eventStructuredData = {
   },
 };
 
-const summitThemes = [
-  {
-    idx: "01",
-    zh: "大模型前沿技术",
-    zhSub: "围绕多模态、病理大模型与算法创新，聚焦最新研究成果与应用范式。",
-    en: "Large Model Frontiers",
-    enSub: "Multimodal systems, pathology foundation models, and algorithmic innovation.",
-  },
-  {
-    idx: "02",
-    zh: "AI 精准诊断",
-    zhSub: "链接病理医生、临床团队与数据系统，推进 AI 辅助精准诊断落地。",
-    en: "AI Precision Diagnosis",
-    enSub: "Connecting pathologists, clinicians, and data systems for practical AI diagnosis.",
-  },
-  {
-    idx: "03",
-    zh: "产业融合与转化",
-    zhSub: "让科研、临床与产业形成协作闭环，推动成果走向真实场景。",
-    en: "Industry Translation",
-    enSub: "Turning research, clinical practice, and industry into one translational workflow.",
-  },
-];
-
-const heroSignals = [
-  {
-    label: { zh: "Academic Axis", en: "Academic Axis" },
-    value: { zh: "AI x 病理", en: "AI x Pathology" },
-    detail: {
-      zh: "从基础研究到临床应用的连续坐标。",
-      en: "A continuous axis from research to clinical practice.",
-    },
-  },
-  {
-    label: { zh: "Summit Format", en: "Summit Format" },
-    value: { zh: "主论坛 + 专场", en: "Plenary + Tracks" },
-    detail: {
-      zh: "一天内完成主题报告、专题交流与产业对话。",
-      en: "Plenary reports, focused sessions, and industry dialogue in one day.",
-    },
-  },
-  {
-    label: { zh: "Research Network", en: "Research Network" },
-    value: { zh: "全国协同", en: "Nationwide" },
-    detail: {
-      zh: "高校、医院、科研与企业代表深度汇聚。",
-      en: "Universities, hospitals, researchers, and industry leaders convene together.",
-    },
-  },
-];
-
 const endingTimelineLinks = timeline.map((item) => ({
   href: item.year === 2025 ? `/archives/${item.year}` : "/about",
   key: `${item.year}-${item.title}`,
@@ -86,11 +34,7 @@ const endingTimelineLinks = timeline.map((item) => ({
 }));
 
 export default async function Home() {
-  const [announcements, archives] = await Promise.all([
-    getAnnouncementSummaries(),
-    getArchiveSummaries(),
-  ]);
-
+  const archives = await getArchiveSummaries();
   const featuredArchive = archives[0];
 
   return (
@@ -102,48 +46,44 @@ export default async function Home() {
         type="application/ld+json"
       />
 
-      <section className="relative overflow-hidden border-b border-gray-200">
-        <HeroAtmosphere />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.3),rgba(240,244,249,0.85)_58%,rgba(240,244,249,0.96))]" />
+      <section className="relative min-h-[520px] overflow-hidden sm:min-h-[560px] lg:min-h-[600px]">
+        <HeroCarousel />
         <div className="container-shell relative py-14 sm:py-[4.5rem] lg:py-24">
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(24rem,0.98fr)] xl:items-start">
-            <div className="max-w-3xl">
-              <span className="luxe-badge">
-                <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
-              </span>
-              <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-blue-600/60">
-                DIPS / Digital Intelligence in Pathology Summit
-              </div>
-              <h1 className="mt-4 max-w-full whitespace-nowrap font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-gray-900">
-                <T zh={siteConfig.name} en={siteConfig.nameEn} />
-              </h1>
-              <p className="mt-4 max-w-3xl text-[clamp(1.4rem,2.2vw,2.5rem)] leading-[1.16] text-gradient [text-wrap:balance]">
-                <T zh={heroContent.title} en={heroContent.titleEn} />
-              </p>
-              <p className="mt-6 max-w-3xl text-[clamp(1rem,1.35vw,1.16rem)] leading-8 text-gray-500 [text-wrap:pretty]">
-                <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
-              </p>
+          <div className="max-w-4xl">
+            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[0.72rem] uppercase tracking-[0.28em] text-blue-200 backdrop-blur-sm">
+              <T zh={heroContent.eyebrow} en={heroContent.eyebrowEn} />
+            </span>
+            <div className="mt-6 text-[0.72rem] uppercase tracking-[0.32em] text-blue-300/70">
+              DIGITAL AND INTELLIGENT PATHOLOGY SUMMIT
+            </div>
+            <h1 className="mt-4 max-w-full whitespace-nowrap font-serif text-[clamp(2.35rem,5vw,4.85rem)] leading-[1.02] tracking-[-0.055em] text-white">
+              <T zh={siteConfig.name} en={siteConfig.nameEn} />
+            </h1>
+            <p className="mt-4 max-w-3xl text-[clamp(1.25rem,2vw,2rem)] leading-[1.3] text-blue-100/90 [text-wrap:balance]">
+              <T zh={heroContent.subtitle} en={heroContent.subtitleEn} />
+            </p>
 
-              <div className="mt-7 flex flex-wrap gap-3 text-sm text-gray-600">
-                <div className="inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 backdrop-blur-sm">
-                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
-                    <T zh="地点" en="Venue" />
-                  </span>
-                  <span className="text-sm text-gray-900">
-                    <T zh={heroContent.location} en={heroContent.locationEn} />
-                  </span>
-                </div>
-                <div className="inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 backdrop-blur-sm">
-                  <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
-                    <T zh="时间" en="Date" />
-                  </span>
-                  <span className="text-sm text-gray-900">
-                    <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
-                  </span>
-                </div>
+            <div className="mt-7 flex flex-wrap gap-3 text-sm">
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-sm">
+                <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-300">
+                  <T zh="地点" en="Venue" />
+                </span>
+                <span className="text-sm text-white/90">
+                  <T zh={heroContent.location} en={heroContent.locationEn} />
+                </span>
               </div>
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-sm">
+                <span className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-300">
+                  <T zh="时间" en="Date" />
+                </span>
+                <span className="text-sm text-white/90">
+                  <T zh={heroContent.dateText} en={heroContent.dateTextEn} />
+                </span>
+              </div>
+            </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <div className="flex flex-wrap gap-3">
                 {heroContent.ctas.map((cta) => (
                   <ButtonLink
                     href={cta.href}
@@ -154,69 +94,14 @@ export default async function Home() {
                   </ButtonLink>
                 ))}
               </div>
-            </div>
-
-            <AnimatedSection className="xl:pt-8" threshold={0.08} variant="scale">
-              <div className="panel-luxe rounded-[2rem] border border-gray-200 p-5 sm:p-6 lg:p-7">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
-                      Summit Signal Deck
-                    </div>
-                  </div>
-                  <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-amber-700">
-                    DIPS 2026
-                  </div>
-                </div>
-
-                <div className="mt-6 rounded-[1.7rem] border border-gray-200 bg-gray-50/80 px-5 py-5 backdrop-blur-sm">
-                  <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
-                    <T zh="会议主题" en="Theme" />
-                  </div>
-                  <h2 className="mt-3 font-serif text-[clamp(1.7rem,2.4vw,2.35rem)] leading-tight text-gray-900 [text-wrap:balance]">
-                    <T zh={heroContent.title} en={heroContent.titleEn} />
-                  </h2>
-                  <p className="mt-3 max-w-xl text-sm leading-7 text-gray-500">
-                    <T
-                      zh="聚焦前沿研究、临床转化与产业共建，打造更高密度的学术交流场域。"
-                      en="Focused on frontier research, clinical translation, and ecosystem collaboration in one high-density academic gathering."
-                    />
-                  </p>
-                </div>
-
-                <div className="mt-5">
-                  <CountdownClock
-                    eventEnd={siteConfig.eventEnd}
-                    eventStart={siteConfig.eventStart}
-                    variant="embedded"
-                  />
-                </div>
-
-                <AnimatedSection
-                  className="mt-5 grid grid-cols-2 gap-4"
-                  stagger
-                  threshold={0.04}
-                  variant="fade"
-                >
-                  {quickFacts.map((fact) => (
-                    <div
-                      className="panel-glow rounded-[1.55rem] border border-gray-200 bg-white/90 p-4 backdrop-blur-sm"
-                      key={fact.label}
-                    >
-                      <div className="font-serif text-[clamp(2rem,3.4vw,2.7rem)] leading-none text-blue-700">
-                        <T zh={fact.value} en={fact.valueEn} />
-                      </div>
-                      <div className="mt-2 text-sm font-medium text-gray-900">
-                        <T zh={fact.label} en={fact.labelEn} />
-                      </div>
-                      <div className="mt-2 text-xs leading-5 text-gray-500">
-                        <T zh={fact.detail} en={fact.detailEn} />
-                      </div>
-                    </div>
-                  ))}
-                </AnimatedSection>
+              <div className="shrink-0">
+                <CountdownClock
+                  eventEnd={siteConfig.eventEnd}
+                  eventStart={siteConfig.eventStart}
+                  variant="embedded"
+                />
               </div>
-            </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
@@ -224,197 +109,37 @@ export default async function Home() {
       <SectionDivider />
 
       <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-        <AnimatedSection className="grid gap-4 md:grid-cols-3" stagger variant="fade">
-          {heroSignals.map((item) => (
-            <div
-              className="panel-glow rounded-[1.6rem] border border-gray-200 bg-white/90 px-4 py-4 backdrop-blur"
-              key={item.label.en}
-            >
-              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-blue-600">
-                <T zh={item.label.zh} en={item.label.en} />
-              </div>
-              <div className="mt-3 text-lg font-medium text-gray-900">
-                <T zh={item.value.zh} en={item.value.en} />
-              </div>
-              <p className="mt-2 text-sm leading-6 text-gray-500">
-                <T zh={item.detail.zh} en={item.detail.en} />
-              </p>
-            </div>
-          ))}
-        </AnimatedSection>
-        <div>
-          <SectionHeading
-            className="mt-12"
-            eyebrow={<T zh="峰会聚焦" en="Summit Focus" />}
-            title={<T zh="三大核心议题" en="Three Signature Tracks" />}
-          />
-        </div>
-
-        <AnimatedSection className="mt-10 grid gap-4 lg:grid-cols-3" stagger variant="fade">
-          {summitThemes.map((item) => (
-            <div
-              className="panel-glow relative overflow-hidden rounded-[2rem] border border-gray-200 bg-white/90 p-6"
-              key={item.idx}
-            >
-              <div className="absolute -right-8 top-0 h-28 w-28 rounded-full bg-blue-500/8 blur-3xl" />
-              <div className="absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(26,95,180,0.2),transparent)]" />
-              <div className="text-[0.68rem] uppercase tracking-[0.32em] text-blue-600">
-                {item.idx}
-              </div>
-              <div className="mt-4 font-serif text-[1.45rem] leading-tight text-gray-900">
-                <T zh={item.zh} en={item.en} />
-              </div>
-              <p className="mt-4 text-sm leading-7 text-gray-500">
-                <T zh={item.zhSub} en={item.enSub} />
-              </p>
-            </div>
-          ))}
-        </AnimatedSection>
-      </AnimatedSection>
-
-      <SectionDivider />
-
-      <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-        <SectionHeading
-          description={
-            <T
-              zh="前沿学术报告、跨界对话与成果展示，构建数智病理全链条协作平台。"
-              en="Frontier research, cross-sector dialogue, and translation showcases build a full-spectrum collaboration platform."
-            />
-          }
-          eyebrow={<T zh="峰会亮点" en="Highlights" />}
-          title={<T zh="为何参加本届峰会" en="Why This Summit Matters" />}
-        />
-
-        <AnimatedSection className="mt-10 grid gap-5 lg:grid-cols-3" stagger variant="fade">
-          {summitHighlights.map((item) => (
-            <div
-              className="panel-glow rounded-[2rem] border border-gray-200 bg-white/90 p-6"
-              key={item.title}
-            >
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
-                <T zh={item.metric} en={item.metricEn} />
-              </div>
-              <h3 className="mt-3 text-[1.28rem] font-semibold text-gray-900">
-                <T zh={item.title} en={item.titleEn} />
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-500">
-                <T zh={item.description} en={item.descriptionEn} />
-              </p>
-            </div>
-          ))}
-        </AnimatedSection>
-      </AnimatedSection>
-
-      <SectionDivider />
-
-      <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-        <div className="grid gap-8 xl:grid-cols-[1.12fr_0.88fr]">
+        <div className="grid gap-8 xl:grid-cols-2">
           <div className="panel-luxe rounded-[2rem] border border-gray-200 p-5 sm:p-6">
             <SectionHeading
-              action={
-                <ButtonLink href="/announcements" size="compact" variant="secondary">
-                  <T zh="查看全部" en="View All" />
-                </ButtonLink>
-              }
-              eyebrow={<T zh="最新动态" en="News" />}
-              title={<T zh="峰会通知" en="Announcements" />}
+              eyebrow={<T zh="会议日程" en="Schedule" />}
+              title={<T zh="会议日程" en="Summit Schedule" />}
             />
-            <AnimatedSection className="mt-8 space-y-1" stagger variant="fade">
-              {announcements.slice(0, 3).map((item, index) => (
-                <Link
-                  className="group block rounded-[1.5rem] px-4 py-4 transition hover:bg-blue-50/60"
-                  href={`/announcements/${item.slug}`}
-                  key={item.slug}
-                >
-                  <div className="flex flex-wrap items-center gap-2 text-[0.68rem] uppercase tracking-[0.24em] text-gray-400">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <span><T zh={item.category} en={item.categoryEn ?? item.category} /></span>
-                    <span><T zh={formatDisplayDate(item.date, "zh")} en={formatDisplayDate(item.date, "en")} /></span>
-                    {item.pinned ? (
-                      <span className="rounded-full border border-blue-200 px-2 py-0.5 text-blue-600">
-                        <T zh="置顶" en="Pinned" />
-                      </span>
-                    ) : null}
-                  </div>
-                  <h3 className="mt-3 text-[1.1rem] font-semibold leading-7 text-gray-900 transition group-hover:text-blue-600">
-                    <T zh={item.title} en={item.titleEn ?? item.title} />
-                  </h3>
-                  <p className="mt-2 text-sm leading-7 text-gray-500 line-clamp-2">
-                    <T zh={item.excerpt} en={item.excerptEn ?? item.excerpt} />
-                  </p>
-                </Link>
-              ))}
-            </AnimatedSection>
-          </div>
-
-          <div>
-            <SectionHeading
-              eyebrow={<T zh="日程预览" en="Schedule" />}
-              title={<T zh="精彩议程" en="Agenda Highlights" />}
-            />
-            <div className="mt-8 panel-luxe rounded-[2rem] border border-gray-200 px-5 py-6 sm:px-6">
-              <AnimatedSection className="relative space-y-4 before:absolute before:bottom-3 before:left-[0.82rem] before:top-3 before:w-px before:bg-[linear-gradient(180deg,rgba(26,95,180,0.3),rgba(184,134,11,0.08))]" stagger variant="fade">
-                {schedulePreview.map((item) => (
-                  <div
-                    className="relative pl-10"
-                    key={item.title}
-                  >
-                    <div className="absolute left-0 top-1.5 flex size-7 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-[0.68rem] uppercase tracking-[0.2em] text-blue-600">
-                      •
-                    </div>
-                    <div className="rounded-[1.4rem] border border-gray-200 bg-gray-50/80 px-4 py-4 backdrop-blur-sm">
-                      <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
-                        <T zh={item.time} en={item.timeEn} />
-                      </div>
-                      <div className="mt-2 text-base font-medium text-gray-900">
-                        <T zh={item.title} en={item.titleEn} />
-                      </div>
-                      <div className="mt-2 text-sm leading-6 text-gray-500">
-                        <T zh={item.description} en={item.descriptionEn} />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </AnimatedSection>
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <SectionDivider />
-
-      <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-        <SectionHeading
-          action={
-            <ButtonLink href="/partners" size="compact" variant="secondary">
-              <T zh="查看详情" en="View Details" />
-            </ButtonLink>
-          }
-          description={
-            <T
-              zh="欢迎高校、医院、科研机构、企业与社会组织围绕学术、临床与产业协同开展合作。"
-              en="Universities, hospitals, research institutes, enterprises, and social organizations are welcome to collaborate across academic, clinical, and industry initiatives."
-            />
-          }
-          eyebrow={<T zh="合作伙伴" en="Partners" />}
-          title={<T zh="共建数智病理合作网络" en="Build the Partnership Network" />}
-        />
-        <AnimatedSection className="mt-10 grid gap-4 sm:grid-cols-3" stagger variant="fade">
-          {partnerCollaborationAreas.map((item) => (
-            <div
-              className="panel-glow rounded-[1.8rem] border border-gray-200 bg-white/90 p-5"
-              key={item.id}
-            >
-              <div className="text-[0.68rem] uppercase tracking-[0.24em] text-blue-600">
-                <T zh={item.title} en={item.titleEn} />
-              </div>
-              <p className="mt-3 text-sm leading-7 text-gray-500">
-                <T zh={item.description} en={item.descriptionEn} />
+            <div className="mt-8 flex flex-col items-center justify-center rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-12 text-center">
+              <p className="font-serif text-2xl text-gray-400">
+                <T zh="敬请期待" en="Coming Soon" />
               </p>
             </div>
-          ))}
-        </AnimatedSection>
+            <ButtonLink className="mt-6" href="/announcements" variant="secondary">
+              <T zh="查看会议通知" en="View Announcements" />
+            </ButtonLink>
+          </div>
+
+          <div className="panel-luxe rounded-[2rem] border border-gray-200 p-5 sm:p-6">
+            <SectionHeading
+              eyebrow={<T zh="参会嘉宾" en="Guests" />}
+              title={<T zh="参会嘉宾" en="Summit Guests" />}
+            />
+            <div className="mt-8 flex flex-col items-center justify-center rounded-[1.5rem] border border-gray-200 bg-gray-50/80 px-5 py-12 text-center">
+              <p className="font-serif text-2xl text-gray-400">
+                <T zh="敬请期待" en="Coming Soon" />
+              </p>
+            </div>
+            <ButtonLink className="mt-6" href="/announcements" variant="secondary">
+              <T zh="查看会议通知" en="View Announcements" />
+            </ButtonLink>
+          </div>
+        </div>
       </AnimatedSection>
 
       {featuredArchive ? (
@@ -427,59 +152,35 @@ export default async function Home() {
                   <T zh="查看全部" en="View All" />
                 </ButtonLink>
               }
-              description={
-                <T
-                  zh="回顾历届峰会的城市记忆、主题演化与学术合作轨迹。"
-                  en="Revisit the host city, summit themes, and evolving collaboration pathways from previous editions."
-                />
-              }
               eyebrow={<T zh="往届回顾" en="Archives" />}
               title={<T zh="往届峰会" en="Past Summits" />}
             />
             <div className="mt-10 panel-luxe rounded-[2rem] border border-gray-200 p-6 sm:p-8">
-              <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
-                <div className="rounded-[1.8rem] border border-gray-200 bg-gray-50/80 px-5 py-6">
-                  <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
-                    Archive Signal
-                  </div>
-                  <div className="mt-4 font-serif text-[clamp(3rem,6vw,4.4rem)] leading-none text-gray-900">
-                    {featuredArchive.year}
-                  </div>
-                  <div className="mt-3 text-sm leading-6 text-gray-500">
-                    <T
-                      zh={featuredArchive.location}
-                      en={featuredArchive.locationEn ?? featuredArchive.location}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-[1.4rem] font-semibold leading-8 text-gray-900">
-                    <T
-                      zh={featuredArchive.title}
-                      en={featuredArchive.titleEn ?? featuredArchive.title}
-                    />
-                  </h3>
-                  <p className="mt-2 text-base text-blue-600">
-                    <T
-                      zh={featuredArchive.theme}
-                      en={featuredArchive.themeEn ?? featuredArchive.theme}
-                    />
-                  </p>
-                  <p className="mt-4 text-sm leading-7 text-gray-500">
-                    <T
-                      zh={featuredArchive.highlight}
-                      en={featuredArchive.highlightEn ?? featuredArchive.highlight}
-                    />
-                  </p>
-                  <ButtonLink
-                    className="mt-6"
-                    href={`/archives/${featuredArchive.year}`}
-                    variant="secondary"
-                  >
-                    <T zh="查看详情" en="View Details" />
-                  </ButtonLink>
-                </div>
-              </div>
+              <h3 className="whitespace-nowrap text-[1.4rem] font-semibold leading-8 text-gray-900">
+                <T
+                  zh={featuredArchive.title}
+                  en={featuredArchive.titleEn ?? featuredArchive.title}
+                />
+              </h3>
+              <p className="mt-2 text-base text-blue-600">
+                <T
+                  zh={featuredArchive.theme}
+                  en={featuredArchive.themeEn ?? featuredArchive.theme}
+                />
+              </p>
+              <p className="mt-4 text-sm leading-7 text-gray-500">
+                <T
+                  zh={featuredArchive.highlight}
+                  en={featuredArchive.highlightEn ?? featuredArchive.highlight}
+                />
+              </p>
+              <ButtonLink
+                className="mt-6"
+                href={`/archives/${featuredArchive.year}`}
+                variant="secondary"
+              >
+                <T zh="查看详情" en="View Details" />
+              </ButtonLink>
             </div>
           </AnimatedSection>
         </>

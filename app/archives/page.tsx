@@ -27,7 +27,6 @@ export default async function ArchivesPage() {
         eyebrow={<T zh="往届会议" en="Past Summits" />}
         meta={[
           <T key="r" zh="年度回顾" en="Annual Review" />,
-          <T key="g" zh="图文档案" en="Photo Archive" />,
         ]}
         title={<T zh="往届会议" en="Summit Archives" />}
       />
@@ -56,16 +55,6 @@ export default async function ArchivesPage() {
                   <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
                     <T zh={item.highlight} en={item.highlightEn ?? item.highlight} />
                   </p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                    {item.gallery.map((entry, i) => (
-                      <div
-                        className="rounded-[1.25rem] border border-gray-200 bg-gray-50/80 px-4 py-4 text-sm leading-7 text-gray-500"
-                        key={entry}
-                      >
-                        <T zh={entry} en={item.galleryEn?.[i] ?? entry} />
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </Link>
