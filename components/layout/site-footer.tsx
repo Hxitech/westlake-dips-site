@@ -14,7 +14,7 @@ export function SiteFooter() {
               DIGITAL AND INTELLIGENT PATHOLOGY SUMMIT
             </p>
             <h2 className="mt-2 text-xl font-bold text-white sm:text-2xl">
-              <T zh="第二届全国数智病理峰会" en="2nd National DIPS Summit" />
+              <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </h2>
             <p className="mt-1 text-sm text-gray-300/80">
               <T zh="先锋学术会议" en="A Pioneering Academic Conference" />
@@ -45,6 +45,15 @@ export function SiteFooter() {
                   width={524}
                   height={108}
                   className="h-8 w-auto object-contain sm:h-9"
+                />
+              </div>
+              <div className="rounded-xl border border-white/12 bg-white px-4 py-3 shadow-lg shadow-black/10">
+                <Image
+                  src="/logos/xijing-hospital.jpg"
+                  alt="西京医院"
+                  width={640}
+                  height={640}
+                  className="h-12 w-auto object-contain sm:h-14"
                 />
               </div>
             </div>
@@ -81,7 +90,7 @@ export function SiteFooter() {
                 <T zh="备案" en="Legal" />
               </h3>
               <div className="mt-3 space-y-2">
-                <p className="text-gray-300/88"><T zh="备案号待申请" en="ICP License: Pending" /></p>
+                <p className="text-gray-300/88"><T zh="浙ICP备17023217号-9" en="ICP License: Zhe ICP 17023217-9" /></p>
                 <p className="text-gray-400">© {new Date().getFullYear()} DIPS</p>
               </div>
             </div>

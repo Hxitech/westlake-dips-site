@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { T } from "@/components/ui/t";
+import { siteConfig } from "@/content/data/site";
 import type { NavItem, SearchItem } from "@/content/types";
 import { useLocale } from "@/lib/locale-context";
 import { cn } from "@/lib/utils";
@@ -52,8 +53,11 @@ export function SiteHeader({
             <span className="flex size-8 items-center justify-center rounded bg-blue-700 text-sm font-bold text-white">
               D
             </span>
-            <span className="text-sm font-semibold text-gray-900">
-              <T zh="全国数智病理峰会" en="DIPS Summit" />
+            <span className="sm:hidden text-sm font-semibold text-gray-900">
+              {siteConfig.shortNameEn}
+            </span>
+            <span className="hidden text-sm font-semibold text-gray-900 sm:inline">
+              <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </span>
           </Link>
 

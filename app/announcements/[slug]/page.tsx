@@ -72,7 +72,7 @@ export default async function AnnouncementDetailPage({
             <span><T zh={entry.frontmatter.category} en={entry.frontmatter.categoryEn ?? entry.frontmatter.category} /></span>
             <span><T zh={formatDisplayDate(entry.frontmatter.date, "zh")} en={formatDisplayDate(entry.frontmatter.date, "en")} /></span>
           </div>
-          <h1 className="mt-5 whitespace-nowrap font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-gray-900">
+          <h1 className="mt-5 font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-gray-900">
             <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-gray-500 sm:text-lg">
@@ -90,7 +90,7 @@ export default async function AnnouncementDetailPage({
               <div className="text-xs uppercase tracking-[0.24em] text-blue-600">
                 <T zh={item.category} en={item.categoryEn ?? item.category} />
               </div>
-              <h2 className="mt-3 whitespace-nowrap text-[clamp(1.1rem,4.5vw,1.25rem)] font-semibold text-gray-900">
+              <h2 className="mt-3 text-[clamp(1.1rem,4.5vw,1.25rem)] font-semibold leading-snug text-gray-900">
                 <T zh={item.title} en={item.titleEn ?? item.title} />
               </h2>
               <p className="mt-3 text-sm leading-7 text-gray-500">

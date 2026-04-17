@@ -8,10 +8,10 @@ import type {
 } from "@/content/types";
 
 export const siteConfig: SiteConfig = {
-  name: "全国数智病理峰会",
-  nameEn: "National Digital & Intelligent Pathology Summit",
-  shortName: "数智病理峰会",
-  shortNameEn: "DIPS",
+  name: "第二届数智病理峰会(DIPS2026)",
+  nameEn: "2nd Digital & Intelligent Pathology Summit (DIPS 2026)",
+  shortName: "第二届数智病理峰会",
+  shortNameEn: "DIPS 2026",
   acronym: "DIPS",
   description:
     "聚焦人工智能等前沿技术与病理学深度融合的先锋学术会议。",

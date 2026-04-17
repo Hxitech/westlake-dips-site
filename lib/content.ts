@@ -29,6 +29,18 @@ function sortByDateDesc<T extends { date: string }>(items: T[]) {
   );
 }
 
+function sortAnnouncements(items: AnnouncementFrontmatter[]) {
+  return [...items].sort((left, right) => {
+    const pinWeight = Number(Boolean(right.pinned)) - Number(Boolean(left.pinned));
+
+    if (pinWeight !== 0) {
+      return pinWeight;
+    }
+
+    return new Date(right.date).getTime() - new Date(left.date).getTime();
+  });
+}
+
 export function formatDisplayDate(date: string, locale: "zh" | "en" = "zh") {
   return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
     dateStyle: "long",
@@ -56,7 +68,7 @@ export async function getAnnouncementSummaries() {
     }),
   );
 
-  return sortByDateDesc(summaries);
+  return sortAnnouncements(summaries);
 }
 
 export async function getAnnouncementBySlug(slug: string) {
