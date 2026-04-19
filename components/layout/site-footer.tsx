@@ -19,42 +19,48 @@ export function SiteFooter() {
             <p className="mt-1 text-sm text-gray-300/80">
               <T zh="先锋学术会议" en="A Pioneering Academic Conference" />
             </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <div className="rounded-xl border border-white/12 bg-[#123a8b] px-4 py-3 shadow-lg shadow-black/10">
-                <Image
-                  src="/logo-nwu-2026.png"
-                  alt="西北大学"
-                  width={256}
-                  height={69}
-                  className="h-9 w-auto object-contain"
-                />
-              </div>
-              <div className="rounded-xl border border-white/12 bg-white px-4 py-3 shadow-lg shadow-black/10">
+            <div className="mt-5 space-y-4">
+              <div className="w-full max-w-[21rem] rounded-2xl border border-white/12 bg-white px-5 py-4 shadow-lg shadow-black/10 sm:mx-auto sm:max-w-[18rem]">
                 <Image
                   src="/logo-cma.png"
                   alt="中华医学会"
-                  width={200}
-                  height={60}
-                  className="h-9 w-auto object-contain"
+                  width={320}
+                  height={200}
+                  className="mx-auto h-20 w-auto object-contain sm:h-24"
+                  priority
                 />
               </div>
-              <div className="rounded-xl border border-slate-200/70 bg-white px-4 py-3 shadow-lg shadow-black/10">
+              <div className="w-full max-w-[35rem] rounded-2xl border border-slate-200/70 bg-white px-5 py-4 shadow-lg shadow-black/10 sm:mx-auto sm:max-w-[31rem]">
                 <Image
                   src="/logo-bjjj-2026.png"
                   alt="北京精鉴病理学发展基金会"
                   width={524}
                   height={108}
-                  className="h-8 w-auto object-contain sm:h-9"
+                  className="mx-auto h-10 w-auto object-contain sm:h-12"
+                  priority
                 />
               </div>
-              <div className="rounded-xl border border-white/12 bg-white px-4 py-3 shadow-lg shadow-black/10">
-                <Image
-                  src="/logos/xijing-hospital.jpg"
-                  alt="西京医院"
-                  width={640}
-                  height={640}
-                  className="h-12 w-auto object-contain sm:h-14"
-                />
+              <div className="grid gap-4 sm:mx-auto sm:max-w-[36rem] sm:grid-cols-2">
+                <div className="flex min-h-[10.5rem] items-center justify-center rounded-2xl border border-white/12 bg-[#123a8b] px-5 py-4 shadow-lg shadow-black/10 sm:min-h-[12rem]">
+                  <Image
+                    src="/logo-nwu-2026.png"
+                    alt="西北大学"
+                    width={256}
+                    height={69}
+                    className="h-auto w-full max-w-[13.5rem] object-contain"
+                    priority
+                  />
+                </div>
+                <div className="flex min-h-[10.5rem] items-center justify-center rounded-2xl border border-white/12 bg-white px-5 py-4 shadow-lg shadow-black/10 sm:min-h-[12rem]">
+                  <Image
+                    src="/logos/xijing-hospital.jpg"
+                    alt="西京医院"
+                    width={640}
+                    height={640}
+                    className="h-auto w-full max-w-[9.75rem] object-contain sm:max-w-[10.5rem]"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>

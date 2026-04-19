@@ -1,7 +1,10 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
+import { DocumentPages } from "@/components/mdx/document-pages";
+
 export const mdxComponents: MDXComponents = {
+  DocumentPages,
   h2: (props) => (
     <h2
       className="mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-2xl text-gray-900"
