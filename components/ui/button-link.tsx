@@ -22,8 +22,8 @@ const variantClasses = {
 };
 
 const sizeClasses = {
-  default: "px-4 py-2 text-sm",
-  compact: "px-3 py-1.5 text-sm",
+  default: "px-4 py-2 text-body-copy",
+  compact: "px-3 py-1.5 text-body-copy",
 };
 
 export function ButtonLink({

@@ -1,5 +1,6 @@
 import type {
   HeroContent,
+  HeroCta,
   HighlightCard,
   QuickFact,
   RegistrationConfig,
@@ -14,9 +15,9 @@ export const siteConfig: SiteConfig = {
   shortNameEn: "DIPS 2026",
   acronym: "DIPS",
   description:
-    "聚焦人工智能等前沿技术与病理学深度融合的先锋学术会议。",
+    "聚焦人工智能等前沿技术与病理学深度融合的全国数智病理学术交流平台。",
   descriptionEn:
-    "A pioneering academic conference on the deep integration of AI and digital pathology.",
+    "A national academic exchange platform focused on the deep integration of AI and digital pathology.",
   locale: "zh_CN",
   url: "https://dips.ccipd.net",
   themeColor: "#1a5fb4",
@@ -40,6 +41,50 @@ export const siteConfig: SiteConfig = {
   ],
 };
 
+export const registrationConfig: RegistrationConfig = {
+  status: "closed",
+  pageHref: "/register",
+  pageLabel: "参会说明",
+  pageLabelEn: "Attendance Info",
+  title: "参会信息",
+  titleEn: "Participation Information",
+  statusLabel: "暂不对外开放注册",
+  statusLabelEn: "Registration Closed",
+  description:
+    "本届峰会暂不对外开放线上注册。如需参会沟通、团体组织或合作咨询，请联系会务组。",
+  descriptionEn:
+    "Online registration is not open for this summit. For attendance coordination, group arrangements, or partnership inquiries, please contact the organizing committee.",
+  tips: [
+    "建议优先查阅会议通知与参会指南，确认议程和会场信息。",
+    "如需参会沟通、团体组织或合作咨询，请通过联系页面与会务组对接。",
+  ],
+  tipsEn: [
+    "Please review the meeting notice and attendance guide first to confirm agenda and venue details.",
+    "For attendance coordination, group arrangements, or partnership inquiries, please contact the organizing committee via the contact page.",
+  ],
+};
+
+export const registrationIsOpen = registrationConfig.status === "external";
+
+const heroCtas: HeroCta[] = [
+  ...(registrationIsOpen
+    ? [
+        {
+          href: registrationConfig.externalUrl ?? registrationConfig.pageHref,
+          label: "立即注册",
+          labelEn: "Register Now",
+          variant: "primary" as const,
+        },
+      ]
+    : []),
+  {
+    href: "/announcements",
+    label: "查看日程",
+    labelEn: "View Agenda",
+    variant: "secondary",
+  },
+];
+
 export const heroContent: HeroContent = {
   eyebrow: "第二届 · 2026",
   eyebrowEn: "2nd Edition · 2026",
@@ -53,10 +98,7 @@ export const heroContent: HeroContent = {
   locationEn: "Xi'an · Northwest University Chang'an Campus",
   dateText: "2026 年 5 月 10 日",
   dateTextEn: "May 10, 2026",
-  ctas: [
-    { href: "/register", label: "立即注册", labelEn: "Register Now", variant: "primary" },
-    { href: "/announcements", label: "查看日程", labelEn: "View Agenda", variant: "secondary" },
-  ],
+  ctas: heroCtas,
 };
 
 export const quickFacts: QuickFact[] = [
@@ -125,65 +167,47 @@ export const schedulePreview: ScheduleItem[] = [
   {
     time: "5 月 10 日 · 09:00",
     timeEn: "May 10 · 09:00",
-    title: "开幕式与主论坛",
-    titleEn: "Opening & Plenary",
-    description: "大会主题演讲、行业趋势报告与年度倡议发布。",
-    descriptionEn: "Keynote speeches, trend reports, and annual initiative launch.",
+    title: "前沿技术专场",
+    titleEn: "Frontier Technology Track",
+    description: "聚焦大模型、多模态与算法创新等前沿方向。",
+    descriptionEn: "Focused on large models, multimodal systems, and algorithmic innovation.",
   },
   {
     time: "5 月 10 日 · 11:00",
     timeEn: "May 10 · 11:00",
-    title: "大模型前沿技术专场",
-    titleEn: "Large Model Frontier Technology",
-    description: "大模型在病理领域的最新应用、多模态融合与算法创新。",
-    descriptionEn: "Latest applications of large models in pathology, multimodal fusion, and algorithmic innovation.",
+    title: "数智病理临床应用专场",
+    titleEn: "Clinical Applications Track",
+    description: "围绕数智病理在真实临床场景中的应用与实践展开交流。",
+    descriptionEn: "Discussing real-world clinical applications and practice in digital pathology.",
   },
   {
     time: "5 月 10 日 · 14:00",
     timeEn: "May 10 · 14:00",
-    title: "精准诊断专场 / 青年学者交流专场",
-    titleEn: "Precision Diagnosis / Young Scholar Exchange",
-    description: "AI 精准诊断临床实践与青年学者前沿交流。",
-    descriptionEn: "AI-driven precision diagnosis in clinical practice and young scholar exchange.",
+    title: "青年学者专场",
+    titleEn: "Young Scholars Track",
+    description: "展示青年学者最新研究成果与学术观察。",
+    descriptionEn: "Showcasing the latest research and perspectives from emerging scholars.",
   },
   {
     time: "5 月 10 日 · 16:00",
     timeEn: "May 10 · 16:00",
     title: "产业融合与未来发展交流专场",
     titleEn: "Industry Integration & Future Development",
-    description: "科研机构、医院与企业探讨合作路径与产业化未来。",
-    descriptionEn: "Institutions, hospitals, and enterprises explore collaboration and industrialization pathways.",
+    description: "科研机构、医院与企业共同探讨合作路径与未来发展。",
+    descriptionEn: "Institutions, hospitals, and enterprises explore collaboration and future development.",
   },
 ];
 
 export const focusPillars = [
-  "大模型前沿技术",
-  "AI 精准诊断",
-  "青年学者创新",
-  "产业融合与转化",
+  "前沿技术专场",
+  "数智病理临床应用专场",
+  "青年学者专场",
+  "产业融合与未来发展交流专场",
 ];
 
 export const focusPillarsEn = [
-  "Large Model Frontier Technology",
-  "AI Precision Diagnosis",
-  "Young Scholar Innovation",
-  "Industry Integration & Translation",
+  "Frontier Technology Track",
+  "Clinical Applications Track",
+  "Young Scholars Track",
+  "Industry Integration & Future Development Track",
 ];
-
-export const registrationConfig: RegistrationConfig = {
-  status: "preview",
-  primaryLabel: "参会注册",
-  primaryLabelEn: "Registration",
-  description:
-    "面向病理、临床和AI等领域专家。可点击下方链接完成参会注册。",
-  descriptionEn:
-    "Open to experts in pathology, clinical medicine, and AI. Click the link below to complete registration.",
-  tips: [
-    "注册确认信息将通过短信发送。",
-    "如需团体报名或合作洽谈，请通过联系页面与会务组对接。",
-  ],
-  tipsEn: [
-    "Registration confirmation will be sent via SMS.",
-    "For group registration or partnership inquiries, please contact us.",
-  ],
-};

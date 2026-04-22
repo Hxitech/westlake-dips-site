@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 type DocumentPagesProps = {
   title: string;
   description?: string;
-  pdfHref: string;
+  pdfHref?: string;
   pageOneSrc: string;
   pageOneAlt: string;
   pageOneLabel: string;
@@ -14,6 +14,7 @@ type DocumentPagesProps = {
   pageTwoLabel: string;
   width?: number;
   height?: number;
+  previewOnly?: boolean;
 };
 
 export function DocumentPages({
@@ -28,7 +29,9 @@ export function DocumentPages({
   pageTwoLabel,
   width = 1191,
   height = 1684,
+  previewOnly = false,
 }: DocumentPagesProps) {
+  const showPdfActions = !previewOnly && Boolean(pdfHref);
   const pages = [
     {
       src: pageOneSrc,
@@ -45,29 +48,31 @@ export function DocumentPages({
   return (
     <section className="mt-8 space-y-6">
       <div className="rounded-[1.75rem] border border-blue-100 bg-blue-50/60 p-5 sm:p-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
+        <p className="text-body-copy font-semibold uppercase tracking-[0.16em] text-blue-700">
           会议通知原文
         </p>
-        <h2 className="mt-3 font-serif text-2xl text-gray-900 sm:text-[1.8rem]">
+        <h2 className="text-section-title mt-3 font-serif text-gray-900">
           {title}
         </h2>
         {description ? (
-          <p className="mt-3 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg">
+          <p className="text-body-copy mt-3 max-w-3xl text-gray-600">
             {description}
           </p>
         ) : null}
-        <div className="mt-5 flex flex-wrap gap-3">
-          <ButtonLink external href={pdfHref}>
-            查看 PDF
-          </ButtonLink>
-          <a
-            className="inline-flex items-center gap-1.5 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-300 transition hover:bg-gray-50"
-            download
-            href={pdfHref}
-          >
-            下载 PDF
-          </a>
-        </div>
+        {showPdfActions ? (
+          <div className="mt-5 flex flex-wrap gap-3">
+            <ButtonLink external href={pdfHref!}>
+              查看 PDF
+            </ButtonLink>
+            <a
+              className="text-body-copy inline-flex items-center gap-1.5 rounded-md bg-white px-4 py-2 font-medium text-gray-700 ring-1 ring-gray-300 transition hover:bg-gray-50"
+              download
+              href={pdfHref}
+            >
+              下载 PDF
+            </a>
+          </div>
+        ) : null}
       </div>
 
       <div className="space-y-5">
@@ -76,7 +81,7 @@ export function DocumentPages({
             className="overflow-hidden rounded-[1.8rem] border border-gray-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.08)]"
             key={page.src}
           >
-            <div className="border-b border-gray-100 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-500">
+            <div className="text-body-copy border-b border-gray-100 bg-slate-50 px-5 py-3 font-medium text-slate-500">
               {page.label}
             </div>
             <div className="bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_38%),linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)] p-3 sm:p-5">

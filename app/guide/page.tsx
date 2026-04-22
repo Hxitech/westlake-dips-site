@@ -41,7 +41,10 @@ export default function GuidePage() {
             <p className="mt-2 text-sm text-gray-500">
               <T zh={`${venueInfo.city} · ${venueInfo.address}`} en={`${venueInfo.cityEn} · ${venueInfo.addressEn}`} />
             </p>
-            <div className="mt-6 overflow-hidden rounded-lg border border-gray-200">
+            <div
+              className="mt-6 overflow-hidden rounded-lg border border-gray-200"
+              data-testid="guide-venue-map-shell"
+            >
               <Image
                 src="/venue-map.png"
                 alt="西北大学长安校区地图"

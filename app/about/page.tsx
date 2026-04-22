@@ -15,8 +15,8 @@ export const metadata: Metadata = createPageMetadata({
 
 const summitOverview = {
   lead: {
-    zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合，以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的先锋学术会议。",
-    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It is a pioneering academic conference focused on the deep integration of cutting-edge technologies such as AI with pathology.",
+    zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合、以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的全国性学术交流平台。",
+    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It serves as a national academic exchange platform focused on the deep integration of cutting-edge technologies such as AI with pathology.",
   },
   body: [
     {
@@ -49,14 +49,14 @@ export default function AboutPage() {
       <section className="container-shell py-16 sm:py-20">
         <SectionHeading
           eyebrow={<T zh="峰会简介" en="Overview" />}
-          title={<T zh="全国数智病理领域的先锋学术会议" en="A Pioneering Forum for Digital & Intelligent Pathology" />}
+          title={<T zh="全国数智病理领域的学术交流平台" en="A National Forum for Digital & Intelligent Pathology" />}
         />
         <div className="mt-8 max-w-3xl">
-          <p className="text-base leading-8 text-gray-600">
+          <p className="text-body-copy text-gray-600">
             <T zh={summitOverview.lead.zh} en={summitOverview.lead.en} />
           </p>
           {summitOverview.body.map((p) => (
-            <p className="mt-4 text-sm leading-7 text-gray-500" key={p.zh.slice(0, 20)}>
+            <p className="text-body-copy mt-4 text-gray-500" key={p.zh.slice(0, 20)}>
               <T zh={p.zh} en={p.en} />
             </p>
           ))}
@@ -66,34 +66,42 @@ export default function AboutPage() {
       <section className="border-t border-gray-200 bg-gray-50">
         <div className="container-shell py-16 sm:py-20">
           <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow={<T zh="核心议题" en="Core Themes" />}
-                title={<T zh="每届围绕行业关键命题展开" en="Centered on the field's most urgent themes" />}
-              />
-              <div className="mt-6 space-y-3">
+            <div className="flex h-full flex-col">
+              <div className="min-h-[9.5rem]">
+                <p className="text-body-copy font-medium text-blue-700">
+                  <T zh="核心议题" en="Core Themes" />
+                </p>
+                <h2 className="text-section-title mt-2 font-bold tracking-tight text-gray-900">
+                  <T zh="每届围绕行业关键命题展开" en="Centered on the field's most urgent themes" />
+                </h2>
+              </div>
+              <div className="mt-6 grid auto-rows-fr gap-3">
                 {focusPillars.map((item, i) => (
-                  <div className="flex items-center gap-3 rounded-md border border-gray-200 bg-white px-4 py-3" key={item}>
-                    <span className="text-xs font-medium text-blue-700">0{i + 1}</span>
-                    <span className="text-sm font-medium text-gray-900">
+                  <div className="flex h-full items-center gap-3 rounded-md border border-gray-200 bg-white px-4 py-4" key={item}>
+                    <span className="text-body-copy font-medium text-blue-700">0{i + 1}</span>
+                    <span className="text-body-copy font-medium text-gray-900">
                       <T zh={item} en={focusPillarsEn[i]} />
                     </span>
                   </div>
                 ))}
               </div>
             </div>
-            <div>
-              <SectionHeading
-                eyebrow={<T zh="长期愿景" en="Vision" />}
-                title={<T zh="持续搭建更深层的合作基础设施" en="Building deeper collaboration infrastructure" />}
-              />
-              <div className="mt-6 space-y-3">
+            <div className="flex h-full flex-col">
+              <div className="min-h-[9.5rem]">
+                <p className="text-body-copy font-medium text-blue-700">
+                  <T zh="长期愿景" en="Vision" />
+                </p>
+                <h2 className="text-section-title mt-2 font-bold tracking-tight text-gray-900">
+                  <T zh="持续搭建更深层的合作基础设施" en="Building deeper collaboration infrastructure" />
+                </h2>
+              </div>
+              <div className="mt-6 grid auto-rows-fr gap-3">
                 {summitVision.map((item) => (
-                  <div className="rounded-md border border-gray-200 bg-white px-4 py-3" key={item.title.zh}>
-                    <div className="text-sm font-medium text-gray-900">
+                  <div className="flex h-full flex-col justify-center rounded-md border border-gray-200 bg-white px-4 py-4" key={item.title.zh}>
+                    <div className="text-body-copy font-medium text-gray-900">
                       <T zh={item.title.zh} en={item.title.en} />
                     </div>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="text-body-copy mt-1 text-gray-500">
                       <T zh={item.description.zh} en={item.description.en} />
                     </p>
                   </div>
@@ -113,17 +121,17 @@ export default function AboutPage() {
           {timeline.map((item) => (
             <div className="rounded-lg border border-gray-200 p-5 sm:p-6" key={item.year}>
               <div className="flex items-baseline gap-4">
-                <span className="text-2xl font-bold text-gray-900">{item.year}</span>
-                <span className="text-sm text-blue-700">
+                <span className="text-section-title font-bold text-gray-900">{item.year}</span>
+                <span className="text-body-copy text-blue-700">
                   <T zh={item.title} en={item.titleEn} />
                 </span>
               </div>
-              <p className="mt-2 text-sm font-medium text-gray-700">
+              <p className="text-body-copy mt-2 font-medium text-gray-700">
                 <T zh={item.theme} en={item.themeEn} />
               </p>
               <ul className="mt-3 space-y-1">
                 {item.achievements.map((a, i) => (
-                  <li className="text-sm leading-6 text-gray-500" key={a}>
+                  <li className="text-body-copy text-gray-500" key={a}>
                     <T zh={a} en={item.achievementsEn[i]} />
                   </li>
                 ))}

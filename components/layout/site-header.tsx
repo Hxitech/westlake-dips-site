@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { T } from "@/components/ui/t";
-import { siteConfig } from "@/content/data/site";
+import { registrationConfig, siteConfig } from "@/content/data/site";
 import type { NavItem, SearchItem } from "@/content/types";
 import { useLocale } from "@/lib/locale-context";
 import { cn } from "@/lib/utils";
@@ -27,6 +27,7 @@ export function SiteHeader({
   navigation,
   searchItems,
 }: SiteHeaderProps) {
+  const showRegistrationCta = registrationConfig.status === "external";
   const pathname = usePathname();
   const { locale } = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,10 +54,10 @@ export function SiteHeader({
             <span className="flex size-8 items-center justify-center rounded bg-blue-700 text-sm font-bold text-white">
               D
             </span>
-            <span className="sm:hidden text-sm font-semibold text-gray-900">
+            <span className="text-body-copy sm:hidden font-semibold text-gray-900">
               {siteConfig.shortNameEn}
             </span>
-            <span className="hidden text-sm font-semibold text-gray-900 sm:inline">
+            <span className="text-body-copy hidden font-semibold text-gray-900 sm:inline">
               <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </span>
           </Link>
@@ -67,7 +68,7 @@ export function SiteHeader({
               return (
                 <Link
                   className={cn(
-                    "px-3 py-1.5 text-sm transition",
+                    "text-body-copy px-3 py-1.5 transition",
                     active
                       ? "font-medium text-blue-700"
                       : "text-gray-600 hover:text-gray-900",
@@ -91,12 +92,14 @@ export function SiteHeader({
             >
               <Search className="size-4" />
             </button>
-            <Link
-              className="hidden rounded-md bg-blue-700 px-3.5 py-1.5 text-sm font-medium text-white transition hover:bg-blue-800 lg:inline-flex"
-              href="/register"
-            >
-              <T zh="立即注册" en="Register" />
-            </Link>
+            {showRegistrationCta ? (
+              <Link
+                className="text-body-copy hidden rounded-md bg-blue-700 px-3.5 py-1.5 font-medium text-white transition hover:bg-blue-800 lg:inline-flex"
+                href={registrationConfig.externalUrl ?? registrationConfig.pageHref}
+              >
+                <T zh="立即注册" en="Register" />
+              </Link>
+            ) : null}
             <button
               aria-expanded={mobileOpen}
               aria-label="Toggle navigation"
@@ -117,7 +120,7 @@ export function SiteHeader({
               return (
                 <Link
                   className={cn(
-                    "block py-2 text-sm",
+                    "text-body-copy block py-2",
                     active ? "font-medium text-blue-700" : "text-gray-700",
                   )}
                   data-testid={
@@ -142,13 +145,15 @@ export function SiteHeader({
                 <Search className="size-4" />
                 <T zh="搜索" en="Search" />
               </button>
-              <Link
-                className="flex-1 rounded-md bg-blue-700 py-2 text-center text-sm font-medium text-white"
-                href="/register"
-                onClick={() => setMobileOpen(false)}
-              >
-                <T zh="立即注册" en="Register" />
-              </Link>
+              {showRegistrationCta ? (
+                <Link
+                  className="text-body-copy flex-1 rounded-md bg-blue-700 py-2 text-center font-medium text-white"
+                  href={registrationConfig.externalUrl ?? registrationConfig.pageHref}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <T zh="立即注册" en="Register" />
+                </Link>
+              ) : null}
             </div>
           </div>
         ) : null}

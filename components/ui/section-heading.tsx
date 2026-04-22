@@ -26,12 +26,12 @@ export function SectionHeading({
       )}
     >
       <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
-        <p className="text-sm font-medium text-blue-700">{eyebrow}</p>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+        <p className="text-body-copy font-medium text-blue-700">{eyebrow}</p>
+        <h2 className="text-section-title mt-2 font-bold tracking-tight text-gray-900">
           {title}
         </h2>
         {description ? (
-          <p className="mt-3 text-base leading-7 text-gray-500">
+          <p className="text-body-copy mt-3 text-gray-600">
             {description}
           </p>
         ) : null}

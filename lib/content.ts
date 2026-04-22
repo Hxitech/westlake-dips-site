@@ -22,13 +22,6 @@ async function readMdxDir(dir: string) {
   return entries.filter((entry) => entry.endsWith(".mdx"));
 }
 
-function sortByDateDesc<T extends { date: string }>(items: T[]) {
-  return [...items].sort(
-    (left, right) =>
-      new Date(right.date).getTime() - new Date(left.date).getTime(),
-  );
-}
-
 function sortAnnouncements(items: AnnouncementFrontmatter[]) {
   return [...items].sort((left, right) => {
     const pinWeight = Number(Boolean(right.pinned)) - Number(Boolean(left.pinned));

@@ -7,30 +7,30 @@ export const mdxComponents: MDXComponents = {
   DocumentPages,
   h2: (props) => (
     <h2
-      className="mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-2xl text-gray-900"
+      className="text-section-title mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-gray-900"
       {...props}
     />
   ),
   h3: (props) => (
-    <h3 className="mt-8 text-xl font-semibold text-gray-800" {...props} />
+    <h3 className="text-body-copy mt-8 font-semibold text-gray-800" {...props} />
   ),
   p: (props) => (
     <p
-      className="mt-4 text-base leading-8 text-gray-600 sm:text-lg sm:leading-9"
+      className="text-body-copy mt-4 text-gray-600"
       {...props}
     />
   ),
   ul: (props) => (
-    <ul className="mt-4 space-y-3 text-gray-600" {...props} />
+    <ul className="text-body-copy mt-4 space-y-3 text-gray-600" {...props} />
   ),
   ol: (props) => (
-    <ol className="mt-4 space-y-3 text-gray-600" {...props} />
+    <ol className="text-body-copy mt-4 space-y-3 text-gray-600" {...props} />
   ),
   li: (props) => <li className="ml-5 list-disc pl-2" {...props} />,
   strong: (props) => <strong className="font-semibold text-gray-900" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="mt-6 border-l-2 border-blue-400 pl-5 text-lg text-gray-700"
+      className="text-body-copy mt-6 border-l-2 border-blue-400 pl-5 text-gray-700"
       {...props}
     />
   ),

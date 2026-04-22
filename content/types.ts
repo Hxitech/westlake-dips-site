@@ -24,6 +24,13 @@ export type HighlightCard = {
   metricEn: string;
 };
 
+export type HeroCta = {
+  href: string;
+  label: string;
+  labelEn: string;
+  variant: "primary" | "secondary";
+};
+
 export type ScheduleItem = {
   time: string;
   timeEn: string;
@@ -93,9 +100,14 @@ export type VenueInfo = {
 };
 
 export type RegistrationConfig = {
-  status: "preview" | "external";
-  primaryLabel: string;
-  primaryLabelEn: string;
+  status: "closed" | "external";
+  pageHref: string;
+  pageLabel: string;
+  pageLabelEn: string;
+  title: string;
+  titleEn: string;
+  statusLabel: string;
+  statusLabelEn: string;
   description: string;
   descriptionEn: string;
   externalUrl?: string;
@@ -136,12 +148,7 @@ export type HeroContent = {
   locationEn: string;
   dateText: string;
   dateTextEn: string;
-  ctas: Array<{
-    href: string;
-    label: string;
-    labelEn: string;
-    variant: "primary" | "secondary";
-  }>;
+  ctas: HeroCta[];
 };
 
 export type AnnouncementFrontmatter = {

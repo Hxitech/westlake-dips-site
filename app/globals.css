@@ -38,6 +38,21 @@ body {
   font-family: var(--font-sans-stack);
 }
 
+.text-display {
+  font-size: clamp(2.5rem, 4vw + 1.5rem, 4.5rem);
+  line-height: 1.05;
+}
+
+.text-section-title {
+  font-size: clamp(1.75rem, 1.2vw + 1.4rem, 2.5rem);
+  line-height: 1.15;
+}
+
+.text-body-copy {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
 a {
   text-decoration: none;
 }
