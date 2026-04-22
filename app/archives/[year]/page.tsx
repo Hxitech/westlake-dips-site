@@ -60,21 +60,21 @@ export default async function ArchiveDetailPage({
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
       <div className="max-w-5xl">
         <div className="mt-8 panel rounded-[2.25rem] p-7 sm:p-10">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+          <div className="text-kicker text-blue-600">
             {entry.frontmatter.year} · <T zh={entry.frontmatter.location} en={entry.frontmatter.locationEn ?? entry.frontmatter.location} />
           </div>
-          <h1 className="mt-5 whitespace-nowrap font-serif text-[clamp(1.5rem,6vw,3rem)] leading-tight text-gray-900">
+          <h1 className="text-display mt-5 font-serif text-gray-900">
             <T zh={entry.frontmatter.title} en={entry.frontmatter.titleEn ?? entry.frontmatter.title} />
           </h1>
-          <p className="mt-5 text-xl text-gray-600">
+          <p className="text-section-title mt-5 text-gray-600">
             <T zh={entry.frontmatter.theme} en={entry.frontmatter.themeEn ?? entry.frontmatter.theme} />
           </p>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-gray-500 sm:text-lg">
+          <p className="text-body-copy mt-4 max-w-3xl text-gray-500">
             <T zh={entry.frontmatter.highlight} en={entry.frontmatter.highlightEn ?? entry.frontmatter.highlight} />
           </p>
           {gallery ? (
             <>
-              <h2 className="mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-2xl text-gray-900">
+              <h2 className="text-section-title mt-12 scroll-mt-28 border-t border-gray-200 pt-8 font-serif text-gray-900">
                 <T zh="峰会掠影" en="Photo Gallery" />
               </h2>
               <PhotoCarousel images={gallery} />

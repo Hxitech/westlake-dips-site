@@ -40,11 +40,11 @@ export default async function AnnouncementsPage() {
                 key={item.slug}
               >
                 {isFeaturedNotice ? (
-                  <div className="mb-4 inline-flex rounded-full bg-blue-700 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-white">
+                  <div className="text-kicker mb-4 inline-flex rounded-full bg-blue-700 px-3 py-1 font-semibold text-white">
                     <T zh="重点通知" en="Featured Notice" />
                   </div>
                 ) : null}
-                <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-blue-600">
+                <div className="text-kicker flex flex-wrap items-center gap-3 text-blue-600">
                   <span>
                     <T zh={item.category} en={item.categoryEn ?? item.category} />
                   </span>
@@ -57,7 +57,7 @@ export default async function AnnouncementsPage() {
                   {item.pinned ? (
                     <span
                       className={cn(
-                        "rounded-full px-2.5 py-1 text-[0.65rem] tracking-[0.18em]",
+                        "text-kicker rounded-full px-2.5 py-1",
                         isFeaturedNotice
                           ? "bg-white text-blue-700 ring-1 ring-blue-200"
                           : "bg-blue-100 text-blue-700",

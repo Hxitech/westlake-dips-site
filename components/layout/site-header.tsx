@@ -51,7 +51,7 @@ export function SiteHeader({
       >
         <div className="container-shell flex h-14 items-center justify-between sm:h-16">
           <Link className="flex items-center gap-3" href="/">
-            <span className="flex size-8 items-center justify-center rounded bg-blue-700 text-sm font-bold text-white">
+            <span className="text-body-dense flex size-8 items-center justify-center rounded bg-blue-700 font-bold text-white">
               D
             </span>
             <span className="text-body-copy sm:hidden font-semibold text-gray-900">
@@ -138,7 +138,7 @@ export function SiteHeader({
             })}
             <div className="mt-2 flex gap-2 border-t border-gray-100 pt-3">
               <button
-                className="flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-300 bg-gray-50 py-2 text-sm text-gray-700 transition hover:bg-gray-100"
+                className="text-body-dense flex flex-1 items-center justify-center gap-2 rounded-md border border-gray-300 bg-gray-50 py-2 text-gray-700 transition hover:bg-gray-100"
                 onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
                 type="button"
               >

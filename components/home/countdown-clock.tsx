@@ -53,7 +53,7 @@ export function CountdownClock({
     >
       <div
         className={cn(
-          "inline-block rounded px-2 py-0.5 text-xs font-medium",
+          "text-body-dense inline-block rounded px-2 py-0.5 font-medium",
           isDark ? "bg-white/18 text-blue-100" : "bg-blue-50 text-blue-700",
         )}
         data-testid="countdown-status"
@@ -69,13 +69,13 @@ export function CountdownClock({
         ].map(([label, value]) => (
           <div key={String(label)} className="text-center">
             <div className={cn(
-              "text-2xl font-bold tabular-nums sm:text-3xl",
+              "text-section-title font-bold tabular-nums",
               isDark ? "text-white" : "text-gray-900",
             )}>
               {String(value).padStart(2, "0")}
             </div>
             <div className={cn(
-              "mt-1 text-xs",
+              "text-body-dense mt-1",
               isDark ? "text-white/78" : "text-gray-500",
             )}>
               {label}

@@ -34,13 +34,13 @@ export default function PartnersPage() {
         <div className="grid gap-5 lg:grid-cols-3">
           {partnerCollaborationAreas.map((item, index) => (
             <div className="panel rounded-[2rem] p-6 sm:p-8" key={item.id}>
-              <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+              <div className="text-kicker text-blue-600">
                 0{index + 1}
               </div>
-              <h2 className="mt-4 font-serif text-2xl text-gray-900 sm:text-3xl">
+              <h2 className="text-section-title mt-4 font-serif text-gray-900">
                 <T zh={item.title} en={item.titleEn} />
               </h2>
-              <p className="mt-4 text-sm leading-8 text-gray-500">
+              <p className="text-body-copy mt-4 text-gray-500">
                 <T zh={item.description} en={item.descriptionEn} />
               </p>
             </div>
@@ -51,7 +51,7 @@ export default function PartnersPage() {
         <div className="mt-8 space-y-3">
           {partnerCollaborationNotes.map((note) => (
             <div
-              className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-sm leading-6 text-slate-600"
+              className="text-body-compact rounded-xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-600"
               key={note.zh}
             >
               <T zh={note.zh} en={note.en} />
@@ -61,13 +61,13 @@ export default function PartnersPage() {
 
         {/* CTA */}
         <div className="panel mt-10 rounded-[2rem] p-6 sm:p-8">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+          <div className="text-kicker text-blue-600">
             <T zh="合作咨询" en="Partnership Inquiry" />
           </div>
-          <h2 className="mt-4 font-serif text-3xl text-gray-900">
+          <h2 className="text-section-title mt-4 font-serif text-gray-900">
             <T zh="联系会务组开启合作沟通" en="Contact the Organizing Committee to Start a Partnership" />
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-8 text-gray-500">
+          <p className="text-body-copy mt-4 max-w-3xl text-gray-500">
             <T
               zh="如有合作意向，欢迎联系组委会方老师（13277093146），我们将根据峰会主题与实际需求进一步沟通合作方式。"
               en="If you are interested in partnering with the summit, please contact Ms. Fang (13277093146). We will further discuss the collaboration format based on the summit's themes and practical needs."

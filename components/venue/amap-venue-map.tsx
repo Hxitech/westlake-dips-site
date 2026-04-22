@@ -168,7 +168,7 @@ export function AmapVenueMap({
             <MapPinned className="size-5" />
           </div>
           <div className="space-y-2">
-            <p className="text-sm font-medium text-gray-900">
+            <p className="text-body-dense font-medium text-gray-900">
               {status === "loading" ? (
                 <T zh="正在加载高德地图…" en="Loading Amap..." />
               ) : status === "idle" ? (
@@ -177,12 +177,12 @@ export function AmapVenueMap({
                 <T zh="地图暂时不可用，请先打开高德地图导航。" en="Map unavailable for now. Open Amap navigation instead." />
               )}
             </p>
-            <p className="text-sm leading-7 text-gray-500">
+            <p className="text-body-copy text-gray-500">
               <T zh={`${venue} · ${address}`} en={`${venueEn} · ${addressEn}`} />
             </p>
           </div>
           <a
-            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-600 transition hover:border-blue-300 hover:bg-blue-100"
+            className="text-body-dense inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-blue-600 transition hover:border-blue-300 hover:bg-blue-100"
             href={mapUrl}
             rel="noopener noreferrer"
             target="_blank"

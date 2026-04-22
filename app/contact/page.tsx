@@ -63,11 +63,11 @@ export default function ContactPage() {
             return (
               <div className="rounded-lg border border-gray-200 p-5" key={item.title.zh}>
                 <Icon className="size-5 text-blue-700" />
-                <h2 className="mt-3 text-base font-semibold text-gray-900">
+                <h2 className="text-body-copy mt-3 font-semibold text-gray-900">
                   <T zh={item.title.zh} en={item.title.en} />
                 </h2>
-                <p className="mt-1 text-sm font-medium text-gray-700">{displayValue}</p>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="text-body-dense mt-1 font-medium text-gray-700">{displayValue}</p>
+                <p className="text-body-compact mt-2 text-gray-500">
                   <T zh={item.description.zh} en={item.description.en} />
                 </p>
                 {"showQr" in item && item.showQr ? (
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 ) : null}
                 {"href" in item && item.href ? (
                   <a
-                    className="mt-3 inline-flex items-center gap-1 text-sm text-blue-700 hover:underline"
+                    className="text-body-dense mt-3 inline-flex items-center gap-1 text-blue-700 hover:underline"
                     data-testid="contact-venue-map-link"
                     href={item.href}
                     rel="noopener noreferrer"

@@ -146,10 +146,10 @@ export function PhotoCarousel({
     <div className="mt-6 rounded-[2rem] border border-gray-200 bg-gray-50/80 p-4 sm:p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="text-[0.68rem] uppercase tracking-[0.28em] text-blue-600">
+          <div className="text-kicker text-blue-600">
             <T zh="峰会影像" en="Photo Gallery" />
           </div>
-          <div className="rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-gray-500">
+          <div className="text-kicker rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-gray-500">
             {currentIndex + 1} / {images.length}
           </div>
         </div>
@@ -157,7 +157,7 @@ export function PhotoCarousel({
         <div className="flex items-center gap-2">
           <button
             aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
-            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-2 text-xs uppercase tracking-[0.18em] text-gray-600 transition hover:border-blue-200 hover:text-blue-600"
+            className="text-body-dense inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-2 text-gray-600 transition hover:border-blue-200 hover:text-blue-600"
             onClick={() => setIsUserPaused((current) => !current)}
             type="button"
           >

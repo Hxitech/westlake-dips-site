@@ -33,12 +33,12 @@ export default function GuidePage() {
           <div>
             <div className="flex items-center gap-2 text-blue-700">
               <MapPinned className="size-4" />
-              <span className="text-sm font-medium"><T zh="会场位置" en="Venue" /></span>
+              <span className="text-body-dense font-medium"><T zh="会场位置" en="Venue" /></span>
             </div>
-            <h2 className="mt-2 text-2xl font-bold text-gray-900">
+            <h2 className="text-section-title mt-2 font-bold text-gray-900">
               <T zh={venueInfo.venue} en={venueInfo.venueEn} />
             </h2>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="text-body-compact mt-2 text-gray-500">
               <T zh={`${venueInfo.city} · ${venueInfo.address}`} en={`${venueInfo.cityEn} · ${venueInfo.addressEn}`} />
             </p>
             <div
@@ -52,7 +52,7 @@ export default function GuidePage() {
                 height={500}
                 className="w-full object-cover"
               />
-              <div className="bg-gray-50 px-4 py-2 text-sm">
+              <div className="text-body-dense bg-gray-50 px-4 py-2">
                 <a
                   className="text-blue-700 hover:underline"
                   data-testid="guide-venue-map-link"
@@ -78,11 +78,11 @@ export default function GuidePage() {
                 <div className="rounded-lg border border-gray-200 p-4" key={item.title.zh}>
                   <div className="flex items-center gap-2 text-blue-700">
                     <Icon className="size-4" />
-                    <span className="text-sm font-medium"><T zh={item.title.zh} en={item.title.en} /></span>
+                    <span className="text-body-dense font-medium"><T zh={item.title.zh} en={item.title.en} /></span>
                   </div>
                   <div className="mt-3 space-y-2">
                     {item.items.map((line, i) => (
-                      <p className="text-sm leading-6 text-gray-600" key={line}>
+                      <p className="text-body-compact text-gray-600" key={line}>
                         <T zh={line} en={item.itemsEn[i]} />
                       </p>
                     ))}
@@ -94,9 +94,9 @@ export default function GuidePage() {
             <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
               <div className="flex items-center gap-2 text-amber-700">
                 <Info className="size-4" />
-                <span className="text-sm font-medium"><T zh="温馨提示" en="Reminder" /></span>
+                <span className="text-body-dense font-medium"><T zh="温馨提示" en="Reminder" /></span>
               </div>
-              <p className="mt-2 text-sm leading-6 text-amber-800">
+              <p className="text-body-compact mt-2 text-amber-800">
                 <T
                   zh="建议参会嘉宾从西北大学长安校区正门（北门）入校。"
                   en="Attendees are advised to enter through the main entrance (North Gate)."

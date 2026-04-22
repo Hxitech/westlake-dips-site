@@ -48,10 +48,10 @@ export function SearchDialog({
       <div className="mx-auto flex h-full max-w-4xl flex-col rounded-[2rem] border border-gray-200 bg-white p-6 shadow-[0_30px_120px_rgba(26,95,180,0.12)]">
         <div className="mb-5 flex items-center justify-between">
           <div>
-            <div className="text-sm uppercase tracking-[0.28em] text-blue-600">
+            <div className="text-kicker text-blue-600">
               <T zh="搜索" en="Search" />
             </div>
-            <h2 className="mt-2 font-serif text-2xl text-gray-900">
+            <h2 className="text-section-title mt-2 font-serif text-gray-900">
               <T zh="搜索峰会内容" en="Search Summit Content" />
             </h2>
           </div>

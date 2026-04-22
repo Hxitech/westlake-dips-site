@@ -40,7 +40,7 @@ export function SearchExperience({
       >
         <Search className="size-5 text-blue-600" />
         <input
-          className="w-full bg-transparent text-base text-gray-900 outline-none placeholder:text-gray-400"
+          className="text-body-copy w-full bg-transparent text-gray-900 outline-none placeholder:text-gray-400"
           data-testid="search-input"
           id={inputId}
           onChange={(event) => setQuery(event.target.value)}
@@ -65,14 +65,14 @@ export function SearchExperience({
           >
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-blue-600">
+                <span className="text-kicker rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-blue-600">
                   {locale === "zh" ? kindLabels[item.kind].zh : kindLabels[item.kind].en}
                 </span>
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-gray-900">
+              <h3 className="text-body-copy mt-3 font-semibold text-gray-900">
                 {locale === "zh" ? item.title : (item.titleEn ?? item.title)}
               </h3>
-              <p className="mt-2 text-sm leading-7 text-gray-500">
+              <p className="text-body-copy mt-2 text-gray-500">
                 {locale === "zh" ? item.excerpt : (item.excerptEn ?? item.excerpt)}
               </p>
             </div>
@@ -80,7 +80,7 @@ export function SearchExperience({
           </Link>
         ))}
         {results.length === 0 ? (
-          <div className="panel rounded-[1.5rem] p-6 text-sm leading-7 text-gray-500">
+          <div className="text-body-copy panel rounded-[1.5rem] p-6 text-gray-500">
             <T
               zh="没有找到对应结果。试试「嘉宾」「通知」「2025」「AI 诊断」等关键词。"
               en="No results found. Try keywords like 'speaker', 'AI', '2025', or 'diagnosis'."

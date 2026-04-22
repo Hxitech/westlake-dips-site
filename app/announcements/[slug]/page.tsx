@@ -62,7 +62,7 @@ export default async function AnnouncementDetailPage({
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
       <div className="max-w-5xl">
         <Link
-          className="inline-flex items-center gap-2 text-sm text-blue-600 transition hover:text-blue-700"
+          className="text-body-dense inline-flex items-center gap-2 text-blue-600 transition hover:text-blue-700"
           href="/announcements"
         >
           <T zh="返回通知列表" en="Back to Announcements" />
