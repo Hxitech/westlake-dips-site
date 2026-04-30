@@ -161,6 +161,7 @@ export type AnnouncementFrontmatter = {
   excerpt: string;
   excerptEn?: string;
   pinned?: boolean;
+  pdfUrl?: string;
 };
 
 export type ArchiveFrontmatter = {

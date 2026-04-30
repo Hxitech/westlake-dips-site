@@ -82,10 +82,10 @@ export function PhotoCarousel({
       return;
     }
 
-    target.scrollIntoView({
+    const targetLeft = target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2;
+    container.scrollTo({
+      left: targetLeft,
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
     });
 
     currentIndexRef.current = normalizedIndex;

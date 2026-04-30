@@ -9,15 +9,15 @@ import type {
 } from "@/content/types";
 
 export const siteConfig: SiteConfig = {
-  name: "第二届数智病理峰会(DIPS2026)",
+  name: "第二届数智病理峰会 DIPS 2026",
   nameEn: "2nd Digital & Intelligent Pathology Summit (DIPS 2026)",
   shortName: "第二届数智病理峰会",
   shortNameEn: "DIPS 2026",
   acronym: "DIPS",
   description:
-    "聚焦人工智能等前沿技术与病理学深度融合的全国数智病理学术交流平台。",
+    "聚焦人工智能等前沿技术与病理学深度融合的先锋学术会议。",
   descriptionEn:
-    "A national academic exchange platform focused on the deep integration of AI and digital pathology.",
+    "A pioneering academic conference on the deep integration of AI and digital pathology.",
   locale: "zh_CN",
   url: "https://dips.ccipd.net",
   themeColor: "#1a5fb4",
@@ -81,7 +81,7 @@ const heroCtas: HeroCta[] = [
     href: "/announcements",
     label: "查看日程",
     labelEn: "View Agenda",
-    variant: "secondary",
+    variant: "primary",
   },
 ];
 

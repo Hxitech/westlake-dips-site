@@ -57,6 +57,7 @@ export async function getAnnouncementSummaries() {
         excerpt: String(data.excerpt),
         excerptEn: data.excerptEn ? String(data.excerptEn) : undefined,
         pinned: Boolean(data.pinned),
+        pdfUrl: data.pdfUrl ? String(data.pdfUrl) : undefined,
       } satisfies AnnouncementFrontmatter;
     }),
   );
@@ -89,6 +90,7 @@ export async function getAnnouncementBySlug(slug: string) {
       excerpt: String(data.excerpt),
       excerptEn: data.excerptEn ? String(data.excerptEn) : undefined,
       pinned: Boolean(data.pinned),
+      pdfUrl: data.pdfUrl ? String(data.pdfUrl) : undefined,
     } satisfies AnnouncementFrontmatter,
     content: compiled.content,
   };

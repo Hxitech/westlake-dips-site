@@ -3,14 +3,13 @@ import { describe, expect, it } from "vitest";
 import { getAnnouncementSummaries, getArchiveSummaries } from "@/lib/content";
 
 describe("content loaders", () => {
-  it("loads announcement summaries with pinned notices first, then descending date order", async () => {
+  it("loads the meeting-notice announcement with its PDF link", async () => {
     const announcements = await getAnnouncementSummaries();
 
-    expect(announcements).toHaveLength(4);
+    expect(announcements).toHaveLength(1);
     expect(announcements[0]?.slug).toBe("2026-meeting-notice");
-    expect(announcements[1]?.slug).toBe("2026-summit-launch");
-    expect(announcements[2]?.slug).toBe("venue-preview");
-    expect(announcements[3]?.slug).toBe("registration-preview");
+    expect(announcements[0]?.pinned).toBe(true);
+    expect(announcements[0]?.pdfUrl).toBe("/documents/dips-2026-meeting-notice.pdf");
   });
 
   it("loads archive summaries with the seeded 2025 entry", async () => {

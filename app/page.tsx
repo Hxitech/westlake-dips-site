@@ -1,12 +1,14 @@
 import Link from "next/link";
 
 import { CountdownClock } from "@/components/home/countdown-clock";
+import { GuestRoster } from "@/components/home/guest-roster";
 import { HeroCarousel } from "@/components/home/hero-carousel";
+import { SessionList } from "@/components/home/session-list";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { T } from "@/components/ui/t";
-import { heroContent, schedulePreview, siteConfig } from "@/content/data/site";
+import { heroContent, siteConfig } from "@/content/data/site";
 import { getArchiveSummaries } from "@/lib/content";
 
 const eventStructuredData = {
@@ -80,51 +82,43 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── Schedule + Guests (Coming Soon) ── */}
+      {/* ── Schedule + Guests ── */}
       <section className="border-b border-gray-200 bg-white">
         <AnimatedSection className="container-shell py-16 sm:py-20" variant="fade">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
+          <div className="grid items-stretch gap-10 lg:grid-cols-2">
+            <div className="flex flex-col">
               <SectionHeading
                 eyebrow={<T zh="会议日程" en="Schedule" />}
                 title={<T zh="会议日程安排" en="Summit Schedule" />}
-                description={<T zh="本届峰会设置 4 个主题专场，聚焦前沿技术、临床应用、青年学者与未来发展。" en="The summit features four themed tracks spanning frontier technology, clinical application, young scholars, and future development." />}
+                description={
+                  <T
+                    zh="本届峰会设置 4 个主题专场，聚焦病理 AI 的趋势、临床落地、技术演进与产业生态。"
+                    en="Four themed sessions covering pathology AI trends, clinical translation, algorithmic advances, and industry ecosystems."
+                  />
+                }
               />
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {schedulePreview.map((item, index) => (
-                  <article
-                    className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-5 shadow-sm shadow-slate-950/5"
-                    data-testid="homepage-schedule-track"
-                    key={item.title}
-                  >
-                    <p className="text-body-copy font-medium text-blue-700">
-                      0{index + 1}
-                    </p>
-                    <h3 className="text-body-copy mt-3 font-semibold text-slate-900">
-                      <T zh={item.title} en={item.titleEn} />
-                    </h3>
-                    <p className="text-body-copy mt-2 text-slate-600">
-                      <T zh={item.description} en={item.descriptionEn} />
-                    </p>
-                  </article>
-                ))}
+              <div className="mt-6 flex-1">
+                <SessionList />
               </div>
-              <ButtonLink className="mt-4" href="/announcements" variant="ghost">
+              <ButtonLink className="mt-6 self-start" href="/announcements" variant="ghost">
                 <T zh="查看会议通知" en="View Announcements" />
               </ButtonLink>
             </div>
-            <div>
+            <div className="flex flex-col">
               <SectionHeading
                 eyebrow={<T zh="参会嘉宾" en="Guests" />}
                 title={<T zh="参会嘉宾" en="Summit Guests" />}
-                description={<T zh="嘉宾阵容将结合会务进度持续更新，最新信息以会议通知为准。" en="Guest lineup details will be updated as planning progresses. Please refer to the announcements for the latest information." />}
+                description={
+                  <T
+                    zh="嘉宾阵容将结合会务进度持续更新，最新信息以会议通知为准。"
+                    en="The guest roster is updated alongside conference planning. The official announcement holds the latest details."
+                  />
+                }
               />
-              <div className="mt-6 flex min-h-[17.25rem] items-center justify-center rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50/80 px-6 py-16 text-center shadow-sm shadow-slate-950/5">
-                <p className="text-body-copy max-w-sm font-medium text-slate-600">
-                  <T zh="敬请期待" en="Coming Soon" />
-                </p>
+              <div className="mt-6 flex-1">
+                <GuestRoster />
               </div>
-              <ButtonLink className="mt-4" href="/announcements" variant="ghost">
+              <ButtonLink className="mt-6 self-start" href="/announcements" variant="ghost">
                 <T zh="查看会议通知" en="View Announcements" />
               </ButtonLink>
             </div>

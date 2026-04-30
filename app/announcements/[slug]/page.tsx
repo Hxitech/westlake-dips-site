@@ -57,6 +57,7 @@ export default async function AnnouncementDetailPage({
   }
 
   const related = allAnnouncements.filter((item) => item.slug !== slug).slice(0, 2);
+  const titleText = entry.frontmatter.titleEn ?? entry.frontmatter.title;
 
   return (
     <section className="container-shell pb-24 pt-16 sm:pb-28 sm:pt-20">
@@ -78,6 +79,15 @@ export default async function AnnouncementDetailPage({
           <p className="text-body-copy mt-5 max-w-3xl text-gray-500">
             <T zh={entry.frontmatter.excerpt} en={entry.frontmatter.excerptEn ?? entry.frontmatter.excerpt} />
           </p>
+          {entry.frontmatter.pdfUrl ? (
+            <div className="mt-8">
+              <iframe
+                className="h-[80vh] w-full rounded-lg border border-gray-200 bg-white"
+                src={`${entry.frontmatter.pdfUrl}#toolbar=0&navpanes=0`}
+                title={titleText}
+              />
+            </div>
+          ) : null}
           <div className="mt-10">{entry.content}</div>
         </div>
         {!isMeetingNotice && related.length > 0 ? (

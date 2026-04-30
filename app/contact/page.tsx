@@ -73,8 +73,8 @@ export default function ContactPage() {
                 {"showQr" in item && item.showQr ? (
                   <div className="mt-3">
                     <Image
-                      src="/wechat-qr.png"
-                      alt="微信二维码"
+                      src="/wechat-qr-2026.png"
+                      alt="DIPS 2026 微信二维码"
                       width={140}
                       height={140}
                       className="rounded border border-gray-200"

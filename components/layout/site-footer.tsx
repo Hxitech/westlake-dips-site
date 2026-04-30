@@ -6,30 +6,10 @@ import { registrationConfig, siteConfig } from "@/content/data/site";
 import { cn } from "@/lib/utils";
 
 const footerLogos = [
-  {
-    alt: "西北大学",
-    height: 200,
-    src: "/logo-nwu.png",
-    width: 200,
-  },
-  {
-    alt: "空军军医大学第一附属医院",
-    height: 640,
-    src: "/logos/xijing-hospital.jpg",
-    width: 640,
-  },
-  {
-    alt: "北京精鉴病理学发展基金会",
-    height: 120,
-    src: "/logo-bjjj.png",
-    width: 731,
-  },
-  {
-    alt: "中华医学会病理学分会",
-    height: 200,
-    src: "/logo-cma.png",
-    width: 320,
-  },
+  { src: "/logo-nwu.jpg", alt: "西北大学", width: 2027, height: 775 },
+  { src: "/logos/xijing-hospital.jpg", alt: "空军军医大学第一附属医院（西京医院）", width: 640, height: 640 },
+  { src: "/logo-bjjj-new.png", alt: "北京精鉴病理学发展基金会", width: 524, height: 108 },
+  { src: "/logo-csp.jpg", alt: "中华医学会病理学分会", width: 640, height: 640 },
 ];
 
 export function SiteFooter() {
@@ -44,7 +24,7 @@ export function SiteFooter() {
             {footerLogos.map((logo) => (
               <div
                 className="flex min-h-[7.5rem] items-center justify-center rounded-[1.75rem] border border-white/10 bg-white px-6 py-5 shadow-[0_18px_45px_rgba(15,23,42,0.18)]"
-                key={logo.alt}
+                key={logo.src}
               >
                 <Image
                   alt={logo.alt}

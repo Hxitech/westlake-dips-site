@@ -15,8 +15,8 @@ export const metadata: Metadata = createPageMetadata({
 
 const summitOverview = {
   lead: {
-    zh: "全国数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合、以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的全国性学术交流平台。",
-    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It serves as a national academic exchange platform focused on the deep integration of cutting-edge technologies such as AI with pathology.",
+    zh: "数智病理峰会（Digital and Intelligent Pathology Summit, DIPS）由病理临床与病理人工智能领域领军专家团队共同发起，是聚焦人工智能等前沿技术与病理学深度融合，以医工交叉推动数字病理、计算病理与病理人工智能学科高质量发展的先锋学术会议。",
+    en: "The Digital and Intelligent Pathology Summit (DIPS) is jointly initiated by leading expert teams in clinical pathology and pathology AI. It is a pioneering academic conference focused on the deep integration of cutting-edge technologies such as AI with pathology.",
   },
   body: [
     {
@@ -49,7 +49,7 @@ export default function AboutPage() {
       <section className="container-shell py-16 sm:py-20">
         <SectionHeading
           eyebrow={<T zh="峰会简介" en="Overview" />}
-          title={<T zh="全国数智病理领域的学术交流平台" en="A National Forum for Digital & Intelligent Pathology" />}
+          title={<T zh="数智病理领域的先锋学术会议" en="A Pioneering Forum for Digital & Intelligent Pathology" />}
         />
         <div className="mt-8 max-w-3xl">
           <p className="text-body-copy text-gray-600">
