@@ -12,10 +12,15 @@ test("homepage shows agenda content without public registration CTAs", async ({ 
     "href",
     "/announcements",
   );
-  await expect(page.getByText("前沿技术专场")).toBeVisible();
-  await expect(page.getByText("数智病理临床应用专场")).toBeVisible();
-  await expect(page.getByText("青年学者专场")).toBeVisible();
-  await expect(page.getByText("产业融合与未来发展交流专场")).toBeVisible();
+  await expect(page.getByText("浪潮")).toBeVisible();
+  await expect(page.getByText("笃行")).toBeVisible();
+  await expect(page.getByText("跃迁")).toBeVisible();
+  await expect(page.getByText("共生")).toBeVisible();
+  await expect(page.getByAltText("陈富林教授头像")).toBeVisible();
+  await expect(page.getByAltText("王哲教授头像")).toBeVisible();
+  await expect(page.getByAltText("梁莉教授头像")).toBeVisible();
+  await expect(page.getByText("冯筠 教授")).toBeVisible();
+  await expect(page.getByText("厦门大学")).toBeVisible();
   await expect(page.getByText("与全国顶尖专家共话数智病理未来")).toHaveCount(0);
 });
 
@@ -69,6 +74,7 @@ test("meeting notice detail page stays in preview-only mode", async ({ page }) =
   await expect(page.getByText("下载 PDF")).toHaveCount(0);
   await expect(page.getByText("查看报名说明")).toHaveCount(0);
   await expect(page.getByRole("link", { name: "第二届全国数智病理峰会官网上线" })).toHaveCount(0);
+  await expect(page.getByText("第二届数智病理峰会正式会议通知已发布，请直接通过下方 PDF 预览查看原文。")).toHaveCount(0);
   await expect(page.getByAltText("第二届数智病理峰会会议通知第 1 页")).toBeVisible();
   await expect(page.getByAltText("第二届数智病理峰会会议通知第 2 页")).toBeVisible();
 });

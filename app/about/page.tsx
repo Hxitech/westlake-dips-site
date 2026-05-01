@@ -65,7 +65,7 @@ export default function AboutPage() {
 
       <section className="border-t border-gray-200 bg-gray-50">
         <div className="container-shell py-16 sm:py-20">
-          <div className="grid gap-10 lg:grid-cols-2">
+          <div className="grid items-stretch gap-10 lg:grid-cols-2">
             <div className="flex h-full flex-col">
               <div className="min-h-[9.5rem]">
                 <p className="text-body-copy font-medium text-blue-700">
@@ -75,7 +75,7 @@ export default function AboutPage() {
                   <T zh="每届围绕行业关键命题展开" en="Centered on the field's most urgent themes" />
                 </h2>
               </div>
-              <div className="mt-6 grid auto-rows-fr gap-3">
+              <div className="mt-6 grid min-h-[23rem] flex-1 grid-rows-4 gap-3">
                 {focusPillars.map((item, i) => (
                   <div className="flex h-full items-center gap-3 rounded-md border border-gray-200 bg-white px-4 py-4" key={item}>
                     <span className="text-body-copy font-medium text-blue-700">0{i + 1}</span>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                   <T zh="持续搭建更深层的合作基础设施" en="Building deeper collaboration infrastructure" />
                 </h2>
               </div>
-              <div className="mt-6 grid auto-rows-fr gap-3">
+              <div className="mt-6 grid min-h-[23rem] flex-1 grid-rows-4 gap-3">
                 {summitVision.map((item) => (
                   <div className="flex h-full flex-col justify-center rounded-md border border-gray-200 bg-white px-4 py-4" key={item.title.zh}>
                     <div className="text-body-copy font-medium text-gray-900">

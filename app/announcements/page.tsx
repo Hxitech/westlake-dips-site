@@ -37,7 +37,7 @@ export default async function AnnouncementsPage() {
           }
         />
         <div className="mt-8">
-          <GuestRoster />
+          <GuestRoster layout="wide" />
         </div>
       </section>
       <section className="border-t border-gray-200 bg-gray-50">

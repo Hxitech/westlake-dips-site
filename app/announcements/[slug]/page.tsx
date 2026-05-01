@@ -79,7 +79,7 @@ export default async function AnnouncementDetailPage({
           <p className="text-body-copy mt-5 max-w-3xl text-gray-500">
             <T zh={entry.frontmatter.excerpt} en={entry.frontmatter.excerptEn ?? entry.frontmatter.excerpt} />
           </p>
-          {entry.frontmatter.pdfUrl ? (
+          {entry.frontmatter.pdfUrl && !isMeetingNotice ? (
             <div className="mt-8">
               <iframe
                 className="h-[80vh] w-full rounded-lg border border-gray-200 bg-white"

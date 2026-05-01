@@ -3,13 +3,36 @@ import Link from "next/link";
 
 import { T } from "@/components/ui/t";
 import { registrationConfig, siteConfig } from "@/content/data/site";
-import { cn } from "@/lib/utils";
 
 const footerLogos = [
-  { src: "/logo-nwu.jpg", alt: "西北大学", width: 2027, height: 775 },
-  { src: "/logos/xijing-hospital.jpg", alt: "空军军医大学第一附属医院（西京医院）", width: 640, height: 640 },
-  { src: "/logo-bjjj-new.png", alt: "北京精鉴病理学发展基金会", width: 524, height: 108 },
-  { src: "/logo-csp.jpg", alt: "中华医学会病理学分会", width: 640, height: 640 },
+  {
+    src: "/logo-nwu-2026.png",
+    alt: "西北大学",
+    width: 256,
+    height: 69,
+    displayHeight: "clamp(2.5rem, 4vw, 3rem)",
+  },
+  {
+    src: "/logos/footer/xijing-hospital.png",
+    alt: "空军军医大学第一附属医院（西京医院）",
+    width: 362,
+    height: 489,
+    displayHeight: "clamp(3.5rem, 5vw, 4rem)",
+  },
+  {
+    src: "/logos/footer/bjjj-white.png",
+    alt: "北京精鉴病理学发展基金会",
+    width: 524,
+    height: 86,
+    displayHeight: "clamp(2.25rem, 4vw, 2.5rem)",
+  },
+  {
+    src: "/logos/footer/chinese-society-pathology.png",
+    alt: "中华医学会病理学分会",
+    width: 633,
+    height: 616,
+    displayHeight: "clamp(3.5rem, 5vw, 4rem)",
+  },
 ];
 
 export function SiteFooter() {
@@ -20,41 +43,41 @@ export function SiteFooter() {
           <p className="text-kicker font-medium text-gray-400">
             <T zh="主办与支持单位" en="Organizers & Partners" />
           </p>
-          <div className="mt-5 grid grid-cols-2 gap-4 xl:grid-cols-4">
-            {footerLogos.map((logo) => (
-              <div
-                className="flex min-h-[7.5rem] items-center justify-center rounded-[1.75rem] border border-white/10 bg-white px-6 py-5 shadow-[0_18px_45px_rgba(15,23,42,0.18)]"
-                key={logo.src}
-              >
-                <Image
-                  alt={logo.alt}
-                  className={cn("h-16 w-auto max-w-full object-contain sm:h-20")}
-                  height={logo.height}
-                  priority
-                  src={logo.src}
-                  width={logo.width}
-                />
-              </div>
-            ))}
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-5">
+            <div className="grid grid-cols-2 items-center gap-x-4 gap-y-7 lg:grid-cols-4">
+              {footerLogos.map((logo) => (
+                <div className="flex min-h-20 items-center justify-center px-2" key={logo.src}>
+                  <Image
+                    alt={logo.alt}
+                    className="max-w-full object-contain"
+                    height={logo.height}
+                    priority
+                    src={logo.src}
+                    style={{ height: logo.displayHeight, width: "auto" }}
+                    width={logo.width}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="container-shell py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+      <div className="container-shell py-10 sm:py-12">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)] xl:items-start">
           <div>
             <p className="text-kicker font-medium text-gray-400">
               DIGITAL AND INTELLIGENT PATHOLOGY SUMMIT
             </p>
-            <h2 className="text-section-title mt-2 font-bold text-white">
+            <h2 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl">
               <T zh={siteConfig.name} en={siteConfig.nameEn} />
             </h2>
-            <p className="text-body-copy mt-4 max-w-2xl text-gray-300/88">
+            <p className="text-body-copy mt-4 max-w-xl text-gray-300/88">
               <T zh={siteConfig.description} en={siteConfig.descriptionEn} />
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3 lg:text-right">
+          <div className="grid gap-6 sm:grid-cols-3 xl:text-right">
             <div>
               <h3 className="text-kicker font-medium text-gray-400">
                 <T zh="快速入口" en="Links" />
